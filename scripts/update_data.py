@@ -14,6 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FRED = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?range=6mo&interval=1d&events=history"
+YAHOO_QUOTE = "https://query1.finance.yahoo.com/v7/finance/quote?symbols={}"
+YAHOO_PREPOST_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1m&range=1d&includePrePost=true"
 FRED_SERIES = {
     "sofr": "SOFR",
     "dgs2": "DGS2",
@@ -26,6 +28,15 @@ PRICE_SERIES = {
     "qqq": "QQQ",
     "nvda": "NVDA",
 }
+QUOTE_FIELDS = (
+    "regularMarketPrice",
+    "regularMarketChangePercent",
+    "preMarketPrice",
+    "preMarketChangePercent",
+    "postMarketPrice",
+    "postMarketChangePercent",
+    "marketState",
+)
 
 
 def fetch_series(series_id: str) -> dict[str, float]:
@@ -52,6 +63,87 @@ def fetch_price_series(symbol: str) -> dict[str, float]:
         if close:
             out[datetime.fromtimestamp(ts, timezone.utc).date().isoformat()] = float(close)
     return out
+
+
+def fetch_extended_quotes(symbols: dict[str, str]) -> dict[str, dict]:
+    try:
+        req = urllib.request.Request(
+            YAHOO_QUOTE.format(",".join(symbols.values())),
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        with urllib.request.urlopen(req, timeout=30) as res:
+            results = json.load(res)["quoteResponse"]["result"]
+        quotes = {item["symbol"]: item for item in results}
+        return {
+            key: {field: quotes.get(symbol, {}).get(field) for field in QUOTE_FIELDS}
+            | {
+                "symbol": symbol,
+                "regularMarketTime": quotes.get(symbol, {}).get("regularMarketTime"),
+                "preMarketTime": quotes.get(symbol, {}).get("preMarketTime"),
+                "postMarketTime": quotes.get(symbol, {}).get("postMarketTime"),
+            }
+            for key, symbol in symbols.items()
+        }
+    except Exception:
+        return {key: fetch_prepost_quote(symbol) for key, symbol in symbols.items()}
+
+
+def fetch_prepost_quote(symbol: str) -> dict:
+    req = urllib.request.Request(YAHOO_PREPOST_CHART.format(symbol), headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=30) as res:
+        result = json.load(res)["chart"]["result"][0]
+    meta = result["meta"]
+    state = chart_market_state(meta)
+    quote = {
+        "symbol": symbol,
+        "regularMarketPrice": meta.get("regularMarketPrice"),
+        "regularMarketChangePercent": percent_from(meta.get("regularMarketPrice"), meta.get("previousClose")),
+        "marketState": state,
+        "regularMarketTime": meta.get("regularMarketTime"),
+    }
+    if state == "PRE":
+        price, ts = last_period_close(result, "pre")
+        quote |= {
+            "preMarketPrice": price,
+            "preMarketChangePercent": percent_from(price, meta.get("previousClose")),
+            "preMarketTime": ts,
+        }
+    if state == "POST":
+        price, ts = last_period_close(result, "post")
+        quote |= {
+            "postMarketPrice": price,
+            "postMarketChangePercent": percent_from(price, meta.get("regularMarketPrice")),
+            "postMarketTime": ts,
+        }
+    return quote
+
+
+def chart_market_state(meta: dict) -> str:
+    now = int(datetime.now(timezone.utc).timestamp())
+    periods = meta.get("currentTradingPeriod", {})
+    for name, state in (("pre", "PRE"), ("regular", "REGULAR"), ("post", "POST")):
+        period = periods.get(name, {})
+        if period.get("start", 0) <= now < period.get("end", 0):
+            return state
+    return "CLOSED"
+
+
+def last_period_close(result: dict, period_name: str) -> tuple[float | None, int | None]:
+    period = result["meta"].get("currentTradingPeriod", {}).get(period_name, {})
+    start, end = period.get("start", 0), period.get("end", 0)
+    closes = result["indicators"]["quote"][0].get("close", [])
+    points = [
+        (float(close), int(ts))
+        for ts, close in zip(result.get("timestamp", []), closes)
+        if close and start <= ts < end
+    ]
+    return points[-1] if points else (None, None)
+
+
+def percent_from(price: float | None, reference: float | None) -> float | None:
+    if not price or not reference:
+        return None
+    return (float(price) / float(reference) - 1) * 100
 
 
 def change(values: list[float], days: int) -> float:
@@ -134,7 +226,77 @@ def signed(value: float, digits: int = 2, suffix: str = "") -> str:
     return f"{value:+.{digits}f}{suffix}"
 
 
-def build_latest(rows: list[dict[str, float | str]], manual: dict) -> dict:
+def active_extended_change(quote: dict, market_state: str) -> tuple[float | None, int | None]:
+    if market_state == "PRE":
+        return quote.get("preMarketChangePercent"), quote.get("preMarketTime")
+    if market_state == "POST":
+        return quote.get("postMarketChangePercent"), quote.get("postMarketTime")
+    return None, None
+
+
+def build_extended_hours(quotes: dict[str, dict] | None, now: datetime | None = None) -> dict:
+    now = now or datetime.now(timezone.utc)
+    base = {
+        "market_state": "UNKNOWN",
+        "as_of": now.isoformat(timespec="seconds"),
+        "available": False,
+        "source": "Yahoo Finance quote API",
+        "label": "Pre-market / After-market equity overlay",
+        "status": "NORMAL",
+        "interpretation": "Extended-hours data unavailable",
+    }
+    if not quotes:
+        return base
+
+    market_state = str(quotes.get("soxx", {}).get("marketState") or "UNKNOWN")
+    changes = {}
+    times = []
+    enriched = {}
+    for key, quote in quotes.items():
+        ext_change, ext_time = active_extended_change(quote, market_state)
+        enriched[key] = {**quote, "extended_change_percent": ext_change}
+        changes[key] = ext_change
+        if ext_time:
+            times.append(int(ext_time))
+
+    if len(changes) != 3 or any(not isinstance(v, (int, float)) for v in changes.values()) or not times:
+        return base | {"market_state": market_state, **enriched}
+
+    as_of_ts = max(times)
+    if now.timestamp() - as_of_ts > 12 * 60 * 60:
+        return base | {
+            "market_state": market_state,
+            "as_of": datetime.fromtimestamp(as_of_ts, timezone.utc).isoformat(timespec="seconds"),
+            **enriched,
+        }
+
+    soxx_vs_qqq = changes["soxx"] - changes["qqq"]
+    nvda_vs_soxx = changes["nvda"] - changes["soxx"]
+    soxx_warning = soxx_vs_qqq <= -0.75
+    nvda_warning = nvda_vs_soxx <= -0.75
+    status_label = "STRESS" if soxx_warning and nvda_warning else "WATCH" if soxx_warning or nvda_warning else "NORMAL"
+    score = 75 if status_label == "STRESS" else 45 if status_label == "WATCH" else 10
+    interpretation = (
+        "SOXX and NVDA are both lagging their comparison baskets in extended-hours trading."
+        if status_label == "STRESS"
+        else "One extended-hours equity warning is active; wait for regular-session and credit confirmation."
+        if status_label == "WATCH"
+        else "Extended-hours equity moves are not showing material AI infrastructure stress."
+    )
+    return base | {
+        "market_state": market_state,
+        "as_of": datetime.fromtimestamp(as_of_ts, timezone.utc).isoformat(timespec="seconds"),
+        "available": True,
+        **enriched,
+        "soxx_vs_qqq_change": round(soxx_vs_qqq, 2),
+        "nvda_vs_soxx_change": round(nvda_vs_soxx, 2),
+        "overlay_score": score,
+        "status": status_label,
+        "interpretation": interpretation,
+    }
+
+
+def build_latest(rows: list[dict[str, float | str]], manual: dict, extended_hours: dict | None = None) -> dict:
     row = rows[-1]
     cols = {key: [float(r[key]) for r in rows] for key in rows[0] if key != "date"}
     stress_score = int(row["stress_score"])
@@ -184,6 +346,7 @@ def build_latest(rows: list[dict[str, float | str]], manual: dict) -> dict:
             "meaning": "Rate pressure remains, but credit markets have not confirmed deterioration. This looks more like valuation/rate pressure than an AI credit event." if stress_score < 65 else "Stress is broad enough to reduce risk until credit and equity confirmation improve.",
             "portfolio_read_through": ["No need to panic on one or two down days in AI stocks", "Avoid aggressive leverage or chasing neocloud exposure", "Core NVDA / hyperscaler exposure can be maintained", "Upgrade to STRESS only if HY OAS widens + equities lag + GPU rental proxy weakens"],
         },
+        "extended_hours": extended_hours or build_extended_hours(None),
         "sources": ["FRED public CSV", "Yahoo Finance chart API", "config/manual_signals.json"],
     }
     return latest
@@ -224,6 +387,15 @@ def self_test() -> None:
     assert status(70) == "STRESS"
     assert status(71) == "CREDIT STRESS CONFIRMED"
     assert round(pct_change([100, 110], 1), 2) == 10
+    sample = {
+        "soxx": {"marketState": "PRE", "preMarketChangePercent": -1.4, "preMarketTime": 1_800_000_000},
+        "qqq": {"marketState": "PRE", "preMarketChangePercent": -0.2, "preMarketTime": 1_800_000_000},
+        "nvda": {"marketState": "PRE", "preMarketChangePercent": -2.4, "preMarketTime": 1_800_000_000},
+    }
+    overlay = build_extended_hours(sample, datetime.fromtimestamp(1_800_000_100, timezone.utc))
+    assert overlay["available"] is True
+    assert overlay["status"] == "STRESS"
+    assert overlay["soxx_vs_qqq_change"] == -1.2
 
 
 def main() -> None:
@@ -235,9 +407,13 @@ def main() -> None:
         return
     series = {key: fetch_series(series_id) for key, series_id in FRED_SERIES.items()}
     series.update({key: fetch_price_series(symbol) for key, symbol in PRICE_SERIES.items()})
+    try:
+        extended_hours = build_extended_hours(fetch_extended_quotes(PRICE_SERIES))
+    except Exception as exc:
+        extended_hours = build_extended_hours(None) | {"error": str(exc)}
     manual = json.loads((ROOT / "config/manual_signals.json").read_text())
     rows = build_rows(series)
-    write_outputs(rows, build_latest(rows, manual))
+    write_outputs(rows, build_latest(rows, manual, extended_hours))
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@ let latestData = null;
 
 const statusClass = (status = "") => status.toLowerCase().replace(/\s+/g, "-");
 const fmt = (n, digits = 0) => Number.isFinite(Number(n)) ? Number(n).toFixed(digits) : "--";
+const pct = (n) => Number.isFinite(Number(n)) ? `${Number(n) >= 0 ? "+" : ""}${Number(n).toFixed(2)}%` : "--";
 
 function parseCsv(text) {
   const [head, ...rows] = text.trim().split(/\r?\n/).map((line) => line.split(","));
@@ -94,6 +95,29 @@ function renderHardData(data, history) {
   }).join("");
 }
 
+function renderExtendedHours(data) {
+  const overlay = data.extended_hours || {};
+  const target = document.getElementById("extended-hours");
+  if (!overlay.available) {
+    target.innerHTML = `<p class="unavailable">Extended-hours data unavailable</p>`;
+    return;
+  }
+  const cls = statusClass(overlay.status);
+  const rows = [
+    ["Market state", overlay.market_state],
+    ["SOXX extended-hours change", pct(overlay.soxx?.extended_change_percent)],
+    ["QQQ extended-hours change", pct(overlay.qqq?.extended_change_percent)],
+    ["NVDA extended-hours change", pct(overlay.nvda?.extended_change_percent)],
+    ["SOXX vs QQQ", pct(overlay.soxx_vs_qqq_change)],
+    ["NVDA vs SOXX", pct(overlay.nvda_vs_soxx_change)],
+  ];
+  target.innerHTML = `<div class="overlay-grid">
+    ${rows.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("")}
+    <div><span>Overlay status</span><strong><span class="pill ${cls}">${overlay.status}</span></strong></div>
+  </div>
+  <p>${overlay.interpretation}</p>`;
+}
+
 function renderPortfolio(data) {
   document.getElementById("portfolio").innerHTML = data.action.portfolio_read_through
     .map((item) => `<li>${item}</li>`)
@@ -108,6 +132,7 @@ async function init() {
     setFields(latestData);
     renderCards(latestData, history);
     renderTriggers(latestData);
+    renderExtendedHours(latestData);
     renderHardData(latestData, history);
     renderPortfolio(latestData);
   } catch (err) {
