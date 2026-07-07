@@ -22,6 +22,15 @@ Is the AI infrastructure trade still under rate pressure, or is credit stress co
 
 The dashboard reads only `data/latest.json` and `data/history.csv`.
 
+## GitHub Pages Deployment
+
+Public URL:
+`https://davetwchiu.github.io/ai-infrastructure-stress-cockpit/`
+
+In the repository settings, set GitHub Pages `Source` to `GitHub Actions`.
+
+The scheduled `Update dashboard data` workflow refreshes `data/latest.json` and `data/history.csv`, commits those files only when they change, and redeploys the static site from the repository root.
+
 ## Scoring
 
 All scoring is rule-based. No machine learning, LLMs, news classification, backend server, database, or paid data feed is used.
