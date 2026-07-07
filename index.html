@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Infrastructure Stress Cockpit</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div>
+            <h1>AI Infrastructure Stress Cockpit</h1>
+            <p>AI infrastructure credit-cycle monitor</p>
+          </div>
+        </div>
+        <div class="actions">
+          <p>Last updated <span data-field="updated_at">Loading</span></p>
+          <button id="refresh" type="button" aria-label="Refresh data">Refresh</button>
+          <button id="export" type="button" aria-label="Export latest data">Export</button>
+        </div>
+      </header>
+
+      <section class="hero panel gold">
+        <div class="gauge-wrap">
+          <svg id="stress-gauge" viewBox="0 0 360 190" role="img" aria-labelledby="gauge-title">
+            <title id="gauge-title">Stress score gauge</title>
+            <path class="arc green" d="M40 165 A140 140 0 0 1 88 59"></path>
+            <path class="arc yellow" d="M88 59 A140 140 0 0 1 272 59"></path>
+            <path class="arc red" d="M272 59 A140 140 0 0 1 320 165"></path>
+            <line id="needle" x1="180" y1="104" x2="180" y2="28"></line>
+            <circle id="needle-dot" cx="180" cy="28" r="7"></circle>
+            <text x="34" y="188">0</text>
+            <text x="180" y="24" text-anchor="middle">50</text>
+            <text x="326" y="188" text-anchor="end">100</text>
+          </svg>
+          <div class="score">
+            <strong data-field="stress_score">--</strong><span>/ 100</span>
+            <b data-field="stress_status">--</b>
+          </div>
+        </div>
+        <div class="summary">
+          <h2>AI Infrastructure Stress Meter</h2>
+          <p><strong>Regime:</strong> <span data-field="regime">Loading</span></p>
+          <p><strong>Confidence:</strong> <span data-field="confidence">Loading</span></p>
+          <hr>
+          <p><strong>Today's judgment:</strong> <span data-field="judgment">Loading</span></p>
+        </div>
+      </section>
+
+      <section class="cards" id="scorecards" aria-label="Stress drivers"></section>
+
+      <section class="lower">
+        <div>
+          <section class="panel trigger-log">
+            <h2>Trigger Log</h2>
+            <div class="triggers" id="triggers"></div>
+          </section>
+
+          <section class="panel hard-data">
+            <h2>Hard Data Charts</h2>
+            <div class="hard-grid" id="hard-data"></div>
+          </section>
+        </div>
+
+        <aside class="panel action-card">
+          <h2>Action Implication</h2>
+          <p class="status">Status: <strong data-field="action_status">--</strong></p>
+          <p><strong>Meaning:</strong> <span data-field="meaning">Loading</span></p>
+          <h3>Portfolio read-through:</h3>
+          <ul id="portfolio"></ul>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
