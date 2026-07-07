@@ -20,10 +20,15 @@
         </div>
         <div class="actions">
           <p>Last updated <span data-field="updated_at">Loading</span></p>
-          <button id="refresh" type="button" aria-label="Refresh data">Refresh</button>
+          <a class="workflow-link" href="https://github.com/davetwchiu/ai-infrastructure-stress-cockpit/actions/workflows/update-data.yml" target="_blank" rel="noopener">Run workflow on GitHub</a>
+          <button id="refresh" type="button" aria-label="Reload data file">Reload data file</button>
           <button id="export" type="button" aria-label="Export latest data">Export</button>
         </div>
       </header>
+
+      <section class="freshness panel" aria-label="Data freshness">
+        <div id="freshness"></div>
+      </section>
 
       <section class="hero panel gold">
         <div class="gauge-wrap">

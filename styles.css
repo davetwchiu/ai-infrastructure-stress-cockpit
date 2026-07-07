@@ -99,7 +99,10 @@ h1 {
   font-size: 16px;
 }
 
-button {
+.workflow-link, button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 140px;
   padding: 11px 20px;
   border: 1px solid #1d7bd3;
@@ -108,9 +111,10 @@ button {
   color: #75adff;
   font: inherit;
   font-weight: 700;
+  text-decoration: none;
 }
 
-button:hover { background: #0b1b31; }
+.workflow-link:hover, button:hover { background: #0b1b31; }
 
 .panel {
   border: 1px solid var(--line);
@@ -120,6 +124,39 @@ button:hover { background: #0b1b31; }
 }
 
 .gold { border-color: rgba(255, 198, 51, .8); }
+
+.freshness {
+  margin-top: 12px;
+  padding: 10px 14px;
+}
+
+#freshness {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#freshness div {
+  min-height: 58px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(5, 14, 25, .68);
+}
+
+#freshness span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#freshness strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 1.18;
+}
 
 .hero {
   display: grid;
@@ -346,7 +383,7 @@ li::marker { color: var(--gold); }
 
 .overlay-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -437,7 +474,7 @@ li::marker { color: var(--gold); }
   .topbar, .actions { align-items: flex-start; flex-direction: column; }
   .hero, .lower { grid-template-columns: 1fr; }
   .summary { padding-left: 0; border-left: 0; }
-  .cards, .hard-grid, .overlay-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards, .hard-grid, .overlay-grid, #freshness { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 680px) {
@@ -445,7 +482,7 @@ li::marker { color: var(--gold); }
   .brand { align-items: flex-start; }
   .mark { width: 48px; height: 42px; flex: 0 0 auto; }
   .hero { padding: 20px; }
-  .cards, .triggers, .hard-grid, .overlay-grid { grid-template-columns: 1fr; }
+  .cards, .triggers, .hard-grid, .overlay-grid, #freshness { grid-template-columns: 1fr; }
   .trigger + .trigger { border-left: 0; border-top: 1px solid var(--line); }
   button { width: 100%; }
 }

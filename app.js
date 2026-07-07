@@ -4,6 +4,7 @@ let latestData = null;
 const statusClass = (status = "") => status.toLowerCase().replace(/\s+/g, "-");
 const fmt = (n, digits = 0) => Number.isFinite(Number(n)) ? Number(n).toFixed(digits) : "--";
 const pct = (n) => Number.isFinite(Number(n)) ? `${Number(n) >= 0 ? "+" : ""}${Number(n).toFixed(2)}%` : "--";
+const localTime = (value) => value ? new Date(value).toLocaleString() : "--";
 
 function parseCsv(text) {
   const [head, ...rows] = text.trim().split(/\r?\n/).map((line) => line.split(","));
@@ -34,7 +35,7 @@ function setGauge(score) {
 
 function setFields(data) {
   const map = {
-    updated_at: data.updated_label,
+    updated_at: localTime(data.updated_at),
     stress_score: fmt(data.stress.score),
     stress_status: data.stress.status,
     regime: data.stress.regime,
@@ -45,6 +46,28 @@ function setFields(data) {
   };
   fields.forEach((field) => { field.textContent = map[field.dataset.field] ?? "--"; });
   setGauge(data.stress.score);
+}
+
+function overlayFreshness(overlay = {}) {
+  if (!overlay.available) return ["REGULAR", "CLOSED"].includes(overlay.market_state) ? "Inactive" : "Unavailable";
+  return overlay.is_stale ? "Stale" : "Fresh";
+}
+
+function renderFreshness(data) {
+  const overlay = data.extended_hours || {};
+  const rows = [
+    ["Dashboard generated", localTime(data.updated_at)],
+    ["Official close data through", data.updated_label || "--"],
+    ["Extended overlay generated", localTime(overlay.generated_at)],
+    ["Extended quote as of", localTime(overlay.as_of)],
+    ["Market state", overlay.market_state || "UNKNOWN"],
+    ["Overlay freshness", overlayFreshness(overlay)],
+    ["Quote age", Number.isFinite(Number(overlay.quote_age_minutes)) ? `${overlay.quote_age_minutes} min` : "--"],
+    ["Next expected automatic refresh", overlay.is_active_session ? "Scheduled about every 10 minutes; GitHub Actions can run late." : "During pre-market or after-hours on the next scheduled GitHub Actions run."],
+  ];
+  document.getElementById("freshness").innerHTML = rows
+    .map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`)
+    .join("");
 }
 
 function renderCards(data, history) {
@@ -98,24 +121,27 @@ function renderHardData(data, history) {
 function renderExtendedHours(data) {
   const overlay = data.extended_hours || {};
   const target = document.getElementById("extended-hours");
-  if (!overlay.available) {
-    target.innerHTML = `<p class="unavailable">Extended-hours data unavailable</p>`;
-    return;
-  }
   const cls = statusClass(overlay.status);
   const rows = [
+    ["Status", overlayFreshness(overlay)],
+    ["Quote age", Number.isFinite(Number(overlay.quote_age_minutes)) ? `${overlay.quote_age_minutes} min` : "--"],
     ["Market state", overlay.market_state],
     ["SOXX extended-hours change", pct(overlay.soxx?.extended_change_percent)],
     ["QQQ extended-hours change", pct(overlay.qqq?.extended_change_percent)],
     ["NVDA extended-hours change", pct(overlay.nvda?.extended_change_percent)],
     ["SOXX vs QQQ", pct(overlay.soxx_vs_qqq_change)],
     ["NVDA vs SOXX", pct(overlay.nvda_vs_soxx_change)],
+    ["SOXX quote time", localTime(overlay.soxx?.quote_time_label)],
+    ["QQQ quote time", localTime(overlay.qqq?.quote_time_label)],
+    ["NVDA quote time", localTime(overlay.nvda?.quote_time_label)],
   ];
   target.innerHTML = `<div class="overlay-grid">
     ${rows.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("")}
     <div><span>Overlay status</span><strong><span class="pill ${cls}">${overlay.status}</span></strong></div>
   </div>
-  <p>${overlay.interpretation}</p>`;
+  ${overlay.stale_reason ? `<p class="unavailable">${overlay.stale_reason}</p>` : ""}
+  <p>${overlay.interpretation}</p>
+  <p>This overlay is provisional and does not change the official close-based stress score.</p>`;
 }
 
 function renderPortfolio(data) {
@@ -130,6 +156,7 @@ async function init() {
     latestData = await latestRes.json();
     const history = parseCsv(await historyRes.text());
     setFields(latestData);
+    renderFreshness(latestData);
     renderCards(latestData, history);
     renderTriggers(latestData);
     renderExtendedHours(latestData);
