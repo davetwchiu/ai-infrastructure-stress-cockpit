@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T14:28:55+00:00",
+  "updated_at": "2026-07-07T15:49:30+00:00",
   "updated_label": "2026-07-02 close",
   "stress": {
     "score": 31,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "REGULAR",
-    "generated_at": "2026-07-07T14:28:55+00:00",
+    "generated_at": "2026-07-07T15:49:30+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -154,30 +154,30 @@
     "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 540.56,
-      "regularMarketChangePercent": -7.042011315368613,
+      "regularMarketPrice": 543.72,
+      "regularMarketChangePercent": -6.498598476380446,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783434534,
+      "regularMarketTime": 1783439367,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 706.825,
-      "regularMarketChangePercent": -2.2128607398799183,
+      "regularMarketPrice": 708.32,
+      "regularMarketChangePercent": -2.0060319304944563,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783434533,
+      "regularMarketTime": 1783439368,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 191.77,
-      "regularMarketChangePercent": -1.933009460496038,
+      "regularMarketPrice": 193.995,
+      "regularMarketChangePercent": -0.79519304525697,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783434534,
+      "regularMarketTime": 1783439369,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
