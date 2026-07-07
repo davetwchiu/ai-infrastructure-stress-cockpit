@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T10:01:06+00:00",
+  "updated_at": "2026-07-07T10:01:20+00:00",
   "updated_label": "2026-07-02 close",
   "stress": {
     "score": 31,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "PRE",
-    "as_of": "2026-07-07T10:01:03+00:00",
+    "as_of": "2026-07-07T10:01:15+00:00",
     "available": true,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
@@ -164,10 +164,10 @@
       "regularMarketChangePercent": 1.4335583670266328,
       "marketState": "PRE",
       "regularMarketTime": 1783368000,
-      "preMarketPrice": 716.13,
-      "preMarketChangePercent": 0.4947485589479772,
-      "preMarketTime": 1783418463,
-      "extended_change_percent": 0.4947485589479772
+      "preMarketPrice": 716.126,
+      "preMarketChangePercent": 0.4941872376875489,
+      "preMarketTime": 1783418473,
+      "extended_change_percent": 0.4941872376875489
     },
     "nvda": {
       "symbol": "NVDA",
@@ -175,13 +175,13 @@
       "regularMarketChangePercent": 0.3695529435918443,
       "marketState": "PRE",
       "regularMarketTime": 1783368000,
-      "preMarketPrice": 194.1412,
-      "preMarketChangePercent": -0.3535389827028723,
-      "preMarketTime": 1783418459,
-      "extended_change_percent": -0.3535389827028723
+      "preMarketPrice": 194.17,
+      "preMarketChangePercent": -0.338756864959211,
+      "preMarketTime": 1783418475,
+      "extended_change_percent": -0.338756864959211
     },
     "soxx_vs_qqq_change": -1.7,
-    "nvda_vs_soxx_change": 0.85,
+    "nvda_vs_soxx_change": 0.87,
     "overlay_score": 45
   },
   "sources": [
