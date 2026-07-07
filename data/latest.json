@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T10:02:21+00:00",
+  "updated_at": "2026-07-07T10:03:50+00:00",
   "updated_label": "2026-07-02 close",
   "stress": {
     "score": 31,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "PRE",
-    "as_of": "2026-07-07T10:02:12+00:00",
+    "as_of": "2026-07-07T10:03:45+00:00",
     "available": true,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
@@ -153,10 +153,10 @@
       "regularMarketChangePercent": 2.6822291284079647,
       "marketState": "PRE",
       "regularMarketTime": 1783368000,
-      "preMarketPrice": 560.5903,
-      "preMarketChangePercent": -1.0117424777511097,
-      "preMarketTime": 1783418527,
-      "extended_change_percent": -1.0117424777511097
+      "preMarketPrice": 560.78,
+      "preMarketChangePercent": -0.9782455149032532,
+      "preMarketTime": 1783418622,
+      "extended_change_percent": -0.9782455149032532
     },
     "qqq": {
       "symbol": "QQQ",
@@ -164,10 +164,10 @@
       "regularMarketChangePercent": 1.4335583670266328,
       "marketState": "PRE",
       "regularMarketTime": 1783368000,
-      "preMarketPrice": 716.11,
-      "preMarketChangePercent": 0.49194195264581353,
-      "preMarketTime": 1783418532,
-      "extended_change_percent": 0.49194195264581353
+      "preMarketPrice": 716.2933,
+      "preMarketChangePercent": 0.5176644994052682,
+      "preMarketTime": 1783418625,
+      "extended_change_percent": 0.5176644994052682
     },
     "nvda": {
       "symbol": "NVDA",
@@ -175,13 +175,13 @@
       "regularMarketChangePercent": 0.3695529435918443,
       "marketState": "PRE",
       "regularMarketTime": 1783368000,
-      "preMarketPrice": 194.09,
-      "preMarketChangePercent": -0.37981830313607023,
-      "preMarketTime": 1783418531,
-      "extended_change_percent": -0.37981830313607023
+      "preMarketPrice": 194.098,
+      "preMarketChangePercent": -0.3757121593183754,
+      "preMarketTime": 1783418622,
+      "extended_change_percent": -0.3757121593183754
     },
     "soxx_vs_qqq_change": -1.5,
-    "nvda_vs_soxx_change": 0.63,
+    "nvda_vs_soxx_change": 0.6,
     "overlay_score": 45
   },
   "sources": [
