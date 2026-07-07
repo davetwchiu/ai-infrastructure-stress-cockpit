@@ -23,6 +23,8 @@ Is the AI infrastructure trade still under rate pressure, or is credit stress co
 
 The dashboard reads only `data/latest.json` and `data/history.csv`.
 
+The Reload data file button reloads the static page and current data files only. It does not trigger GitHub Actions.
+
 ## GitHub Pages Deployment
 
 Public URL:
@@ -31,6 +33,8 @@ Public URL:
 In the repository settings, set GitHub Pages `Source` to `GitHub Actions`.
 
 The scheduled `Update dashboard data` workflow refreshes `data/latest.json` and `data/history.csv`, commits those files only when they change, and redeploys the static site from the repository root.
+
+During US pre-market and after-hours, the workflow is scheduled approximately every 10 minutes using UTC cron. GitHub Actions schedules can be delayed, so the dashboard shows when the page data and extended-hours quote data were generated instead of promising an exact live tick.
 
 ## Scoring
 
@@ -47,7 +51,7 @@ Overall stress state:
 
 Equity Confirmation uses SOXX vs QQQ relative performance and NVDA vs SOXX relative performance. The dashboard charts SOXX / QQQ relative performance only.
 
-The Extended-hours Equity Overlay is provisional. It watches whether SOXX is materially lagging QQQ and whether NVDA is materially lagging SOXX during pre-market or after-market trading. It does not change `stress.score`, and it does not by itself confirm credit stress.
+The Extended-hours Equity Overlay is provisional. It watches whether SOXX is materially lagging QQQ and whether NVDA is materially lagging SOXX during pre-market or after-market trading. It does not change `stress.score`, and it does not by itself confirm credit stress. The official stress score remains close-based.
 
 ## Limitations
 

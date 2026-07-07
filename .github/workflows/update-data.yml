@@ -2,10 +2,13 @@ name: Update dashboard data
 
 on:
   schedule:
-    # US pre-market check, roughly 07:20 ET during daylight time.
-    - cron: "20 11 * * 1-5"
-    # US post-close / after-hours check, roughly 17:20 ET during daylight time.
-    - cron: "20 21 * * 1-5"
+    # Approximate US pre-market during daylight time, every 10 minutes.
+    # GitHub Actions schedules can be delayed and are not exact timers.
+    - cron: "*/10 8-13 * * 1-5"
+    # Approximate US after-hours during daylight time, every 10 minutes.
+    # GitHub Actions schedules can be delayed and are not exact timers.
+    - cron: "*/10 20-23 * * 1-5"
+    - cron: "*/10 0 * * 2-6"
   workflow_dispatch:
   push:
     branches:

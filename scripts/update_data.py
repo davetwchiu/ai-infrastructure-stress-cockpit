@@ -39,6 +39,12 @@ QUOTE_FIELDS = (
 )
 
 
+def iso_from_timestamp(ts: int | float | None) -> str | None:
+    if not ts:
+        return None
+    return datetime.fromtimestamp(int(ts), timezone.utc).isoformat(timespec="seconds")
+
+
 def fetch_series(series_id: str) -> dict[str, float]:
     with urllib.request.urlopen(FRED.format(series_id), timeout=30) as res:
         rows = csv.DictReader(line.decode() for line in res.readlines())
@@ -236,10 +242,16 @@ def active_extended_change(quote: dict, market_state: str) -> tuple[float | None
 
 def build_extended_hours(quotes: dict[str, dict] | None, now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
+    generated_at = now.isoformat(timespec="seconds")
     base = {
         "market_state": "UNKNOWN",
-        "as_of": now.isoformat(timespec="seconds"),
+        "generated_at": generated_at,
+        "as_of": None,
         "available": False,
+        "is_stale": None,
+        "is_active_session": False,
+        "stale_reason": "Extended-hours quote fields unavailable",
+        "quote_age_minutes": None,
         "source": "Yahoo Finance quote API",
         "label": "Pre-market / After-market equity overlay",
         "status": "NORMAL",
@@ -254,21 +266,34 @@ def build_extended_hours(quotes: dict[str, dict] | None, now: datetime | None = 
     enriched = {}
     for key, quote in quotes.items():
         ext_change, ext_time = active_extended_change(quote, market_state)
-        enriched[key] = {**quote, "extended_change_percent": ext_change}
+        enriched[key] = {
+            **quote,
+            "extended_change_percent": ext_change,
+            "quote_time": ext_time,
+            "quote_time_label": iso_from_timestamp(ext_time),
+        }
         changes[key] = ext_change
         if ext_time:
             times.append(int(ext_time))
+
+    inactive_reason = {
+        "REGULAR": "Regular session is active; extended-hours overlay is inactive",
+        "CLOSED": "Market is closed; extended-hours overlay is inactive",
+    }.get(market_state)
+    if inactive_reason:
+        return base | {
+            "market_state": market_state,
+            "stale_reason": inactive_reason,
+            "interpretation": inactive_reason,
+            **enriched,
+        }
 
     if len(changes) != 3 or any(not isinstance(v, (int, float)) for v in changes.values()) or not times:
         return base | {"market_state": market_state, **enriched}
 
     as_of_ts = max(times)
-    if now.timestamp() - as_of_ts > 12 * 60 * 60:
-        return base | {
-            "market_state": market_state,
-            "as_of": datetime.fromtimestamp(as_of_ts, timezone.utc).isoformat(timespec="seconds"),
-            **enriched,
-        }
+    quote_age_minutes = max(0, round((now.timestamp() - as_of_ts) / 60))
+    is_stale = quote_age_minutes > 20
 
     soxx_vs_qqq = changes["soxx"] - changes["qqq"]
     nvda_vs_soxx = changes["nvda"] - changes["soxx"]
@@ -285,8 +310,12 @@ def build_extended_hours(quotes: dict[str, dict] | None, now: datetime | None = 
     )
     return base | {
         "market_state": market_state,
-        "as_of": datetime.fromtimestamp(as_of_ts, timezone.utc).isoformat(timespec="seconds"),
+        "as_of": iso_from_timestamp(as_of_ts),
         "available": True,
+        "is_stale": is_stale,
+        "is_active_session": market_state in {"PRE", "POST"},
+        "stale_reason": "Extended-hours quotes are more than 20 minutes old" if is_stale else "",
+        "quote_age_minutes": quote_age_minutes,
         **enriched,
         "soxx_vs_qqq_change": round(soxx_vs_qqq, 2),
         "nvda_vs_soxx_change": round(nvda_vs_soxx, 2),
@@ -394,8 +423,14 @@ def self_test() -> None:
     }
     overlay = build_extended_hours(sample, datetime.fromtimestamp(1_800_000_100, timezone.utc))
     assert overlay["available"] is True
+    assert overlay["is_active_session"] is True
+    assert overlay["quote_age_minutes"] == 2
+    assert overlay["is_stale"] is False
     assert overlay["status"] == "STRESS"
     assert overlay["soxx_vs_qqq_change"] == -1.2
+    regular = build_extended_hours({"soxx": {"marketState": "REGULAR"}}, datetime.fromtimestamp(1_800_000_100, timezone.utc))
+    assert regular["available"] is False
+    assert regular["stale_reason"] == "Regular session is active; extended-hours overlay is inactive"
 
 
 def main() -> None:
