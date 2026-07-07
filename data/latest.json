@@ -1,0 +1,146 @@
+{
+  "updated_at": "2026-07-07T08:30:33+00:00",
+  "updated_label": "2026-07-02 close",
+  "stress": {
+    "score": 31,
+    "status": "Normal",
+    "regime": "Rates high, credit stable",
+    "confidence": "High for macro / Medium overall",
+    "judgment": "Not a red flag yet. Rates remain high, but credit spreads have not confirmed deterioration."
+  },
+  "drivers": [
+    {
+      "key": "rates",
+      "title": "Rates Pressure",
+      "score": 37,
+      "status": "Normal",
+      "bullets": [
+        "SOFR high",
+        "2Y Treasury high"
+      ]
+    },
+    {
+      "key": "credit",
+      "title": "Credit Pressure",
+      "score": 9,
+      "status": "Normal",
+      "bullets": [
+        "HY OAS stable",
+        "IG OAS stable"
+      ]
+    },
+    {
+      "key": "equity",
+      "title": "Equity Confirmation",
+      "score": 56,
+      "status": "Elevated",
+      "bullets": [
+        "Nasdaq 100 lagging",
+        "AI beta proxy ok"
+      ]
+    },
+    {
+      "key": "compute",
+      "title": "AI Financing / Compute",
+      "score": 40,
+      "status": "Watch",
+      "bullets": [
+        "GPU proxy soft",
+        "No bad filing"
+      ]
+    }
+  ],
+  "triggers": {
+    "positive": [
+      "HY OAS unchanged over 5d",
+      "Hyperscaler capex guidance still intact",
+      "Nasdaq 100 not in stress break"
+    ],
+    "warning": [
+      "SOFR remains above stress threshold",
+      "2Y Treasury rising over 20d",
+      "Nasdaq 100 trend negative over 20d"
+    ],
+    "negative": [
+      "No confirmed negative financing event",
+      "No major capex cut",
+      "No major GPU rental collapse confirmed"
+    ]
+  },
+  "hard_data": [
+    {
+      "key": "sofr",
+      "label": "SOFR",
+      "value": 3.64,
+      "value_label": "3.64%",
+      "change_5d": 0.0,
+      "change_20d": 0.03,
+      "change_5d_label": "+0.00",
+      "change_20d_label": "+0.03"
+    },
+    {
+      "key": "dgs2",
+      "label": "2Y Treasury",
+      "value": 4.14,
+      "value_label": "4.14%",
+      "change_5d": 0.05,
+      "change_20d": 0.06,
+      "change_5d_label": "+0.05",
+      "change_20d_label": "+0.06"
+    },
+    {
+      "key": "dgs10",
+      "label": "10Y Treasury",
+      "value": 4.49,
+      "value_label": "4.49%",
+      "change_5d": 0.09,
+      "change_20d": 0.0,
+      "change_5d_label": "+0.09",
+      "change_20d_label": "+0.00"
+    },
+    {
+      "key": "ig_oas",
+      "label": "IG OAS",
+      "value": 0.75,
+      "value_label": "75 bps",
+      "change_5d": -0.01,
+      "change_20d": 0.01,
+      "change_5d_label": "-0.01",
+      "change_20d_label": "+0.01"
+    },
+    {
+      "key": "hy_oas",
+      "label": "HY OAS",
+      "value": 2.75,
+      "value_label": "275 bps",
+      "change_5d": -0.03,
+      "change_20d": 0.0,
+      "change_5d_label": "-0.03",
+      "change_20d_label": "+0.00"
+    },
+    {
+      "key": "nasdaq100",
+      "label": "Nasdaq 100",
+      "value": 29329.21,
+      "value_label": "29,329",
+      "change_5d": -0.3774,
+      "change_20d": -4.0627,
+      "change_5d_label": "-0.4%",
+      "change_20d_label": "-4.1%"
+    }
+  ],
+  "action": {
+    "status": "NORMAL",
+    "meaning": "Rate pressure remains, but credit markets have not confirmed deterioration. This looks more like valuation/rate pressure than an AI credit event.",
+    "portfolio_read_through": [
+      "No need to panic on one or two down days in AI stocks",
+      "Avoid aggressive leverage or chasing neocloud exposure",
+      "Core NVDA / hyperscaler exposure can be maintained",
+      "Upgrade to STRESS only if HY OAS widens + equities lag + GPU rental proxy weakens"
+    ]
+  },
+  "sources": [
+    "FRED public CSV",
+    "config/manual_signals.json"
+  ]
+}
