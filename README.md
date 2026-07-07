@@ -18,6 +18,7 @@ Is the AI infrastructure trade still under rate pressure, or is credit stress co
 
 - FRED public CSV: SOFR, 2Y Treasury, 10Y Treasury, IG OAS, HY OAS.
 - Yahoo Finance chart API: SOXX, QQQ, NVDA daily closes.
+- Yahoo Finance quote API: best-effort SOXX, QQQ, NVDA pre-market / after-market quote fields.
 - `config/manual_signals.json`: small manual inputs for compute / financing signals.
 
 The dashboard reads only `data/latest.json` and `data/history.csv`.
@@ -35,6 +36,8 @@ The scheduled `Update dashboard data` workflow refreshes `data/latest.json` and 
 
 All scoring is rule-based. No machine learning, LLMs, news classification, backend server, database, or paid data feed is used.
 
+The official stress score is close-based. It uses daily closes and must not be treated as an intraday or extended-hours score.
+
 Overall stress state:
 
 - `0-25`: `NORMAL`
@@ -44,9 +47,12 @@ Overall stress state:
 
 Equity Confirmation uses SOXX vs QQQ relative performance and NVDA vs SOXX relative performance. The dashboard charts SOXX / QQQ relative performance only.
 
+The Extended-hours Equity Overlay is provisional. It watches whether SOXX is materially lagging QQQ and whether NVDA is materially lagging SOXX during pre-market or after-market trading. It does not change `stress.score`, and it does not by itself confirm credit stress.
+
 ## Limitations
 
 - Market data can lag, revise, or fail if a public source is unavailable.
+- Extended-hours data may be unavailable or stale; when that happens the dashboard shows the overlay as unavailable and keeps the official close-based score unchanged.
 - Manual compute / financing signals are intentionally simple and auditable.
 - The tool is a stress monitor, not investment advice or a trading system.
 

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T09:42:39+00:00",
+  "updated_at": "2026-07-07T09:55:12+00:00",
   "updated_label": "2026-07-02 close",
   "stress": {
     "score": 31,
@@ -138,6 +138,51 @@
       "Core NVDA / hyperscaler exposure can be maintained",
       "Upgrade to STRESS only if HY OAS widens + equities lag + GPU rental proxy weakens"
     ]
+  },
+  "extended_hours": {
+    "market_state": "PRE",
+    "as_of": "2026-07-07T09:55:07+00:00",
+    "available": true,
+    "source": "Yahoo Finance quote API",
+    "label": "Pre-market / After-market equity overlay",
+    "status": "WATCH",
+    "interpretation": "One extended-hours equity warning is active; wait for regular-session and credit confirmation.",
+    "soxx": {
+      "symbol": "SOXX",
+      "regularMarketPrice": 581.51,
+      "regularMarketChangePercent": 2.6822291284079647,
+      "marketState": "PRE",
+      "regularMarketTime": 1783368000,
+      "preMarketPrice": 558.81,
+      "preMarketChangePercent": -1.3261053821161384,
+      "preMarketTime": 1783418090,
+      "extended_change_percent": -1.3261053821161384
+    },
+    "qqq": {
+      "symbol": "QQQ",
+      "regularMarketPrice": 722.82,
+      "regularMarketChangePercent": 1.4335583670266328,
+      "marketState": "PRE",
+      "regularMarketTime": 1783368000,
+      "preMarketPrice": 715.68,
+      "preMarketChangePercent": 0.4315999171489615,
+      "preMarketTime": 1783418103,
+      "extended_change_percent": 0.4315999171489615
+    },
+    "nvda": {
+      "symbol": "NVDA",
+      "regularMarketPrice": 195.55,
+      "regularMarketChangePercent": 0.3695529435918443,
+      "marketState": "PRE",
+      "regularMarketTime": 1783368000,
+      "preMarketPrice": 193.9122,
+      "preMarketChangePercent": -0.47107734948416136,
+      "preMarketTime": 1783418107,
+      "extended_change_percent": -0.47107734948416136
+    },
+    "soxx_vs_qqq_change": -1.76,
+    "nvda_vs_soxx_change": 0.86,
+    "overlay_score": 45
   },
   "sources": [
     "FRED public CSV",

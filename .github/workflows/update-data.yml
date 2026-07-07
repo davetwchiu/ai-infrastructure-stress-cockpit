@@ -2,7 +2,10 @@ name: Update dashboard data
 
 on:
   schedule:
+    # US pre-market check, roughly 07:20 ET during daylight time.
     - cron: "20 11 * * 1-5"
+    # US post-close / after-hours check, roughly 17:20 ET during daylight time.
+    - cron: "20 21 * * 1-5"
   workflow_dispatch:
   push:
     branches:
