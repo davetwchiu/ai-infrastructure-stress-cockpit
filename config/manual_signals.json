@@ -1,0 +1,8 @@
+{
+  "gpu_proxy_status": "soft",
+  "financing_headline_status": "no_bad_filing",
+  "capex_guidance_status": "intact",
+  "notes": [
+    "Manual placeholder for MVP. Future PR may automate GPU rental proxy and SEC/company filing signals."
+  ]
+}
