@@ -229,7 +229,7 @@ hr {
 }
 
 .score-card.normal { border-left-color: var(--green); }
-.score-card.stress { border-left-color: var(--red); }
+.score-card.stress, .score-card.credit-stress-confirmed { border-left-color: var(--red); }
 
 .card-head {
   display: flex;
@@ -285,6 +285,11 @@ hr {
 .pill.normal {
   color: var(--green);
   background: rgba(93, 213, 105, .1);
+}
+
+.pill.stress, .pill.credit-stress-confirmed {
+  color: var(--red);
+  background: rgba(255, 91, 78, .1);
 }
 
 .score-card ul, .action-card ul, .trigger ul {

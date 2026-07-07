@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-07T08:30:33+00:00",
+  "updated_at": "2026-07-07T08:57:12+00:00",
   "updated_label": "2026-07-02 close",
   "stress": {
     "score": 31,
-    "status": "Normal",
+    "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
     "judgment": "Not a red flag yet. Rates remain high, but credit spreads have not confirmed deterioration."
@@ -13,7 +13,7 @@
       "key": "rates",
       "title": "Rates Pressure",
       "score": 37,
-      "status": "Normal",
+      "status": "WATCH",
       "bullets": [
         "SOFR high",
         "2Y Treasury high"
@@ -23,7 +23,7 @@
       "key": "credit",
       "title": "Credit Pressure",
       "score": 9,
-      "status": "Normal",
+      "status": "NORMAL",
       "bullets": [
         "HY OAS stable",
         "IG OAS stable"
@@ -33,17 +33,17 @@
       "key": "equity",
       "title": "Equity Confirmation",
       "score": 56,
-      "status": "Elevated",
+      "status": "STRESS",
       "bullets": [
-        "Nasdaq 100 lagging",
-        "AI beta proxy ok"
+        "SOXX lagging QQQ",
+        "NVDA lagging SOXX"
       ]
     },
     {
       "key": "compute",
       "title": "AI Financing / Compute",
       "score": 40,
-      "status": "Watch",
+      "status": "WATCH",
       "bullets": [
         "GPU proxy soft",
         "No bad filing"
@@ -54,12 +54,12 @@
     "positive": [
       "HY OAS unchanged over 5d",
       "Hyperscaler capex guidance still intact",
-      "Nasdaq 100 not in stress break"
+      "SOXX not materially lagging QQQ"
     ],
     "warning": [
       "SOFR remains above stress threshold",
       "2Y Treasury rising over 20d",
-      "Nasdaq 100 trend negative over 20d"
+      "SOXX trend negative vs QQQ over 20d"
     ],
     "negative": [
       "No confirmed negative financing event",
@@ -119,18 +119,18 @@
       "change_20d_label": "+0.00"
     },
     {
-      "key": "nasdaq100",
-      "label": "Nasdaq 100",
-      "value": 29329.21,
-      "value_label": "29,329",
-      "change_5d": -0.3774,
-      "change_20d": -4.0627,
-      "change_5d_label": "-0.4%",
-      "change_20d_label": "-4.1%"
+      "key": "soxx_qqq_rel",
+      "label": "SOXX / QQQ Relative",
+      "value": 79.47235850780943,
+      "value_label": "79.47",
+      "change_5d": -8.9373,
+      "change_20d": -3.9968,
+      "change_5d_label": "-8.9%",
+      "change_20d_label": "-4.0%"
     }
   ],
   "action": {
-    "status": "NORMAL",
+    "status": "WATCH",
     "meaning": "Rate pressure remains, but credit markets have not confirmed deterioration. This looks more like valuation/rate pressure than an AI credit event.",
     "portfolio_read_through": [
       "No need to panic on one or two down days in AI stocks",
@@ -141,6 +141,7 @@
   },
   "sources": [
     "FRED public CSV",
+    "Yahoo Finance chart API",
     "config/manual_signals.json"
   ]
 }
