@@ -7,8 +7,9 @@ import argparse
 import csv
 import json
 import math
+import os
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,6 +17,10 @@ FRED = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={}"
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?range=6mo&interval=1d&events=history"
 YAHOO_QUOTE = "https://query1.finance.yahoo.com/v7/finance/quote?symbols={}"
 YAHOO_PREPOST_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{}?interval=1m&range=1d&includePrePost=true"
+SEC_COMPANY_TICKERS = "https://www.sec.gov/files/company_tickers.json"
+SEC_SUBMISSIONS = "https://data.sec.gov/submissions/CIK{}.json"
+SEC_FACTS = "https://data.sec.gov/api/xbrl/companyfacts/CIK{}.json"
+SEC_USER_AGENT = os.getenv("SEC_USER_AGENT", "AIInfrastructureStressCockpit/1.0 contact: no-email")
 FRED_SERIES = {
     "sofr": "SOFR",
     "dgs2": "DGS2",
@@ -27,6 +32,25 @@ PRICE_SERIES = {
     "soxx": "SOXX",
     "qqq": "QQQ",
     "nvda": "NVDA",
+}
+COMPUTE_PRIMARY = {
+    "crwv": "CRWV",
+    "nbis": "NBIS",
+    "apld": "APLD",
+    "iren": "IREN",
+}
+INFRA_SPILLOVER = {
+    "dlr": "DLR",
+    "eqix": "EQIX",
+    "vrt": "VRT",
+    "etn": "ETN",
+}
+EXTRA_PRICE_SERIES = COMPUTE_PRIMARY | INFRA_SPILLOVER | {"xli": "XLI"}
+COMPUTE_WEIGHTS = {
+    "financing_event_score": .45,
+    "balance_sheet_pressure_score": .25,
+    "compute_equity_confirmation_score": .20,
+    "infrastructure_spillover_score": .10,
 }
 QUOTE_FIELDS = (
     "regularMarketPrice",
@@ -69,6 +93,19 @@ def fetch_price_series(symbol: str) -> dict[str, float]:
         if close:
             out[datetime.fromtimestamp(ts, timezone.utc).date().isoformat()] = float(close)
     return out
+
+
+def fetch_price_series_safe(symbol: str) -> dict[str, float]:
+    try:
+        return fetch_price_series(symbol)
+    except Exception:
+        return {}
+
+
+def fetch_sec_json(url: str) -> dict:
+    req = urllib.request.Request(url, headers={"User-Agent": SEC_USER_AGENT, "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=20) as res:
+        return json.load(res)
 
 
 def fetch_extended_quotes(symbols: dict[str, str]) -> dict[str, dict]:
@@ -176,6 +213,334 @@ def status(score: int) -> str:
     if score >= 26:
         return "WATCH"
     return "NORMAL"
+
+
+def component_status(items: list[str]) -> str:
+    if not items:
+        return "ok"
+    if all(item == "ok" for item in items):
+        return "ok"
+    if all(item in {"fallback", "failed"} for item in items):
+        return "fallback"
+    return "partial"
+
+
+def parse_day(value: str | None) -> datetime.date | None:
+    try:
+        return datetime.fromisoformat(value or "").date()
+    except ValueError:
+        return None
+
+
+def age_multiplier(filing_date: datetime.date, today: datetime.date) -> float:
+    age = (today - filing_date).days
+    if age <= 30:
+        return 1.0
+    if age <= 60:
+        return .6
+    return .3
+
+
+def sec_ciks(tickers: list[str]) -> tuple[dict[str, str], str]:
+    try:
+        rows = fetch_sec_json(SEC_COMPANY_TICKERS).values()
+        wanted = {ticker.upper() for ticker in tickers}
+        return {
+            row["ticker"].upper(): str(row["cik_str"]).zfill(10)
+            for row in rows
+            if row.get("ticker", "").upper() in wanted
+        }, "ok"
+    except Exception:
+        return {}, "failed"
+
+
+def build_financing_event_score(ciks: dict[str, str], today: datetime.date) -> dict:
+    events = []
+    failures = []
+    offering_counts = {}
+    shelf_forms = {"S-3", "S-3ASR", "F-3", "F-3ASR"}
+    ignored_forms = {"3", "4", "5", "144"}
+
+    for ticker in COMPUTE_PRIMARY.values():
+        cik = ciks.get(ticker)
+        if not cik:
+            failures.append(ticker)
+            continue
+        try:
+            recent = fetch_sec_json(SEC_SUBMISSIONS.format(cik)).get("filings", {}).get("recent", {})
+        except Exception:
+            failures.append(ticker)
+            continue
+
+        forms = recent.get("form", [])
+        dates = recent.get("filingDate", [])
+        accessions = recent.get("accessionNumber", [])
+        items = recent.get("items", [])
+        for i, form in enumerate(forms):
+            form = str(form).upper()
+            if form in ignored_forms:
+                continue
+            filing_date = parse_day(dates[i] if i < len(dates) else None)
+            if not filing_date or not 0 <= (today - filing_date).days <= 90:
+                continue
+
+            signal_type = None
+            base_points = 0
+            reason = ""
+            if form in shelf_forms:
+                signal_type, base_points, reason = "shelf_registration", 8, "Shelf registration or financing capacity filing"
+            elif form.startswith("424B"):
+                signal_type, base_points, reason = "offering_prospectus", 12, "Prospectus or offering supplement"
+            elif form == "8-K":
+                item_text = str(items[i] if i < len(items) else "")
+                material_financing = any(token in item_text for token in ("1.01", "2.03"))
+                signal_type = "material_financing_8k" if material_financing else "recent_8k"
+                base_points = 8 if material_financing else 3
+                reason = "8-K references material agreement or debt item" if material_financing else "Recent 8-K counted as light financing flag"
+            if not signal_type:
+                continue
+
+            points = round(base_points * age_multiplier(filing_date, today), 1)
+            events.append({
+                "ticker": ticker,
+                "form": form,
+                "filing_date": filing_date.isoformat(),
+                "accession_number": accessions[i] if i < len(accessions) else "",
+                "signal_type": signal_type,
+                "points": points,
+                "reason": reason,
+            })
+            if signal_type in {"shelf_registration", "offering_prospectus"}:
+                offering_counts.setdefault(ticker, []).append(filing_date)
+
+    for ticker, filing_dates in offering_counts.items():
+        if len(filing_dates) > 1:
+            latest = max(filing_dates)
+            events.append({
+                "ticker": ticker,
+                "form": "MULTIPLE",
+                "filing_date": latest.isoformat(),
+                "accession_number": "",
+                "signal_type": "multiple_offering_related_filings",
+                "points": round(5 * age_multiplier(latest, today), 1),
+                "reason": "Multiple shelf or offering-related filings within 90 days",
+            })
+
+    score = clamp(25 + sum(float(event["points"]) for event in events))
+    return {
+        "score": score if ciks else 25,
+        "status": "failed" if len(failures) == len(COMPUTE_PRIMARY) else "partial" if failures else "ok",
+        "events": sorted(events, key=lambda item: item["filing_date"], reverse=True)[:30],
+        "failed_tickers": failures,
+    }
+
+
+def latest_fact(facts: dict, tags: list[str]) -> float | None:
+    candidates = []
+    gaap = facts.get("facts", {}).get("us-gaap", {})
+    for tag in tags:
+        for unit_rows in gaap.get(tag, {}).get("units", {}).values():
+            for row in unit_rows:
+                if row.get("val") is None or row.get("form") not in {"10-Q", "10-K", "20-F", "6-K"}:
+                    continue
+                filed = parse_day(row.get("filed")) or parse_day(row.get("end"))
+                if filed:
+                    candidates.append((filed, float(row["val"])))
+    if not candidates:
+        return None
+    return sorted(candidates, key=lambda item: item[0])[-1][1]
+
+
+def ratio(num: float | None, den: float | None) -> float | None:
+    if num is None or den is None or den <= 0:
+        return None
+    return num / den
+
+
+def build_balance_sheet_score(ciks: dict[str, str]) -> dict:
+    rows = []
+    scores = []
+    failures = []
+    for ticker in COMPUTE_PRIMARY.values():
+        cik = ciks.get(ticker)
+        if not cik:
+            failures.append(ticker)
+            rows.append({"ticker": ticker, "data_status": "fallback"})
+            continue
+        try:
+            facts = fetch_sec_json(SEC_FACTS.format(cik))
+        except Exception:
+            failures.append(ticker)
+            rows.append({"ticker": ticker, "data_status": "failed"})
+            continue
+
+        cash = latest_fact(facts, ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"])
+        debt_parts = [
+            latest_fact(facts, [tag])
+            for tag in ["LongTermDebt", "LongTermDebtCurrent", "ShortTermBorrowings", "DebtCurrent"]
+        ]
+        debt = sum(part for part in debt_parts if part and part > 0) or None
+        revenue = latest_fact(facts, ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax"])
+        interest = latest_fact(facts, ["InterestExpenseNonOperating", "InterestExpense"])
+        capex = latest_fact(facts, ["PaymentsToAcquirePropertyPlantAndEquipment"])
+        ocf = latest_fact(facts, ["NetCashProvidedByUsedInOperatingActivities"])
+
+        debt_to_cash = ratio(debt, cash)
+        capex_to_revenue = ratio(abs(capex) if capex is not None else None, revenue)
+        interest_to_revenue = ratio(abs(interest) if interest is not None else None, revenue)
+        fcf_proxy_to_revenue = ratio((ocf or 0) - abs(capex), revenue) if ocf is not None and capex is not None else None
+        company_score = 35
+        if debt_to_cash is not None:
+            company_score += 10 if debt_to_cash > 3 else 5 if debt_to_cash > 1.5 else 0
+        if capex_to_revenue is not None:
+            company_score += 10 if capex_to_revenue > .75 else 5 if capex_to_revenue > .35 else 0
+        if interest_to_revenue is not None:
+            company_score += 10 if interest_to_revenue > .10 else 5 if interest_to_revenue > .04 else 0
+        if fcf_proxy_to_revenue is not None:
+            company_score += 12 if fcf_proxy_to_revenue < -.50 else 8 if fcf_proxy_to_revenue < -.25 else 0
+
+        usable = any(value is not None for value in (debt_to_cash, capex_to_revenue, interest_to_revenue, fcf_proxy_to_revenue))
+        if usable:
+            scores.append(clamp(company_score))
+        rows.append({
+            "ticker": ticker,
+            "fiscal_period": "latest SEC fact",
+            "debt_to_cash": round(debt_to_cash, 2) if debt_to_cash is not None else None,
+            "capex_to_revenue": round(capex_to_revenue, 2) if capex_to_revenue is not None else None,
+            "interest_to_revenue": round(interest_to_revenue, 2) if interest_to_revenue is not None else None,
+            "fcf_proxy_to_revenue": round(fcf_proxy_to_revenue, 2) if fcf_proxy_to_revenue is not None else None,
+            "score": clamp(company_score) if usable else None,
+            "data_status": "ok" if usable else "fallback",
+        })
+
+    if len(scores) < 2:
+        return {"score": 35, "status": "fallback", "rows": rows, "failed_tickers": failures}
+    return {
+        "score": clamp(sum(scores) / len(scores)),
+        "status": "partial" if failures or len(scores) < len(COMPUTE_PRIMARY) else "ok",
+        "rows": rows,
+        "failed_tickers": failures,
+    }
+
+
+def series_return(series: dict[str, float], days: int) -> float | None:
+    values = [series[date] for date in sorted(series)]
+    if len(values) <= days or not values[-days - 1]:
+        return None
+    return (values[-1] / values[-days - 1] - 1) * 100
+
+
+def average_return(price_series: dict[str, dict[str, float]], symbols: list[str], days: int) -> tuple[float | None, list[str]]:
+    returns = [(symbol, series_return(price_series.get(symbol.lower(), {}), days)) for symbol in symbols]
+    usable = [(symbol, value) for symbol, value in returns if value is not None]
+    if not usable:
+        return None, []
+    return sum(value for _, value in usable) / len(usable), [symbol for symbol, _ in usable]
+
+
+def build_equity_confirmation_score(price_series: dict[str, dict[str, float]]) -> dict:
+    rel = {}
+    usable_primary = []
+    benchmark_symbols = ["QQQ", "SOXX"]
+    for days in (5, 20, 60):
+        basket, usable = average_return(price_series, list(COMPUTE_PRIMARY.values()), days)
+        bench, _ = average_return(price_series, benchmark_symbols, days)
+        if days == 60:
+            usable_primary = usable
+        rel[days] = None if basket is None or bench is None else basket - bench
+    if len(usable_primary) < 2 or rel[20] is None:
+        return {"score": 35, "status": "fallback", "details": {"usable_tickers": usable_primary}}
+    score = 35 + max(-rel[20], 0) * 1.4 + max(-(rel[5] or 0), 0) * .7 + max(-(rel[60] or 0), 0) * .6 - max(rel[20], 0) * .2
+    nvda_20 = series_return(price_series.get("nvda", {}), 20)
+    basket_20, _ = average_return(price_series, list(COMPUTE_PRIMARY.values()), 20)
+    return {
+        "score": clamp(score),
+        "status": "ok" if len(usable_primary) == len(COMPUTE_PRIMARY) else "partial",
+        "details": {
+            "usable_tickers": usable_primary,
+            "benchmark": "50% QQQ / 50% SOXX",
+            "relative_5d_pct_points": round(rel[5], 2) if rel[5] is not None else None,
+            "relative_20d_pct_points": round(rel[20], 2) if rel[20] is not None else None,
+            "relative_60d_pct_points": round(rel[60], 2) if rel[60] is not None else None,
+            "nvda_relative_20d_pct_points": round(basket_20 - nvda_20, 2) if basket_20 is not None and nvda_20 is not None else None,
+        },
+    }
+
+
+def build_infrastructure_spillover_score(price_series: dict[str, dict[str, float]]) -> dict:
+    rel = {}
+    usable_infra = []
+    benchmark = ["QQQ", "XLI"] if price_series.get("xli") else ["QQQ"]
+    for days in (5, 20):
+        basket, usable = average_return(price_series, list(INFRA_SPILLOVER.values()), days)
+        bench, _ = average_return(price_series, benchmark, days)
+        if days == 20:
+            usable_infra = usable
+        rel[days] = None if basket is None or bench is None else basket - bench
+    if len(usable_infra) < 2 or rel[20] is None:
+        return {"score": 30, "status": "fallback", "details": {"usable_tickers": usable_infra}}
+    score = 30 + max(-rel[20], 0) * 1.0 + max(-(rel[5] or 0), 0) * .4
+    return {
+        "score": clamp(score),
+        "status": "ok" if len(usable_infra) == len(INFRA_SPILLOVER) else "partial",
+        "details": {
+            "usable_tickers": usable_infra,
+            "benchmark": "50% QQQ / 50% XLI" if "XLI" in benchmark else "QQQ fallback",
+            "relative_5d_pct_points": round(rel[5], 2) if rel[5] is not None else None,
+            "relative_20d_pct_points": round(rel[20], 2) if rel[20] is not None else None,
+        },
+    }
+
+
+def build_compute_stress(price_series: dict[str, dict[str, float]], now: datetime | None = None) -> dict:
+    now = now or datetime.now(timezone.utc)
+    ciks, cik_status = sec_ciks(list(COMPUTE_PRIMARY.values()))
+    financing = build_financing_event_score(ciks, now.date()) if ciks else {"score": 25, "status": "failed", "events": [], "failed_tickers": list(COMPUTE_PRIMARY.values())}
+    balance = build_balance_sheet_score(ciks) if ciks else {"score": 35, "status": "failed", "rows": [], "failed_tickers": list(COMPUTE_PRIMARY.values())}
+    equity = build_equity_confirmation_score(price_series)
+    spillover = build_infrastructure_spillover_score(price_series)
+    raw_components = {
+        "financing_event_score": financing,
+        "balance_sheet_pressure_score": balance,
+        "compute_equity_confirmation_score": equity,
+        "infrastructure_spillover_score": spillover,
+    }
+    components = {
+        key: {
+            "score": value["score"],
+            "weight": COMPUTE_WEIGHTS[key],
+            "contribution": round(value["score"] * COMPUTE_WEIGHTS[key], 2),
+            "status": value["status"],
+        }
+        for key, value in raw_components.items()
+    }
+    caveats = [
+        "SEC data is best-effort.",
+        "Filing detection is rule-based, not legal analysis.",
+        "Equity-price data is confirmation, not the primary early-warning signal.",
+        "No GPU rental pricing is scraped.",
+    ]
+    if cik_status != "ok":
+        caveats.append("SEC ticker mapping failed; SEC components used fallback values.")
+    if balance["status"] != "ok":
+        caveats.append("XBRL balance-sheet extraction is partial or fallback for at least one primary ticker.")
+    if equity["status"] != "ok" or spillover["status"] != "ok":
+        caveats.append("Some Yahoo price histories were missing or too short for compute confirmation.")
+    top_statuses = [component["status"] for component in components.values()]
+    return {
+        "score": clamp(sum(component["contribution"] for component in components.values())),
+        "status": "ok" if all(item == "ok" for item in top_statuses) else "fallback" if all(item in {"fallback", "failed"} for item in top_statuses) else "partial",
+        "generated_at": now.isoformat(timespec="seconds"),
+        "components": components,
+        "details": {
+            "financing_events": financing["events"],
+            "balance_sheet": balance["rows"],
+            "equity_confirmation": equity["details"],
+            "infrastructure_spillover": spillover["details"],
+            "sec_status": cik_status if cik_status != "ok" else component_status([financing["status"], balance["status"]]),
+            "caveats": caveats,
+        },
+    }
 
 
 def build_rows(series: dict[str, dict[str, float]]) -> list[dict[str, float | str]]:
@@ -325,7 +690,7 @@ def build_extended_hours(quotes: dict[str, dict] | None, now: datetime | None = 
     }
 
 
-def build_latest(rows: list[dict[str, float | str]], manual: dict, extended_hours: dict | None = None) -> dict:
+def build_latest(rows: list[dict[str, float | str]], extended_hours: dict | None = None, compute_stress: dict | None = None) -> dict:
     row = rows[-1]
     cols = {key: [float(r[key]) for r in rows] for key in rows[0] if key != "date"}
     stress_score = int(row["stress_score"])
@@ -333,6 +698,12 @@ def build_latest(rows: list[dict[str, float | str]], manual: dict, extended_hour
     credit_score = int(row["credit_score"])
     equity_score = int(row["equity_score"])
     compute_score = int(row["compute_score"])
+    compute_stress = compute_stress or {
+        "score": compute_score,
+        "status": "fallback",
+        "components": {},
+        "details": {"financing_events": [], "balance_sheet": [], "caveats": ["Compute stress detail unavailable."]},
+    }
     credit_stable = change(cols["hy_oas"], 5) <= .08 and change(cols["ig_oas"], 5) <= .04
     soxx_qqq_20 = pct_change(cols["soxx_qqq_rel"], 20)
     nvda_soxx_20 = pct_change(cols["nvda_soxx_rel"], 20)
@@ -355,12 +726,12 @@ def build_latest(rows: list[dict[str, float | str]], manual: dict, extended_hour
             {"key": "rates", "title": "Rates Pressure", "score": rates_score, "status": status(rates_score), "bullets": ["SOFR high", "2Y Treasury high"]},
             {"key": "credit", "title": "Credit Pressure", "score": credit_score, "status": status(credit_score), "bullets": ["HY OAS stable" if credit_stable else "HY OAS widening", "IG OAS stable" if change(cols["ig_oas"], 5) <= .04 else "IG OAS widening"]},
             {"key": "equity", "title": "Equity Confirmation", "score": equity_score, "status": status(equity_score), "bullets": ["SOXX lagging QQQ" if soxx_qqq_20 < 0 else "SOXX holding vs QQQ", "NVDA lagging SOXX" if nvda_soxx_20 < 0 else "NVDA holding vs SOXX"]},
-            {"key": "compute", "title": "AI Financing / Compute", "score": compute_score, "status": status(compute_score), "bullets": [f"GPU proxy {manual.get('gpu_proxy_status', 'unknown').replace('_', ' ')}", "No bad filing" if manual.get("financing_headline_status") == "no_bad_filing" else "Financing headline flagged"]},
+            {"key": "compute", "title": "Compute Financing Stress", "score": compute_score, "status": status(compute_score), "bullets": [f"SEC data {compute_stress.get('status', 'fallback')}", "Financing filings detected" if compute_stress.get("details", {}).get("financing_events") else "No recent financing filing signal"]},
         ],
         "triggers": {
-            "positive": ["HY OAS unchanged over 5d" if credit_stable else "Credit data still observable", "Hyperscaler capex guidance still intact" if manual.get("capex_guidance_status") == "intact" else "Capex guidance flagged", "SOXX not materially lagging QQQ" if soxx_qqq_20 > -8 else "Equity weakness visible"],
+            "positive": ["HY OAS unchanged over 5d" if credit_stable else "Credit data still observable", "Official stress score remains close-based", "SOXX not materially lagging QQQ" if soxx_qqq_20 > -8 else "Equity weakness visible"],
             "warning": ["SOFR remains above stress threshold", "2Y Treasury rising over 20d" if change(cols["dgs2"], 20) > 0 else "2Y Treasury still elevated", "SOXX trend negative vs QQQ over 20d" if soxx_qqq_20 < 0 else "Equity confirmation not negative"],
-            "negative": ["No confirmed negative financing event" if manual.get("financing_headline_status") == "no_bad_filing" else "Negative financing event flagged", "No major capex cut" if manual.get("capex_guidance_status") == "intact" else "Capex cut flagged", "No major GPU rental collapse confirmed" if manual.get("gpu_proxy_status") != "collapse" else "GPU rental collapse flagged"],
+            "negative": ["Recent financing filings detected" if compute_stress.get("details", {}).get("financing_events") else "No recent financing filing signal", "Balance-sheet data partial" if compute_stress.get("components", {}).get("balance_sheet_pressure_score", {}).get("status") != "ok" else "Balance-sheet extraction usable", "No GPU rental pricing scraped"],
         },
         "hard_data": [
             metric("sofr", "SOFR", row["sofr"], fmt_rate, cols["sofr"]),
@@ -376,7 +747,8 @@ def build_latest(rows: list[dict[str, float | str]], manual: dict, extended_hour
             "portfolio_read_through": ["No need to panic on one or two down days in AI stocks", "Avoid aggressive leverage or chasing neocloud exposure", "Core NVDA / hyperscaler exposure can be maintained", "Upgrade to STRESS only if HY OAS widens + equities lag + GPU rental proxy weakens"],
         },
         "extended_hours": extended_hours or build_extended_hours(None),
-        "sources": ["FRED public CSV", "Yahoo Finance chart API", "config/manual_signals.json"],
+        "compute_stress": compute_stress,
+        "sources": ["FRED public CSV", "Yahoo Finance chart API", "SEC EDGAR submissions JSON", "SEC EDGAR companyfacts JSON"],
     }
     return latest
 
@@ -431,6 +803,15 @@ def self_test() -> None:
     regular = build_extended_hours({"soxx": {"marketState": "REGULAR"}}, datetime.fromtimestamp(1_800_000_100, timezone.utc))
     assert regular["available"] is False
     assert regular["stale_reason"] == "Regular session is active; extended-hours overlay is inactive"
+    dates = [(datetime(2026, 1, 1, tzinfo=timezone.utc) + timedelta(days=i)).date().isoformat() for i in range(65)]
+    prices = {key: {day: 100 - i * .3 for i, day in enumerate(dates)} for key in COMPUTE_PRIMARY}
+    prices |= {
+        "qqq": {day: 100 for day in dates},
+        "soxx": {day: 100 for day in dates},
+    }
+    equity = build_equity_confirmation_score(prices)
+    assert equity["status"] == "ok"
+    assert equity["score"] > 35
 
 
 def main() -> None:
@@ -442,13 +823,17 @@ def main() -> None:
         return
     series = {key: fetch_series(series_id) for key, series_id in FRED_SERIES.items()}
     series.update({key: fetch_price_series(symbol) for key, symbol in PRICE_SERIES.items()})
+    compute_prices = {key: series.get(key, {}) for key in PRICE_SERIES}
+    compute_prices.update({key: fetch_price_series_safe(symbol) for key, symbol in EXTRA_PRICE_SERIES.items()})
     try:
         extended_hours = build_extended_hours(fetch_extended_quotes(PRICE_SERIES))
     except Exception as exc:
         extended_hours = build_extended_hours(None) | {"error": str(exc)}
-    manual = json.loads((ROOT / "config/manual_signals.json").read_text())
     rows = build_rows(series)
-    write_outputs(rows, build_latest(rows, manual, extended_hours))
+    compute_stress = build_compute_stress(compute_prices)
+    rows[-1]["compute_score"] = compute_stress["score"]
+    rows[-1]["stress_score"] = clamp(float(rows[-1]["rates_score"]) * .35 + float(rows[-1]["credit_score"]) * .35 + float(rows[-1]["equity_score"]) * .20 + compute_stress["score"] * .10)
+    write_outputs(rows, build_latest(rows, extended_hours, compute_stress))
 
 
 if __name__ == "__main__":
