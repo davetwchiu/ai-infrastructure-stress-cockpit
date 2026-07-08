@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08T01:14:23+00:00",
+  "updated_at": "2026-07-08T02:10:56+00:00",
   "updated_label": "2026-07-06 close",
   "stress": {
     "score": 32,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-07-08T01:14:23+00:00",
+    "generated_at": "2026-07-08T02:10:56+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -175,7 +175,7 @@
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 196.93,
-      "regularMarketChangePercent": 0.7057070164002477,
+      "regularMarketChangePercent": 0.705701866530295,
       "marketState": "CLOSED",
       "regularMarketTime": 1783454401,
       "extended_change_percent": null,
