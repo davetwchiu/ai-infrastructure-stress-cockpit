@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-08T02:10:56+00:00",
+  "updated_at": "2026-07-08T03:47:33+00:00",
   "updated_label": "2026-07-06 close",
   "stress": {
-    "score": 32,
+    "score": 36,
     "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
@@ -41,19 +41,19 @@
     },
     {
       "key": "compute",
-      "title": "AI Financing / Compute",
-      "score": 40,
-      "status": "WATCH",
+      "title": "Compute Financing Stress",
+      "score": 81,
+      "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
-        "GPU proxy soft",
-        "No bad filing"
+        "SEC data ok",
+        "Financing filings detected"
       ]
     }
   ],
   "triggers": {
     "positive": [
       "HY OAS unchanged over 5d",
-      "Hyperscaler capex guidance still intact",
+      "Official stress score remains close-based",
       "SOXX not materially lagging QQQ"
     ],
     "warning": [
@@ -62,9 +62,9 @@
       "SOXX trend negative vs QQQ over 20d"
     ],
     "negative": [
-      "No confirmed negative financing event",
-      "No major capex cut",
-      "No major GPU rental collapse confirmed"
+      "Recent financing filings detected",
+      "Balance-sheet extraction usable",
+      "No GPU rental pricing scraped"
     ]
   },
   "hard_data": [
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-07-08T02:10:56+00:00",
+    "generated_at": "2026-07-08T03:47:21+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -175,7 +175,7 @@
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 196.93,
-      "regularMarketChangePercent": 0.705701866530295,
+      "regularMarketChangePercent": 0.7057070164002477,
       "marketState": "CLOSED",
       "regularMarketTime": 1783454401,
       "extended_change_percent": null,
@@ -183,9 +183,361 @@
       "quote_time_label": null
     }
   },
+  "compute_stress": {
+    "score": 81,
+    "status": "ok",
+    "generated_at": "2026-07-08T03:47:21+00:00",
+    "components": {
+      "financing_event_score": {
+        "score": 100,
+        "weight": 0.45,
+        "contribution": 45.0,
+        "status": "ok"
+      },
+      "balance_sheet_pressure_score": {
+        "score": 63,
+        "weight": 0.25,
+        "contribution": 15.75,
+        "status": "ok"
+      },
+      "compute_equity_confirmation_score": {
+        "score": 83,
+        "weight": 0.2,
+        "contribution": 16.6,
+        "status": "ok"
+      },
+      "infrastructure_spillover_score": {
+        "score": 37,
+        "weight": 0.1,
+        "contribution": 3.7,
+        "status": "ok"
+      }
+    },
+    "details": {
+      "financing_events": [
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-07-01",
+          "accession_number": "0001140361-26-027202",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-06-26",
+          "accession_number": "0001493152-26-030333",
+          "signal_type": "material_financing_8k",
+          "points": 8.0,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-06-18",
+          "accession_number": "0001769628-26-000291",
+          "signal_type": "material_financing_8k",
+          "points": 8.0,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-06-16",
+          "accession_number": "0001493152-26-028899",
+          "signal_type": "material_financing_8k",
+          "points": 8.0,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-06-11",
+          "accession_number": "0001769628-26-000278",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-06-10",
+          "accession_number": "0001769628-26-000270",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-06-09",
+          "accession_number": "0001493152-26-027984",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-06-09",
+          "accession_number": "0001493152-26-027979",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-06-09",
+          "accession_number": "0001493152-26-027857",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "S-3ASR",
+          "filing_date": "2026-06-05",
+          "accession_number": "0001628280-26-041300",
+          "signal_type": "shelf_registration",
+          "points": 4.8,
+          "reason": "Shelf registration or financing capacity filing"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-06-01",
+          "accession_number": "0001140361-26-023427",
+          "signal_type": "material_financing_8k",
+          "points": 4.8,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-05-26",
+          "accession_number": "0001878848-26-000030",
+          "signal_type": "material_financing_8k",
+          "points": 4.8,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-05-18",
+          "accession_number": "0001769628-26-000236",
+          "signal_type": "material_financing_8k",
+          "points": 4.8,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-05-14",
+          "accession_number": "0001140361-26-021285",
+          "signal_type": "material_financing_8k",
+          "points": 4.8,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-05-12",
+          "accession_number": "0001140361-26-020669",
+          "signal_type": "recent_8k",
+          "points": 1.8,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-05-11",
+          "accession_number": "0001140361-26-020370",
+          "signal_type": "recent_8k",
+          "points": 1.8,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-05-11",
+          "accession_number": "0001878848-26-000028",
+          "signal_type": "recent_8k",
+          "points": 1.8,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-05-08",
+          "accession_number": "0001878848-26-000025",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-05-07",
+          "accession_number": "0001769628-26-000220",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-05-05",
+          "accession_number": "0001493152-26-021333",
+          "signal_type": "material_financing_8k",
+          "points": 2.4,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-04-23",
+          "accession_number": "0001144879-26-000036",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-04-21",
+          "accession_number": "0001769628-26-000183",
+          "signal_type": "material_financing_8k",
+          "points": 2.4,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-04-16",
+          "accession_number": "0001493152-26-017092",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-04-15",
+          "accession_number": "0001769628-26-000167",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-04-14",
+          "accession_number": "0001769628-26-000164",
+          "signal_type": "material_financing_8k",
+          "points": 2.4,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-04-09",
+          "accession_number": "0001193125-26-148912",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-04-09",
+          "accession_number": "0001769628-26-000154",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        }
+      ],
+      "balance_sheet": [
+        {
+          "ticker": "CRWV",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 9.76,
+          "capex_to_revenue": 3.7,
+          "interest_to_revenue": null,
+          "fcf_proxy_to_revenue": -2.27,
+          "score": 67,
+          "data_status": "ok"
+        },
+        {
+          "ticker": "NBIS",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 1.11,
+          "capex_to_revenue": 7.67,
+          "interest_to_revenue": 0.23,
+          "fcf_proxy_to_revenue": -6.95,
+          "score": 67,
+          "data_status": "ok"
+        },
+        {
+          "ticker": "APLD",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 0.0,
+          "capex_to_revenue": 0.6,
+          "interest_to_revenue": 0.21,
+          "fcf_proxy_to_revenue": -0.94,
+          "score": 62,
+          "data_status": "ok"
+        },
+        {
+          "ticker": "IREN",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": null,
+          "capex_to_revenue": 11.53,
+          "interest_to_revenue": null,
+          "fcf_proxy_to_revenue": -9.53,
+          "score": 57,
+          "data_status": "ok"
+        }
+      ],
+      "equity_confirmation": {
+        "usable_tickers": [
+          "CRWV",
+          "NBIS",
+          "APLD",
+          "IREN"
+        ],
+        "benchmark": "50% QQQ / 50% SOXX",
+        "relative_5d_pct_points": -11.33,
+        "relative_20d_pct_points": -21.58,
+        "relative_60d_pct_points": -15.71,
+        "nvda_relative_20d_pct_points": -16.1
+      },
+      "infrastructure_spillover": {
+        "usable_tickers": [
+          "DLR",
+          "EQIX",
+          "VRT",
+          "ETN"
+        ],
+        "benchmark": "50% QQQ / 50% XLI",
+        "relative_5d_pct_points": -3.26,
+        "relative_20d_pct_points": -5.21
+      },
+      "sec_status": "ok",
+      "caveats": [
+        "SEC data is best-effort.",
+        "Filing detection is rule-based, not legal analysis.",
+        "Equity-price data is confirmation, not the primary early-warning signal.",
+        "No GPU rental pricing is scraped."
+      ]
+    }
+  },
   "sources": [
     "FRED public CSV",
     "Yahoo Finance chart API",
-    "config/manual_signals.json"
+    "SEC EDGAR submissions JSON",
+    "SEC EDGAR companyfacts JSON"
   ]
 }

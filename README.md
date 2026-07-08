@@ -17,9 +17,10 @@ Is the AI infrastructure trade still under rate pressure, or is credit stress co
 ## Data Sources
 
 - FRED public CSV: SOFR, 2Y Treasury, 10Y Treasury, IG OAS, HY OAS.
-- Yahoo Finance chart API: SOXX, QQQ, NVDA daily closes.
+- Yahoo Finance chart API: SOXX, QQQ, NVDA, neocloud, and infrastructure daily closes.
 - Yahoo Finance quote API: best-effort SOXX, QQQ, NVDA pre-market / after-market quote fields.
-- `config/manual_signals.json`: small manual inputs for compute / financing signals.
+- SEC EDGAR submissions JSON: best-effort recent financing filing detection.
+- SEC EDGAR companyfacts JSON: best-effort XBRL balance-sheet pressure extraction.
 
 The dashboard reads only `data/latest.json` and `data/history.csv`.
 
@@ -51,13 +52,22 @@ Overall stress state:
 
 Equity Confirmation uses SOXX vs QQQ relative performance and NVDA vs SOXX relative performance. The dashboard charts SOXX / QQQ relative performance only.
 
+Compute Financing Stress Score v1 replaces the old placeholder compute score. It is a rule-based composite:
+
+- 45% SEC filing event detection for CRWV, NBIS, APLD, and IREN.
+- 25% SEC/XBRL balance-sheet pressure where usable facts are available.
+- 20% neocloud equity confirmation versus 50% QQQ / 50% SOXX.
+- 10% infrastructure spillover confirmation in DLR, EQIX, VRT, and ETN.
+
+It does not use machine learning, LLM/news classification, GPU rental price scraping, or paid credit/bond data. SEC data is best-effort and should be treated as an early-warning aid, not legal or accounting advice.
+
 The Extended-hours Equity Overlay is provisional. It watches whether SOXX is materially lagging QQQ and whether NVDA is materially lagging SOXX during pre-market or after-market trading. It does not change `stress.score`, and it does not by itself confirm credit stress. The official stress score remains close-based.
 
 ## Limitations
 
 - Market data can lag, revise, or fail if a public source is unavailable.
 - Extended-hours data may be unavailable or stale; when that happens the dashboard shows the overlay as unavailable and keeps the official close-based score unchanged.
-- Manual compute / financing signals are intentionally simple and auditable.
+- SEC filing and XBRL parsing can be partial because issuer filings and tags vary.
 - The tool is a stress monitor, not investment advice or a trading system.
 
 ## Local Run

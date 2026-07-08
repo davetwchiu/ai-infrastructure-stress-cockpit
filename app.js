@@ -5,6 +5,8 @@ const statusClass = (status = "") => status.toLowerCase().replace(/\s+/g, "-");
 const fmt = (n, digits = 0) => Number.isFinite(Number(n)) ? Number(n).toFixed(digits) : "--";
 const pct = (n) => Number.isFinite(Number(n)) ? `${Number(n) >= 0 ? "+" : ""}${Number(n).toFixed(2)}%` : "--";
 const localTime = (value) => value ? new Date(value).toLocaleString() : "--";
+const presentNumber = (value) => value !== null && value !== undefined && Number.isFinite(Number(value));
+const titleCase = (value = "") => value.split(/[_\s-]+/).map((part) => part ? part[0].toUpperCase() + part.slice(1) : "").join(" ");
 
 function parseCsv(text) {
   const [head, ...rows] = text.trim().split(/\r?\n/).map((line) => line.split(","));
@@ -62,7 +64,7 @@ function renderFreshness(data) {
     ["Extended quote as of", localTime(overlay.as_of)],
     ["Market state", overlay.market_state || "UNKNOWN"],
     ["Overlay freshness", overlayFreshness(overlay)],
-    ["Quote age", Number.isFinite(Number(overlay.quote_age_minutes)) ? `${overlay.quote_age_minutes} min` : "--"],
+    ["Quote age", presentNumber(overlay.quote_age_minutes) ? `${overlay.quote_age_minutes} min` : "--"],
     ["Next expected automatic refresh", overlay.is_active_session ? "Scheduled about every 10 minutes; GitHub Actions can run late." : "During pre-market or after-hours on the next scheduled GitHub Actions run."],
   ];
   document.getElementById("freshness").innerHTML = rows
@@ -124,7 +126,7 @@ function renderExtendedHours(data) {
   const cls = statusClass(overlay.status);
   const rows = [
     ["Status", overlayFreshness(overlay)],
-    ["Quote age", Number.isFinite(Number(overlay.quote_age_minutes)) ? `${overlay.quote_age_minutes} min` : "--"],
+    ["Quote age", presentNumber(overlay.quote_age_minutes) ? `${overlay.quote_age_minutes} min` : "--"],
     ["Market state", overlay.market_state],
     ["SOXX extended-hours change", pct(overlay.soxx?.extended_change_percent)],
     ["QQQ extended-hours change", pct(overlay.qqq?.extended_change_percent)],
@@ -144,6 +146,70 @@ function renderExtendedHours(data) {
   <p>This overlay is provisional and does not change the official close-based stress score.</p>`;
 }
 
+function renderComputeStress(data) {
+  const target = document.getElementById("compute-stress");
+  const fallbackDriver = data.drivers?.find((driver) => driver.key === "compute") || {};
+  const compute = data.compute_stress || {
+    score: fallbackDriver.score,
+    status: "fallback",
+    components: {},
+    details: { financing_events: [], caveats: ["Detailed compute stress data unavailable."] },
+  };
+  const componentLabels = {
+    financing_event_score: "Financing events",
+    balance_sheet_pressure_score: "Balance-sheet pressure",
+    compute_equity_confirmation_score: "Equity confirmation",
+    infrastructure_spillover_score: "Infrastructure spillover",
+  };
+  const components = Object.entries(componentLabels).map(([key, label]) => {
+    const item = compute.components?.[key] || {};
+    return `<div class="compute-component">
+      <span>${label}</span>
+      <strong>${fmt(item.score)}</strong>
+      <small>${fmt(Number(item.contribution), 1)} pts @ ${fmt(Number(item.weight) * 100)}%</small>
+      <b class="pill ${statusClass(item.status || "fallback")}">${titleCase(item.status || "fallback")}</b>
+    </div>`;
+  }).join("");
+  const events = compute.details?.financing_events || [];
+  const eventRows = events.length ? events.slice(0, 8).map((event) => `<tr>
+    <td>${event.ticker || "--"}</td>
+    <td>${event.form || "--"}</td>
+    <td>${event.filing_date || "--"}</td>
+    <td>${titleCase(event.signal_type || "")}</td>
+    <td>${fmt(event.points, 1)}</td>
+    <td>${event.reason || "--"}</td>
+  </tr>`).join("") : `<tr><td colspan="6">No recent financing filing signal detected.</td></tr>`;
+  const caveats = compute.details?.caveats || [];
+  const componentStatuses = Object.values(compute.components || {}).map((item) => item.status);
+  const weakParts = Object.entries(componentLabels)
+    .filter(([key]) => Number(compute.components?.[key]?.score) >= 50)
+    .map(([, label]) => label.toLowerCase());
+  const interpretation = weakParts.length
+    ? `Compute stress is elevated mainly because ${weakParts.slice(0, 2).join(" and ")} are pressuring the score.`
+    : `Compute stress is not elevated; SEC and market confirmation signals are limited.`;
+  const partialNote = componentStatuses.some((item) => item && item !== "ok") ? " Some source data is partial or fallback." : "";
+
+  target.innerHTML = `<div class="compute-head">
+    <div>
+      <h2>Compute Financing Stress Score</h2>
+      <p>${interpretation}${partialNote}</p>
+    </div>
+    <div class="compute-score">
+      <strong>${fmt(compute.score)}</strong>
+      <span>/ 100</span>
+      <b class="pill ${statusClass(compute.status)}">${titleCase(compute.status || "fallback")}</b>
+    </div>
+  </div>
+  <div class="compute-components">${components}</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ticker</th><th>Form</th><th>Filing date</th><th>Signal</th><th>Points</th><th>Reason</th></tr></thead>
+      <tbody>${eventRows}</tbody>
+    </table>
+  </div>
+  <ul class="caveats">${caveats.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+}
+
 function renderPortfolio(data) {
   document.getElementById("portfolio").innerHTML = data.action.portfolio_read_through
     .map((item) => `<li>${item}</li>`)
@@ -159,6 +225,7 @@ async function init() {
     renderFreshness(latestData);
     renderCards(latestData, history);
     renderTriggers(latestData);
+    renderComputeStress(latestData);
     renderExtendedHours(latestData);
     renderHardData(latestData, history);
     renderPortfolio(latestData);
