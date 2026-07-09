@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08T23:40:39+00:00",
+  "updated_at": "2026-07-09T01:21:37+00:00",
   "updated_label": "2026-07-07 close",
   "stress": {
     "score": 32,
@@ -140,65 +140,53 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-07-08T23:40:38+00:00",
-    "as_of": "2026-07-08T23:40:34+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-07-09T01:21:36+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
-    "status": "WATCH",
-    "interpretation": "One extended-hours equity warning is active; wait for regular-session and credit confirmation.",
+    "status": "NORMAL",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 562.03,
       "regularMarketChangePercent": 1.8742409686599126,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1783540801,
-      "postMarketPrice": 564.042,
-      "postMarketChangePercent": 0.35798800775759254,
-      "postMarketTime": 1783554002,
-      "extended_change_percent": 0.35798800775759254,
-      "quote_time": 1783554002,
-      "quote_time_label": "2026-07-08T23:40:02+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 711.44,
       "regularMarketChangePercent": 0.2833260504912616,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1783540800,
-      "postMarketPrice": 711.1,
-      "postMarketChangePercent": -0.04779039694141618,
-      "postMarketTime": 1783554028,
-      "extended_change_percent": -0.04779039694141618,
-      "quote_time": 1783554028,
-      "quote_time_label": "2026-07-08T23:40:28+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 204.12,
       "regularMarketChangePercent": 3.651043518001318,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1783540800,
-      "postMarketPrice": 203.25,
-      "postMarketChangePercent": -0.42621987066431277,
-      "postMarketTime": 1783554034,
-      "extended_change_percent": -0.42621987066431277,
-      "quote_time": 1783554034,
-      "quote_time_label": "2026-07-08T23:40:34+00:00"
-    },
-    "soxx_vs_qqq_change": 0.41,
-    "nvda_vs_soxx_change": -0.78,
-    "overlay_score": 45
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
     "score": 78,
     "status": "ok",
-    "generated_at": "2026-07-08T23:40:38+00:00",
+    "generated_at": "2026-07-09T01:21:36+00:00",
     "components": {
       "financing_event_score": {
         "score": 100,
@@ -451,24 +439,6 @@
           "signal_type": "material_financing_8k",
           "points": 2.4,
           "reason": "8-K references material agreement or debt item"
-        },
-        {
-          "ticker": "CRWV",
-          "form": "8-K",
-          "filing_date": "2026-04-09",
-          "accession_number": "0001193125-26-148912",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "CRWV",
-          "form": "8-K",
-          "filing_date": "2026-04-09",
-          "accession_number": "0001769628-26-000154",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
         }
       ],
       "balance_sheet": [
