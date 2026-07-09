@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T13:50:12+00:00",
+  "updated_at": "2026-07-09T16:18:27+00:00",
   "updated_label": "2026-07-07 close",
   "stress": {
     "score": 32,
@@ -42,10 +42,10 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 77,
+      "score": 78,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
-        "SEC data partial",
+        "SEC data ok",
         "Financing filings detected"
       ]
     }
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "REGULAR",
-    "generated_at": "2026-07-09T13:50:11+00:00",
+    "generated_at": "2026-07-09T16:18:25+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -154,39 +154,39 @@
     "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 590.72,
-      "regularMarketChangePercent": 5.1047097130046515,
+      "regularMarketPrice": 591.07,
+      "regularMarketChangePercent": 5.16698396882731,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783605009,
+      "regularMarketTime": 1783613901,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 720.25,
-      "regularMarketChangePercent": 1.2383335207466484,
+      "regularMarketPrice": 722.08,
+      "regularMarketChangePercent": 1.4955583042842724,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783605009,
+      "regularMarketTime": 1783613902,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 201.93,
-      "regularMarketChangePercent": -1.0728982951205168,
+      "regularMarketPrice": 202.19,
+      "regularMarketChangePercent": -0.9455222418185416,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783605010,
+      "regularMarketTime": 1783613903,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 77,
-    "status": "partial",
-    "generated_at": "2026-07-09T13:50:11+00:00",
+    "score": 78,
+    "status": "ok",
+    "generated_at": "2026-07-09T16:18:25+00:00",
     "components": {
       "financing_event_score": {
         "score": 100,
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 67,
+        "score": 72,
         "weight": 0.2,
-        "contribution": 13.4,
-        "status": "partial"
+        "contribution": 14.4,
+        "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 30,
+        "score": 31,
         "weight": 0.1,
-        "contribution": 3.0,
+        "contribution": 3.1,
         "status": "ok"
       }
     },
@@ -487,13 +487,14 @@
         "usable_tickers": [
           "CRWV",
           "NBIS",
+          "APLD",
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": 2.32,
-        "relative_20d_pct_points": -12.25,
-        "relative_60d_pct_points": -24.75,
-        "nvda_relative_20d_pct_points": -5.79
+        "relative_5d_pct_points": -0.69,
+        "relative_20d_pct_points": -16.27,
+        "relative_60d_pct_points": -23.22,
+        "nvda_relative_20d_pct_points": -9.73
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -503,16 +504,15 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 2.98,
-        "relative_20d_pct_points": -0.1
+        "relative_5d_pct_points": 2.51,
+        "relative_20d_pct_points": -0.58
       },
       "sec_status": "ok",
       "caveats": [
         "SEC data is best-effort.",
         "Filing detection is rule-based, not legal analysis.",
         "Equity-price data is confirmation, not the primary early-warning signal.",
-        "No GPU rental pricing is scraped.",
-        "Some Yahoo price histories were missing or too short for compute confirmation."
+        "No GPU rental pricing is scraped."
       ]
     }
   },
