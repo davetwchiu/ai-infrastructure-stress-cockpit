@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T21:35:22+00:00",
+  "updated_at": "2026-07-09T22:54:45+00:00",
   "updated_label": "2026-07-08 close",
   "stress": {
     "score": 33,
@@ -141,8 +141,8 @@
   },
   "extended_hours": {
     "market_state": "POST",
-    "generated_at": "2026-07-09T21:35:21+00:00",
-    "as_of": "2026-07-09T21:35:20+00:00",
+    "generated_at": "2026-07-09T22:54:43+00:00",
+    "as_of": "2026-07-09T22:54:42+00:00",
     "available": true,
     "is_stale": false,
     "is_active_session": true,
@@ -158,12 +158,12 @@
       "regularMarketChangePercent": 3.499813177232536,
       "marketState": "POST",
       "regularMarketTime": 1783627200,
-      "postMarketPrice": 581.0,
-      "postMarketChangePercent": -0.1203369434416457,
-      "postMarketTime": 1783632887,
-      "extended_change_percent": -0.1203369434416457,
-      "quote_time": 1783632887,
-      "quote_time_label": "2026-07-09T21:34:47+00:00"
+      "postMarketPrice": 583.5,
+      "postMarketChangePercent": 0.3094378545642096,
+      "postMarketTime": 1783637639,
+      "extended_change_percent": 0.3094378545642096,
+      "quote_time": 1783637639,
+      "quote_time_label": "2026-07-09T22:53:59+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
@@ -171,12 +171,12 @@
       "regularMarketChangePercent": 1.664230293489255,
       "marketState": "POST",
       "regularMarketTime": 1783627201,
-      "postMarketPrice": 722.8,
-      "postMarketChangePercent": -0.06636434022785354,
-      "postMarketTime": 1783632910,
-      "extended_change_percent": -0.06636434022785354,
-      "quote_time": 1783632910,
-      "quote_time_label": "2026-07-09T21:35:10+00:00"
+      "postMarketPrice": 722.6,
+      "postMarketChangePercent": -0.09401614865611752,
+      "postMarketTime": 1783637660,
+      "extended_change_percent": -0.09401614865611752,
+      "quote_time": 1783637660,
+      "quote_time_label": "2026-07-09T22:54:20+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
@@ -184,21 +184,21 @@
       "regularMarketChangePercent": -0.6564765824025098,
       "marketState": "POST",
       "regularMarketTime": 1783627200,
-      "postMarketPrice": 202.76,
-      "postMarketChangePercent": -0.009862905612001427,
-      "postMarketTime": 1783632920,
-      "extended_change_percent": -0.009862905612001427,
-      "quote_time": 1783632920,
-      "quote_time_label": "2026-07-09T21:35:20+00:00"
+      "postMarketPrice": 202.302,
+      "postMarketChangePercent": -0.23572344412664537,
+      "postMarketTime": 1783637682,
+      "extended_change_percent": -0.23572344412664537,
+      "quote_time": 1783637682,
+      "quote_time_label": "2026-07-09T22:54:42+00:00"
     },
-    "soxx_vs_qqq_change": -0.05,
-    "nvda_vs_soxx_change": 0.11,
+    "soxx_vs_qqq_change": 0.4,
+    "nvda_vs_soxx_change": -0.55,
     "overlay_score": 10
   },
   "compute_stress": {
     "score": 79,
     "status": "ok",
-    "generated_at": "2026-07-09T21:35:21+00:00",
+    "generated_at": "2026-07-09T22:54:43+00:00",
     "components": {
       "financing_event_score": {
         "score": 100,
