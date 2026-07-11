@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T23:32:38+00:00",
+  "updated_at": "2026-07-11T01:06:23+00:00",
   "updated_label": "2026-07-09 close",
   "stress": {
     "score": 32,
@@ -140,65 +140,53 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-07-10T23:32:36+00:00",
-    "as_of": "2026-07-10T23:32:34+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-07-11T01:06:21+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 581.34,
       "regularMarketChangePercent": -0.061887570912844136,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1783713600,
-      "postMarketPrice": 582.47,
-      "postMarketChangePercent": 0.19437850483365882,
-      "postMarketTime": 1783726316,
-      "extended_change_percent": 0.19437850483365882,
-      "quote_time": 1783726316,
-      "quote_time_label": "2026-07-10T23:31:56+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 725.51,
       "regularMarketChangePercent": 0.31583497159530793,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1783713600,
-      "postMarketPrice": 725.93,
-      "postMarketChangePercent": 0.057890311642849746,
-      "postMarketTime": 1783726351,
-      "extended_change_percent": 0.057890311642849746,
-      "quote_time": 1783726351,
-      "quote_time_label": "2026-07-10T23:32:31+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 210.96,
       "regularMarketChangePercent": 4.033928395305253,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1783713600,
-      "postMarketPrice": 210.491,
-      "postMarketChangePercent": -0.22231702692453448,
-      "postMarketTime": 1783726354,
-      "extended_change_percent": -0.22231702692453448,
-      "quote_time": 1783726354,
-      "quote_time_label": "2026-07-10T23:32:34+00:00"
-    },
-    "soxx_vs_qqq_change": 0.14,
-    "nvda_vs_soxx_change": -0.42,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
     "score": 79,
     "status": "ok",
-    "generated_at": "2026-07-10T23:32:36+00:00",
+    "generated_at": "2026-07-11T01:06:21+00:00",
     "components": {
       "financing_event_score": {
         "score": 100,
@@ -278,7 +266,7 @@
           "filing_date": "2026-06-10",
           "accession_number": "0001769628-26-000270",
           "signal_type": "recent_8k",
-          "points": 3.0,
+          "points": 1.8,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -368,7 +356,7 @@
           "filing_date": "2026-05-11",
           "accession_number": "0001140361-26-020370",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -377,7 +365,7 @@
           "filing_date": "2026-05-11",
           "accession_number": "0001878848-26-000028",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
