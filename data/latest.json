@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T13:33:17+00:00",
+  "updated_at": "2026-07-13T16:10:39+00:00",
   "updated_label": "2026-07-09 close",
   "stress": {
     "score": 32,
@@ -45,7 +45,7 @@
       "score": 78,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
-        "SEC data ok",
+        "SEC data partial",
         "Financing filings detected"
       ]
     }
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "REGULAR",
-    "generated_at": "2026-07-13T13:33:15+00:00",
+    "generated_at": "2026-07-13T16:10:37+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -154,30 +154,30 @@
     "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 563.21,
-      "regularMarketChangePercent": -3.118656896136507,
+      "regularMarketPrice": 559.91,
+      "regularMarketChangePercent": -3.686310936801196,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783949593,
+      "regularMarketTime": 1783959034,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 717.11,
-      "regularMarketChangePercent": -1.1578062328568839,
+      "regularMarketPrice": 715.8,
+      "regularMarketChangePercent": -1.3383688715524311,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783949592,
+      "regularMarketTime": 1783959037,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 210.14,
-      "regularMarketChangePercent": -0.3886992794842725,
+      "regularMarketPrice": 206.205,
+      "regularMarketChangePercent": -2.253981797497151,
       "marketState": "REGULAR",
-      "regularMarketTime": 1783949593,
+      "regularMarketTime": 1783959036,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
@@ -185,8 +185,8 @@
   },
   "compute_stress": {
     "score": 78,
-    "status": "ok",
-    "generated_at": "2026-07-13T13:33:15+00:00",
+    "status": "partial",
+    "generated_at": "2026-07-13T16:10:37+00:00",
     "components": {
       "financing_event_score": {
         "score": 99,
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 76,
+        "score": 72,
         "weight": 0.2,
-        "contribution": 15.2,
-        "status": "ok"
+        "contribution": 14.4,
+        "status": "partial"
       },
       "infrastructure_spillover_score": {
-        "score": 30,
+        "score": 31,
         "weight": 0.1,
-        "contribution": 3.0,
+        "contribution": 3.1,
         "status": "ok"
       }
     },
@@ -487,14 +487,13 @@
         "usable_tickers": [
           "CRWV",
           "NBIS",
-          "APLD",
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -1.9,
-        "relative_20d_pct_points": -15.06,
-        "relative_60d_pct_points": -30.47,
-        "nvda_relative_20d_pct_points": -19.6
+        "relative_5d_pct_points": -0.9,
+        "relative_20d_pct_points": -12.29,
+        "relative_60d_pct_points": -31.83,
+        "nvda_relative_20d_pct_points": -15.26
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -504,15 +503,16 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 2.81,
-        "relative_20d_pct_points": 0.01
+        "relative_5d_pct_points": 2.14,
+        "relative_20d_pct_points": -0.68
       },
       "sec_status": "ok",
       "caveats": [
         "SEC data is best-effort.",
         "Filing detection is rule-based, not legal analysis.",
         "Equity-price data is confirmation, not the primary early-warning signal.",
-        "No GPU rental pricing is scraped."
+        "No GPU rental pricing is scraped.",
+        "Some Yahoo price histories were missing or too short for compute confirmation."
       ]
     }
   },
