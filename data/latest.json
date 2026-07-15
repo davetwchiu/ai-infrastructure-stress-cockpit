@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-14T23:15:33+00:00",
+  "updated_at": "2026-07-15T00:10:11+00:00",
   "updated_label": "2026-07-13 close",
   "stress": {
-    "score": 42,
+    "score": 41,
     "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 81,
+      "score": 80,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-07-14T23:15:31+00:00",
-    "as_of": "2026-07-14T23:15:27+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-07-15T00:10:08+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 567.92,
       "regularMarketChangePercent": 2.584852152237116,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784059200,
-      "postMarketPrice": 569.11,
-      "postMarketChangePercent": 0.20953655444428954,
-      "postMarketTime": 1784070883,
-      "extended_change_percent": 0.20953655444428954,
-      "quote_time": 1784070883,
-      "quote_time_label": "2026-07-14T23:14:43+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 719.69,
-      "regularMarketChangePercent": 1.1169809199988778,
-      "marketState": "POST",
+      "regularMarketPrice": 719.71,
+      "regularMarketChangePercent": 1.122628233464229,
+      "marketState": "CLOSED",
       "regularMarketTime": 1784059200,
-      "postMarketPrice": 719.89,
-      "postMarketChangePercent": 0.027789742805928164,
-      "postMarketTime": 1784070927,
-      "extended_change_percent": 0.027789742805928164,
-      "quote_time": 1784070927,
-      "quote_time_label": "2026-07-14T23:15:27+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 211.8,
       "regularMarketChangePercent": 4.064101127901565,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784059200,
-      "postMarketPrice": 211.44,
-      "postMarketChangePercent": -0.16997167138811387,
-      "postMarketTime": 1784070918,
-      "extended_change_percent": -0.16997167138811387,
-      "quote_time": 1784070918,
-      "quote_time_label": "2026-07-14T23:15:18+00:00"
-    },
-    "soxx_vs_qqq_change": 0.18,
-    "nvda_vs_soxx_change": -0.38,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 81,
+    "score": 80,
     "status": "ok",
-    "generated_at": "2026-07-14T23:15:31+00:00",
+    "generated_at": "2026-07-15T00:10:08+00:00",
     "components": {
       "financing_event_score": {
-        "score": 95,
+        "score": 94,
         "weight": 0.45,
-        "contribution": 42.75,
+        "contribution": 42.3,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -430,15 +418,6 @@
           "form": "8-K",
           "filing_date": "2026-04-16",
           "accession_number": "0001493152-26-017092",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "CRWV",
-          "form": "8-K",
-          "filing_date": "2026-04-15",
-          "accession_number": "0001769628-26-000167",
           "signal_type": "recent_8k",
           "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
