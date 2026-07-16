@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-15T23:24:56+00:00",
+  "updated_at": "2026-07-16T00:58:26+00:00",
   "updated_label": "2026-07-14 close",
   "stress": {
     "score": 36,
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-07-15T23:24:54+00:00",
-    "as_of": "2026-07-15T23:24:51+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-07-16T00:58:24+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 555.27,
       "regularMarketChangePercent": -2.2274263980842313,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784145600,
-      "postMarketPrice": 554.25,
-      "postMarketChangePercent": -0.18369441893132388,
-      "postMarketTime": 1784157891,
-      "extended_change_percent": -0.18369441893132388,
-      "quote_time": 1784157891,
-      "quote_time_label": "2026-07-15T23:24:51+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 717.74,
       "regularMarketChangePercent": -0.27372135999221836,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784145600,
-      "postMarketPrice": 717.6501,
-      "postMarketChangePercent": -0.012525427034870695,
-      "postMarketTime": 1784157890,
-      "extended_change_percent": -0.012525427034870695,
-      "quote_time": 1784157890,
-      "quote_time_label": "2026-07-15T23:24:50+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 212.5,
       "regularMarketChangePercent": 0.3305004721435356,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784145600,
-      "postMarketPrice": 211.48,
-      "postMarketChangePercent": -0.48000000000000265,
-      "postMarketTime": 1784157891,
-      "extended_change_percent": -0.48000000000000265,
-      "quote_time": 1784157891,
-      "quote_time_label": "2026-07-15T23:24:51+00:00"
-    },
-    "soxx_vs_qqq_change": -0.17,
-    "nvda_vs_soxx_change": -0.3,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
     "score": 80,
     "status": "ok",
-    "generated_at": "2026-07-15T23:24:54+00:00",
+    "generated_at": "2026-07-16T00:58:24+00:00",
     "components": {
       "financing_event_score": {
-        "score": 94,
+        "score": 93,
         "weight": 0.45,
-        "contribution": 42.3,
+        "contribution": 41.85,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -424,15 +412,6 @@
           "signal_type": "material_financing_8k",
           "points": 2.4,
           "reason": "8-K references material agreement or debt item"
-        },
-        {
-          "ticker": "APLD",
-          "form": "8-K",
-          "filing_date": "2026-04-16",
-          "accession_number": "0001493152-26-017092",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
         }
       ],
       "balance_sheet": [
