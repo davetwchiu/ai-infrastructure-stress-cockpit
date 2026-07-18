@@ -7,6 +7,7 @@ const pct = (n) => Number.isFinite(Number(n)) ? `${Number(n) >= 0 ? "+" : ""}${N
 const localTime = (value) => value ? new Date(value).toLocaleString() : "--";
 const presentNumber = (value) => value !== null && value !== undefined && Number.isFinite(Number(value));
 const titleCase = (value = "") => value.split(/[_\s-]+/).map((part) => part ? part[0].toUpperCase() + part.slice(1) : "").join(" ");
+const scoreStatus = (score) => Number(score) >= 71 ? "CREDIT STRESS CONFIRMED" : Number(score) >= 51 ? "STRESS" : Number(score) >= 26 ? "WATCH" : "NORMAL";
 
 function parseCsv(text) {
   const [head, ...rows] = text.trim().split(/\r?\n/).map((line) => line.split(","));
@@ -146,6 +147,95 @@ function renderExtendedHours(data) {
   <p>This overlay is provisional and does not change the official close-based stress score.</p>`;
 }
 
+function renderNarrativeHealth(data) {
+  const target = document.getElementById("narrative-health");
+  const equity = data.drivers?.find((driver) => driver.key === "equity") || {};
+  const relative = data.hard_data?.find((metric) => metric.key === "soxx_qqq_rel") || {};
+  const overlay = data.extended_hours || {};
+  const compute = data.compute_stress || {};
+  const financing = compute.components?.financing_event_score || {};
+  const balance = compute.components?.balance_sheet_pressure_score || {};
+  const financingEvents = compute.details?.financing_events || [];
+  const neocloudScore = presentNumber(financing.score) && presentNumber(balance.score)
+    ? Math.round(Number(financing.score) * .65 + Number(balance.score) * .35)
+    : presentNumber(compute.score) ? Number(compute.score) : null;
+  const neocloudStatus = presentNumber(neocloudScore) ? scoreStatus(neocloudScore) : "UNMONITORED";
+  const leverageScore = presentNumber(equity.score) ? Number(equity.score) : null;
+  const leverageStatus = presentNumber(leverageScore) ? equity.status || scoreStatus(leverageScore) : "UNMONITORED";
+  const leverageInterpretation = Number(leverageScore) >= 51
+    ? "Price action is consistent with forced de-risking or crowded-position unwinds, but this is not direct evidence of Korean margin liquidation."
+    : Number(leverageScore) >= 26
+    ? "Positioning stress is visible, but broad credit confirmation remains limited."
+    : "Current equity-relative data does not show material liquidation stress.";
+  const neocloudInterpretation = Number(neocloudScore) >= 71
+    ? "Neocloud financing pressure is elevated across recent SEC filing activity and balance-sheet indicators."
+    : Number(neocloudScore) >= 51
+    ? "Neocloud financing pressure is building and warrants closer review of funding events and cash burn."
+    : "Neocloud financing indicators are not showing broad stress.";
+  const lane = ({ title, score, status, interpretation, evidence, source }) => `<article class="narrative-lane">
+    <div class="narrative-lane-head">
+      <h3>${title}</h3>
+      <div>
+        <div class="narrative-lane-score ${presentNumber(score) ? "" : "unmonitored"}">${presentNumber(score) ? fmt(score) : "N/A"}</div>
+        <span class="pill ${statusClass(status)}">${status}</span>
+      </div>
+    </div>
+    <p>${interpretation}</p>
+    <ul>${evidence.map((item) => `<li>${item}</li>`).join("")}</ul>
+    <small class="narrative-source">${source}</small>
+  </article>`;
+
+  target.innerHTML = `<div class="narrative-head">
+    <div>
+      <h2>AI Narrative Health Decomposition</h2>
+      <p>Separates market plumbing, hyperscaler cash economics, and borrower financing. A strong CAPEX number is not treated as proof of healthy returns.</p>
+    </div>
+    <div class="narrative-coverage">
+      <strong>2 / 3 live</strong>
+      <span class="pill partial">Coverage</span>
+    </div>
+  </div>
+  <div class="narrative-grid">
+    ${lane({
+      title: "Korea / Leverage Liquidation",
+      score: leverageScore,
+      status: leverageStatus,
+      interpretation: leverageInterpretation,
+      evidence: [
+        `SOXX / QQQ relative: ${relative.change_5d_label || "--"} over 5d; ${relative.change_20d_label || "--"} over 20d.`,
+        `Extended-hours overlay: ${overlay.status || "unavailable"} (${overlayFreshness(overlay)}).`,
+        "Direct KOSPI margin balances and single-stock leveraged ETF flows are not yet ingested.",
+      ],
+      source: "Live proxy from existing equity-confirmation data; not a direct Korea flow feed.",
+    })}
+    ${lane({
+      title: "Hyperscaler CAPEX Return",
+      score: null,
+      status: "UNMONITORED",
+      interpretation: "The cockpit does not yet ingest hyperscaler CAPEX, depreciation, operating cash flow, free cash flow, or AI/cloud revenue. It therefore cannot claim that rising CAPEX proves a healthy AI return cycle.",
+      evidence: [
+        "Required: CAPEX growth versus cloud and AI revenue growth.",
+        "Required: depreciation, operating cash flow, and free-cash-flow trend.",
+        "Until these are added, narrative confidence should remain capped.",
+      ],
+      source: "Coverage gap shown explicitly rather than filled with a false score.",
+    })}
+    ${lane({
+      title: "Neocloud Financing",
+      score: neocloudScore,
+      status: neocloudStatus,
+      interpretation: neocloudInterpretation,
+      evidence: [
+        `${financingEvents.length} recent financing-related SEC signals in the current data window.`,
+        `Financing-event score ${fmt(financing.score)}; balance-sheet pressure ${fmt(balance.score)}.`,
+        `Detailed Compute Financing Stress status: ${titleCase(compute.status || "fallback")}.`,
+      ],
+      source: "Live SEC filing and XBRL components already in data/latest.json.",
+    })}
+  </div>
+  <p class="narrative-note">This decomposition is diagnostic only and does not change the official close-based stress score.</p>`;
+}
+
 function renderComputeStress(data) {
   const target = document.getElementById("compute-stress");
   const fallbackDriver = data.drivers?.find((driver) => driver.key === "compute") || {};
@@ -225,6 +315,7 @@ async function init() {
     renderFreshness(latestData);
     renderCards(latestData, history);
     renderTriggers(latestData);
+    renderNarrativeHealth(latestData);
     renderComputeStress(latestData);
     renderExtendedHours(latestData);
     renderHardData(latestData, history);
