@@ -5,6 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AI Infrastructure Stress Cockpit</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .narrative-health {
+        margin-top: 12px;
+        padding: 14px 20px;
+      }
+      .narrative-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .narrative-head h2 { margin-bottom: 7px; font-size: 20px; }
+      .narrative-head p, .narrative-note {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+      .narrative-coverage {
+        min-width: 130px;
+        text-align: right;
+      }
+      .narrative-coverage strong {
+        display: block;
+        color: var(--blue);
+        font-size: 28px;
+        line-height: 1;
+      }
+      .narrative-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .narrative-lane {
+        min-height: 210px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(5, 14, 25, .68);
+      }
+      .narrative-lane h3 { font-size: 18px; line-height: 1.2; }
+      .narrative-lane-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .narrative-lane-score {
+        color: var(--gold);
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .narrative-lane-score.unmonitored { color: var(--muted); }
+      .narrative-lane p { margin-top: 10px; line-height: 1.35; }
+      .narrative-lane ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+      .narrative-source {
+        display: block;
+        margin-top: 10px;
+        color: var(--blue);
+        font-size: 13px;
+      }
+      .narrative-note { margin-top: 10px; }
+      .pill.unmonitored {
+        color: var(--muted);
+        background: rgba(169, 184, 204, .08);
+      }
+      @media (max-width: 1050px) {
+        .narrative-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 680px) {
+        .narrative-head { flex-direction: column; }
+        .narrative-coverage { text-align: left; }
+      }
+    </style>
   </head>
   <body>
     <main class="shell">
@@ -58,6 +133,8 @@
       </section>
 
       <section class="cards" id="scorecards" aria-label="Stress drivers"></section>
+
+      <section class="panel narrative-health" id="narrative-health" aria-label="AI narrative health decomposition"></section>
 
       <section class="panel compute-stress" id="compute-stress" aria-label="Compute financing stress"></section>
 
