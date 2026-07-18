@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-17T23:06:58+00:00",
+  "updated_at": "2026-07-18T00:08:44+00:00",
   "updated_label": "2026-07-16 close",
   "stress": {
-    "score": 39,
+    "score": 38,
     "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 80,
+      "score": 78,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-07-17T23:06:56+00:00",
-    "as_of": "2026-07-17T23:06:53+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-07-18T00:08:42+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 521.81,
       "regularMarketChangePercent": -1.6380772855796533,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784318401,
-      "postMarketPrice": 520.8,
-      "postMarketChangePercent": -0.19355704183514622,
-      "postMarketTime": 1784329569,
-      "extended_change_percent": -0.19355704183514622,
-      "quote_time": 1784329569,
-      "quote_time_label": "2026-07-17T23:06:09+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 695.33,
       "regularMarketChangePercent": -1.5029605915516941,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784318400,
-      "postMarketPrice": 694.5984,
-      "postMarketChangePercent": -0.10521622826572541,
-      "postMarketTime": 1784329613,
-      "extended_change_percent": -0.10521622826572541,
-      "quote_time": 1784329613,
-      "quote_time_label": "2026-07-17T23:06:53+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 202.81,
       "regularMarketChangePercent": -2.2131147540983664,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784318401,
-      "postMarketPrice": 202.6972,
-      "postMarketChangePercent": -0.05561855924264281,
-      "postMarketTime": 1784329613,
-      "extended_change_percent": -0.05561855924264281,
-      "quote_time": 1784329613,
-      "quote_time_label": "2026-07-17T23:06:53+00:00"
-    },
-    "soxx_vs_qqq_change": -0.09,
-    "nvda_vs_soxx_change": 0.14,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 80,
+    "score": 78,
     "status": "ok",
-    "generated_at": "2026-07-17T23:06:56+00:00",
+    "generated_at": "2026-07-18T00:08:42+00:00",
     "components": {
       "financing_event_score": {
-        "score": 90,
+        "score": 87,
         "weight": 0.45,
-        "contribution": 40.5,
+        "contribution": 39.15,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -341,7 +329,7 @@
           "filing_date": "2026-05-18",
           "accession_number": "0001769628-26-000236",
           "signal_type": "material_financing_8k",
-          "points": 4.8,
+          "points": 2.4,
           "reason": "8-K references material agreement or debt item"
         },
         {
