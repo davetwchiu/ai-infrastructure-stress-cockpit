@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -15,6 +16,8 @@ from typing import Any, Callable
 ROOT = Path(__file__).resolve().parents[1]
 LATEST_PATH = ROOT / "data" / "latest.json"
 MANUAL_PATH = ROOT / "config" / "hyperscaler_credit_signals.json"
+CACHE_PATH = ROOT / "data" / "hyperscaler_credit.json"
+CACHE_MAX_AGE_HOURS = 6
 SEC_COMPANY_TICKERS = "https://www.sec.gov/files/company_tickers.json"
 SEC_SUBMISSIONS = "https://data.sec.gov/submissions/CIK{}.json"
 SEC_FACTS = "https://data.sec.gov/api/xbrl/companyfacts/CIK{}.json"
@@ -285,7 +288,8 @@ def detect_bond_events(
                 except Exception:
                     text = ""
             matched_terms = [term for term in DEBT_TERMS if term in text]
-            if not matched_terms and form.startswith("424B"):
+            item_confirms_debt = form == "8-K" and "2.03" in item_text
+            if not matched_terms and not item_confirms_debt:
                 continue
             event_type = "bond_issuance_filing" if any(term in text for term in ("senior notes", "notes due", "debt securities")) else "financing_filing"
             events.append({
@@ -380,7 +384,7 @@ def bond_component(auto_events: list[dict[str, Any]], manual: dict[str, Any], to
     manual_rows = current_manual_rows(list(manual.get("bond_events", [])), today)
     combined = auto_events + [{**row, "source": row.get("source", "Manual review")} for row in manual_rows]
     manual_points = [float(row.get("stress_points", 0)) for row in manual_rows]
-    score = clamp(15 + min(len(auto_events) * 4, 24) + min(sum(manual_points), 40))
+    score = None if auto_status == "failed" and not manual_rows else clamp(15 + min(len(auto_events) * 4, 24) + min(sum(manual_points), 40))
     return {
         "score": score,
         "status": auto_status if not manual_rows else "ok" if auto_status == "ok" else "partial",
@@ -458,6 +462,7 @@ def build_hyperscaler_credit(
         "coverage_ratio": coverage,
         "generated_at": now.isoformat(timespec="seconds"),
         "manual_reviewed_through": manual.get("reviewed_through"),
+        "manual_input_hash": manual_hash(manual),
         "components": components,
         "issuers": issuers,
         "events": components["bond_issuance"].get("events", []) + components["rating_changes"].get("events", []),
@@ -466,16 +471,48 @@ def build_hyperscaler_credit(
     }
 
 
+def manual_hash(manual: dict[str, Any]) -> str:
+    payload = json.dumps(manual, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(payload).hexdigest()
+
+
+def load_cached_credit(path: Path, manual: dict[str, Any], now: datetime) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    try:
+        cached = json.loads(path.read_text())
+        generated = datetime.fromisoformat(str(cached.get("generated_at", "")))
+        if generated.tzinfo is None:
+            generated = generated.replace(tzinfo=timezone.utc)
+        age_hours = (now - generated.astimezone(timezone.utc)).total_seconds() / 3600
+        if 0 <= age_hours < CACHE_MAX_AGE_HOURS and cached.get("manual_input_hash") == manual_hash(manual):
+            return cached
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        return None
+    return None
+
+
 def load_manual(path: Path = MANUAL_PATH) -> dict[str, Any]:
     if not path.exists():
         return {}
     return json.loads(path.read_text())
 
 
-def enrich(latest_path: Path = LATEST_PATH, manual_path: Path = MANUAL_PATH) -> dict[str, Any]:
+def enrich(
+    latest_path: Path = LATEST_PATH,
+    manual_path: Path = MANUAL_PATH,
+    cache_path: Path = CACHE_PATH,
+    now: datetime | None = None,
+) -> dict[str, Any]:
+    now = now or datetime.now(timezone.utc)
     latest = json.loads(latest_path.read_text())
     manual = load_manual(manual_path)
-    latest["hyperscaler_credit"] = build_hyperscaler_credit(latest, manual)
+    credit = load_cached_credit(cache_path, manual, now)
+    if credit is None:
+        credit = build_hyperscaler_credit(latest, manual, now=now)
+        cache_path.parent.mkdir(exist_ok=True)
+        cache_path.write_text(json.dumps(credit, indent=2) + "\n")
+    latest["hyperscaler_credit"] = credit
     sources = list(latest.get("sources", []))
     for source in (
         "SEC EDGAR hyperscaler filings",
@@ -547,6 +584,8 @@ def self_test() -> None:
     })
     assert score == 51
     assert coverage == .65
+
+    assert manual_hash({"a": 1}) == manual_hash({"a": 1})
 
 
 def main() -> None:
