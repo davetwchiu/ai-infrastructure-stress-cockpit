@@ -1,0 +1,14 @@
+{
+  "reviewed_through": null,
+  "bond_events": [],
+  "spread_observations": [],
+  "rating_events": [],
+  "fcf_revisions": [],
+  "notes": [
+    "Add only dated, sourced observations.",
+    "Use stress_points for a manually reviewed bond event only when size, pricing, security, covenant, or use-of-proceeds terms add genuine funding stress beyond the fact of issuance.",
+    "For spread_observations, record issuer, as_of, spread_bps, change_30d_bps, security or maturity, and source.",
+    "For rating_events, record issuer, date, agency, action, notches, previous_rating, new_rating, outlook, and source.",
+    "For fcf_revisions, record issuer, as_of, horizon, previous_estimate, new_estimate, revision_pct, currency, and source."
+  ]
+}
