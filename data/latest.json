@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20T10:52:52+00:00",
+  "updated_at": "2026-07-20T13:06:38+00:00",
   "updated_label": "2026-07-16 close",
   "stress": {
     "score": 38,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 77,
+      "score": 78,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SEC data ok",
@@ -141,8 +141,8 @@
   },
   "extended_hours": {
     "market_state": "PRE",
-    "generated_at": "2026-07-20T10:52:50+00:00",
-    "as_of": "2026-07-20T10:52:48+00:00",
+    "generated_at": "2026-07-20T13:06:37+00:00",
+    "as_of": "2026-07-20T13:06:36+00:00",
     "available": true,
     "is_stale": false,
     "is_active_session": true,
@@ -158,12 +158,12 @@
       "regularMarketChangePercent": -1.6380772855796533,
       "marketState": "PRE",
       "regularMarketTime": 1784318401,
-      "preMarketPrice": 530.25,
-      "preMarketChangePercent": -0.04712535344014723,
-      "preMarketTime": 1784544697,
-      "extended_change_percent": -0.04712535344014723,
-      "quote_time": 1784544697,
-      "quote_time_label": "2026-07-20T10:51:37+00:00"
+      "preMarketPrice": 535.94,
+      "preMarketChangePercent": 1.0254476908576837,
+      "preMarketTime": 1784552785,
+      "extended_change_percent": 1.0254476908576837,
+      "quote_time": 1784552785,
+      "quote_time_label": "2026-07-20T13:06:25+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
@@ -171,12 +171,12 @@
       "regularMarketChangePercent": -1.5029605915516941,
       "marketState": "PRE",
       "regularMarketTime": 1784318400,
-      "preMarketPrice": 700.29,
-      "preMarketChangePercent": -0.8003513046434652,
-      "preMarketTime": 1784544766,
-      "extended_change_percent": -0.8003513046434652,
-      "quote_time": 1784544766,
-      "quote_time_label": "2026-07-20T10:52:46+00:00"
+      "preMarketPrice": 702.155,
+      "preMarketChangePercent": -0.5361645465620457,
+      "preMarketTime": 1784552793,
+      "extended_change_percent": -0.5361645465620457,
+      "quote_time": 1784552793,
+      "quote_time_label": "2026-07-20T13:06:33+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
@@ -184,26 +184,26 @@
       "regularMarketChangePercent": -2.2131147540983664,
       "marketState": "PRE",
       "regularMarketTime": 1784318401,
-      "preMarketPrice": 204.6648,
-      "preMarketChangePercent": -1.3188042430086755,
-      "preMarketTime": 1784544768,
-      "extended_change_percent": -1.3188042430086755,
-      "quote_time": 1784544768,
-      "quote_time_label": "2026-07-20T10:52:48+00:00"
+      "preMarketPrice": 205.25,
+      "preMarketChangePercent": -1.0366441658630654,
+      "preMarketTime": 1784552796,
+      "extended_change_percent": -1.0366441658630654,
+      "quote_time": 1784552796,
+      "quote_time_label": "2026-07-20T13:06:36+00:00"
     },
-    "soxx_vs_qqq_change": 0.75,
-    "nvda_vs_soxx_change": -1.27,
+    "soxx_vs_qqq_change": 1.56,
+    "nvda_vs_soxx_change": -2.06,
     "overlay_score": 45
   },
   "compute_stress": {
-    "score": 77,
+    "score": 78,
     "status": "ok",
-    "generated_at": "2026-07-20T10:52:50+00:00",
+    "generated_at": "2026-07-20T13:06:37+00:00",
     "components": {
       "financing_event_score": {
-        "score": 84,
+        "score": 87,
         "weight": 0.45,
-        "contribution": 37.8,
+        "contribution": 39.15,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -227,6 +227,15 @@
     },
     "details": {
       "financing_events": [
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-07-20",
+          "accession_number": "0001140361-26-028871",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
         {
           "ticker": "IREN",
           "form": "8-K",
