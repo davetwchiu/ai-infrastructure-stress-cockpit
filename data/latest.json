@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20T13:06:38+00:00",
+  "updated_at": "2026-07-20T15:19:41+00:00",
   "updated_label": "2026-07-16 close",
   "stress": {
     "score": 38,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 78,
+      "score": 77,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SEC data ok",
@@ -140,65 +140,53 @@
     ]
   },
   "extended_hours": {
-    "market_state": "PRE",
-    "generated_at": "2026-07-20T13:06:37+00:00",
-    "as_of": "2026-07-20T13:06:36+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "REGULAR",
+    "generated_at": "2026-07-20T15:19:40+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
-    "status": "WATCH",
-    "interpretation": "One extended-hours equity warning is active; wait for regular-session and credit confirmation.",
+    "status": "NORMAL",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 521.81,
-      "regularMarketChangePercent": -1.6380772855796533,
-      "marketState": "PRE",
-      "regularMarketTime": 1784318401,
-      "preMarketPrice": 535.94,
-      "preMarketChangePercent": 1.0254476908576837,
-      "preMarketTime": 1784552785,
-      "extended_change_percent": 1.0254476908576837,
-      "quote_time": 1784552785,
-      "quote_time_label": "2026-07-20T13:06:25+00:00"
+      "regularMarketPrice": 530.555,
+      "regularMarketChangePercent": 1.6758973572756464,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1784560778,
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 695.33,
-      "regularMarketChangePercent": -1.5029605915516941,
-      "marketState": "PRE",
-      "regularMarketTime": 1784318400,
-      "preMarketPrice": 702.155,
-      "preMarketChangePercent": -0.5361645465620457,
-      "preMarketTime": 1784552793,
-      "extended_change_percent": -0.5361645465620457,
-      "quote_time": 1784552793,
-      "quote_time_label": "2026-07-20T13:06:33+00:00"
+      "regularMarketPrice": 700.401,
+      "regularMarketChangePercent": 0.7292940042857188,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1784560777,
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 202.81,
-      "regularMarketChangePercent": -2.2131147540983664,
-      "marketState": "PRE",
-      "regularMarketTime": 1784318401,
-      "preMarketPrice": 205.25,
-      "preMarketChangePercent": -1.0366441658630654,
-      "preMarketTime": 1784552796,
-      "extended_change_percent": -1.0366441658630654,
-      "quote_time": 1784552796,
-      "quote_time_label": "2026-07-20T13:06:36+00:00"
-    },
-    "soxx_vs_qqq_change": 1.56,
-    "nvda_vs_soxx_change": -2.06,
-    "overlay_score": 45
+      "regularMarketPrice": 205.895,
+      "regularMarketChangePercent": 1.52112814949954,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1784560778,
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 78,
+    "score": 77,
     "status": "ok",
-    "generated_at": "2026-07-20T13:06:37+00:00",
+    "generated_at": "2026-07-20T15:19:40+00:00",
     "components": {
       "financing_event_score": {
         "score": 87,
@@ -213,9 +201,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 100,
+        "score": 91,
         "weight": 0.2,
-        "contribution": 20.0,
+        "contribution": 18.2,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -485,10 +473,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -10.85,
-        "relative_20d_pct_points": -31.36,
-        "relative_60d_pct_points": -32.6,
-        "nvda_relative_20d_pct_points": -38.79
+        "relative_5d_pct_points": -3.71,
+        "relative_20d_pct_points": -25.72,
+        "relative_60d_pct_points": -28.69,
+        "nvda_relative_20d_pct_points": -34.61
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -498,8 +486,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -1.62,
-        "relative_20d_pct_points": -4.37
+        "relative_5d_pct_points": -0.8,
+        "relative_20d_pct_points": -4.5
       },
       "sec_status": "ok",
       "caveats": [
