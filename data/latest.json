@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20T23:33:56+00:00",
+  "updated_at": "2026-07-21T01:07:10+00:00",
   "updated_label": "2026-07-17 close",
   "stress": {
     "score": 35,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 76,
+      "score": 75,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-07-20T23:33:54+00:00",
-    "as_of": "2026-07-20T23:33:52+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-07-21T01:07:08+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 524.14,
       "regularMarketChangePercent": 0.44652268066922574,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784577600,
-      "postMarketPrice": 524.98,
-      "postMarketChangePercent": 0.16026252527951979,
-      "postMarketTime": 1784590431,
-      "extended_change_percent": 0.16026252527951979,
-      "quote_time": 1784590431,
-      "quote_time_label": "2026-07-20T23:33:51+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 696.06,
       "regularMarketChangePercent": 0.10498612169760335,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784577601,
-      "postMarketPrice": 696.84,
-      "postMarketChangePercent": 0.11205930523232599,
-      "postMarketTime": 1784590422,
-      "extended_change_percent": 0.11205930523232599,
-      "quote_time": 1784590422,
-      "quote_time_label": "2026-07-20T23:33:42+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 203.28,
       "regularMarketChangePercent": 0.23174399684433578,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1784577601,
-      "postMarketPrice": 203.11,
-      "postMarketChangePercent": -0.08362849271940087,
-      "postMarketTime": 1784590432,
-      "extended_change_percent": -0.08362849271940087,
-      "quote_time": 1784590432,
-      "quote_time_label": "2026-07-20T23:33:52+00:00"
-    },
-    "soxx_vs_qqq_change": 0.05,
-    "nvda_vs_soxx_change": -0.24,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 76,
+    "score": 75,
     "status": "ok",
-    "generated_at": "2026-07-20T23:33:54+00:00",
+    "generated_at": "2026-07-21T01:07:08+00:00",
     "components": {
       "financing_event_score": {
-        "score": 87,
+        "score": 85,
         "weight": 0.45,
-        "contribution": 39.15,
+        "contribution": 38.25,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -424,15 +412,6 @@
           "signal_type": "recent_8k",
           "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "CRWV",
-          "form": "8-K",
-          "filing_date": "2026-04-21",
-          "accession_number": "0001769628-26-000183",
-          "signal_type": "material_financing_8k",
-          "points": 2.4,
-          "reason": "8-K references material agreement or debt item"
         }
       ],
       "balance_sheet": [
