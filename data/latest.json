@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-29T10:39:19+00:00",
+  "updated_at": "2026-07-29T12:33:24+00:00",
   "updated_label": "2026-07-27 close",
   "stress": {
     "score": 45,
@@ -42,8 +42,8 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 71,
-      "status": "CREDIT STRESS CONFIRMED",
+      "score": 70,
+      "status": "STRESS",
       "bullets": [
         "SEC data ok",
         "Financing filings detected"
@@ -141,8 +141,8 @@
   },
   "extended_hours": {
     "market_state": "PRE",
-    "generated_at": "2026-07-29T10:39:17+00:00",
-    "as_of": "2026-07-29T10:39:15+00:00",
+    "generated_at": "2026-07-29T12:33:23+00:00",
+    "as_of": "2026-07-29T12:33:20+00:00",
     "available": true,
     "is_stale": false,
     "is_active_session": true,
@@ -158,12 +158,12 @@
       "regularMarketChangePercent": -4.798248842570175,
       "marketState": "PRE",
       "regularMarketTime": 1785268800,
-      "preMarketPrice": 489.69,
-      "preMarketChangePercent": -5.141119268543093,
-      "preMarketTime": 1785321532,
-      "extended_change_percent": -5.141119268543093,
-      "quote_time": 1785321532,
-      "quote_time_label": "2026-07-29T10:38:52+00:00"
+      "preMarketPrice": 485.1241,
+      "preMarketChangePercent": -6.025589369079675,
+      "preMarketTime": 1785328374,
+      "extended_change_percent": -6.025589369079675,
+      "quote_time": 1785328374,
+      "quote_time_label": "2026-07-29T12:32:54+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
@@ -171,12 +171,12 @@
       "regularMarketChangePercent": -0.9719697413944739,
       "marketState": "PRE",
       "regularMarketTime": 1785268800,
-      "preMarketPrice": 676.75,
-      "preMarketChangePercent": -0.7872515099982436,
-      "preMarketTime": 1785321552,
-      "extended_change_percent": -0.7872515099982436,
-      "quote_time": 1785321552,
-      "quote_time_label": "2026-07-29T10:39:12+00:00"
+      "preMarketPrice": 674.3,
+      "preMarketChangePercent": -1.1464258488242618,
+      "preMarketTime": 1785328400,
+      "extended_change_percent": -1.1464258488242618,
+      "quote_time": 1785328400,
+      "quote_time_label": "2026-07-29T12:33:20+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
@@ -184,21 +184,21 @@
       "regularMarketChangePercent": 0.2544399776092776,
       "marketState": "PRE",
       "regularMarketTime": 1785268800,
-      "preMarketPrice": 197.24,
-      "preMarketChangePercent": 0.3714823673095502,
-      "preMarketTime": 1785321555,
-      "extended_change_percent": 0.3714823673095502,
-      "quote_time": 1785321555,
-      "quote_time_label": "2026-07-29T10:39:15+00:00"
+      "preMarketPrice": 196.36,
+      "preMarketChangePercent": -0.0763319932827744,
+      "preMarketTime": 1785328400,
+      "extended_change_percent": -0.0763319932827744,
+      "quote_time": 1785328400,
+      "quote_time_label": "2026-07-29T12:33:20+00:00"
     },
-    "soxx_vs_qqq_change": -4.35,
-    "nvda_vs_soxx_change": 5.51,
+    "soxx_vs_qqq_change": -4.88,
+    "nvda_vs_soxx_change": 5.95,
     "overlay_score": 45
   },
   "compute_stress": {
-    "score": 71,
+    "score": 70,
     "status": "ok",
-    "generated_at": "2026-07-29T10:39:17+00:00",
+    "generated_at": "2026-07-29T12:33:23+00:00",
     "components": {
       "financing_event_score": {
         "score": 81,
@@ -213,9 +213,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 77,
+        "score": 73,
         "weight": 0.2,
-        "contribution": 15.4,
+        "contribution": 14.6,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -476,10 +476,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -8.71,
-        "relative_20d_pct_points": -16.69,
-        "relative_60d_pct_points": -20.08,
-        "nvda_relative_20d_pct_points": -31.09
+        "relative_5d_pct_points": -2.06,
+        "relative_20d_pct_points": -18.1,
+        "relative_60d_pct_points": -18.89,
+        "nvda_relative_20d_pct_points": -28.14
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -489,8 +489,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -0.51,
-        "relative_20d_pct_points": -1.78
+        "relative_5d_pct_points": 2.57,
+        "relative_20d_pct_points": -2.01
       },
       "sec_status": "ok",
       "caveats": [
