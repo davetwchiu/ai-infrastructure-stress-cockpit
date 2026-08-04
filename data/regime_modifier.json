@@ -9,13 +9,13 @@
     "data_status": "partial"
   },
   "neocloud_financing": {
-    "score": 68.0,
+    "score": 67.0,
     "status": "STRESS",
     "data_status": "ok"
   },
   "market_plumbing": {
-    "score": 54.0,
-    "status": "STRESS",
+    "score": 49.0,
+    "status": "WATCH",
     "data_status": "ok"
   },
   "source_summary": "Hyperscaler funding and cash stress, neocloud financing stress, and market-plumbing confirmation from the AI Infrastructure Stress Cockpit.",
