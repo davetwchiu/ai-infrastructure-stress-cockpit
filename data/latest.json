@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-03T23:41:58+00:00",
+  "updated_at": "2026-08-04T01:10:31+00:00",
   "updated_label": "2026-07-30 close",
   "stress": {
     "score": 39,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 62,
+      "score": 61,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-08-03T23:41:56+00:00",
-    "as_of": "2026-08-03T23:41:46+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-08-04T01:10:30+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 507.68,
       "regularMarketChangePercent": 0.5525956148864086,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1785787200,
-      "postMarketPrice": 512.0,
-      "postMarketChangePercent": 0.8509297195083532,
-      "postMarketTime": 1785800464,
-      "extended_change_percent": 0.8509297195083532,
-      "quote_time": 1785800464,
-      "quote_time_label": "2026-08-03T23:41:04+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 700.07,
       "regularMarketChangePercent": 1.7558394744109806,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1785787200,
-      "postMarketPrice": 701.12,
-      "postMarketChangePercent": 0.14998500149985272,
-      "postMarketTime": 1785800506,
-      "extended_change_percent": 0.14998500149985272,
-      "quote_time": 1785800506,
-      "quote_time_label": "2026-08-03T23:41:46+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 206.64,
       "regularMarketChangePercent": 2.9339975093399584,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1785787201,
-      "postMarketPrice": 206.92,
-      "postMarketChangePercent": 0.13550135501354532,
-      "postMarketTime": 1785800506,
-      "extended_change_percent": 0.13550135501354532,
-      "quote_time": 1785800506,
-      "quote_time_label": "2026-08-03T23:41:46+00:00"
-    },
-    "soxx_vs_qqq_change": 0.7,
-    "nvda_vs_soxx_change": -0.72,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 62,
+    "score": 61,
     "status": "ok",
-    "generated_at": "2026-08-03T23:41:56+00:00",
+    "generated_at": "2026-08-04T01:10:30+00:00",
     "components": {
       "financing_event_score": {
-        "score": 78,
+        "score": 75,
         "weight": 0.45,
-        "contribution": 35.1,
+        "contribution": 33.75,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -415,15 +403,6 @@
           "signal_type": "recent_8k",
           "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "APLD",
-          "form": "8-K",
-          "filing_date": "2026-05-05",
-          "accession_number": "0001493152-26-021333",
-          "signal_type": "material_financing_8k",
-          "points": 2.4,
-          "reason": "8-K references material agreement or debt item"
         }
       ],
       "balance_sheet": [
