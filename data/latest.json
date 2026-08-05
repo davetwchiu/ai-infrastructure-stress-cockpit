@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-04T23:40:58+00:00",
+  "updated_at": "2026-08-05T01:10:10+00:00",
   "updated_label": "2026-08-03 close",
   "stress": {
-    "score": 40,
+    "score": 39,
     "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 67,
+      "score": 66,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-08-04T23:40:56+00:00",
-    "as_of": "2026-08-04T23:40:55+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-08-05T01:10:09+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
-    "status": "WATCH",
-    "interpretation": "One extended-hours equity warning is active; wait for regular-session and credit confirmation.",
+    "status": "NORMAL",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 542.21,
       "regularMarketChangePercent": 6.801528521903566,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1785873601,
-      "postMarketPrice": 536.08,
-      "postMarketChangePercent": -1.1305582707806905,
-      "postMarketTime": 1785886846,
-      "extended_change_percent": -1.1305582707806905,
-      "quote_time": 1785886846,
-      "quote_time_label": "2026-08-04T23:40:46+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 723.85,
       "regularMarketChangePercent": 3.3968031768251805,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1785873600,
-      "postMarketPrice": 722.84,
-      "postMarketChangePercent": -0.13953167092629615,
-      "postMarketTime": 1785886851,
-      "extended_change_percent": -0.13953167092629615,
-      "quote_time": 1785886851,
-      "quote_time_label": "2026-08-04T23:40:51+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 211.94,
       "regularMarketChangePercent": 2.5648470770422094,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1785873600,
-      "postMarketPrice": 216.64,
-      "postMarketChangePercent": 2.217608757195433,
-      "postMarketTime": 1785886855,
-      "extended_change_percent": 2.217608757195433,
-      "quote_time": 1785886855,
-      "quote_time_label": "2026-08-04T23:40:55+00:00"
-    },
-    "soxx_vs_qqq_change": -0.99,
-    "nvda_vs_soxx_change": 3.35,
-    "overlay_score": 45
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 67,
+    "score": 66,
     "status": "ok",
-    "generated_at": "2026-08-04T23:40:56+00:00",
+    "generated_at": "2026-08-05T01:10:09+00:00",
     "components": {
       "financing_event_score": {
-        "score": 90,
+        "score": 88,
         "weight": 0.45,
-        "contribution": 40.5,
+        "contribution": 39.6,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -350,7 +338,7 @@
           "filing_date": "2026-06-05",
           "accession_number": "0001628280-26-041300",
           "signal_type": "shelf_registration",
-          "points": 4.8,
+          "points": 2.4,
           "reason": "Shelf registration or financing capacity filing"
         },
         {
