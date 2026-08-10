@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-10T07:55:12+00:00",
+  "updated_at": "2026-08-10T09:21:35+00:00",
   "updated_label": "2026-08-06 close",
   "stress": {
     "score": 35,
@@ -140,53 +140,65 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-08-10T07:55:10+00:00",
-    "as_of": null,
-    "available": false,
-    "is_stale": null,
-    "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
-    "quote_age_minutes": null,
+    "market_state": "PRE",
+    "generated_at": "2026-08-10T09:21:33+00:00",
+    "as_of": "2026-08-10T09:21:30+00:00",
+    "available": true,
+    "is_stale": false,
+    "is_active_session": true,
+    "stale_reason": "",
+    "quote_age_minutes": 0,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 543.27,
       "regularMarketChangePercent": 2.0187035228723893,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1786132800,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 550.6,
+      "preMarketChangePercent": 3.395177645910019,
+      "preMarketTime": 1786353690,
+      "extended_change_percent": 3.395177645910019,
+      "quote_time": 1786353690,
+      "quote_time_label": "2026-08-10T09:21:30+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 723.03,
       "regularMarketChangePercent": 1.1726019729937809,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1786132800,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 726.41,
+      "preMarketChangePercent": 1.6455607640103453,
+      "preMarketTime": 1786353688,
+      "extended_change_percent": 1.6455607640103453,
+      "quote_time": 1786353688,
+      "quote_time_label": "2026-08-10T09:21:28+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 223.96,
       "regularMarketChangePercent": 2.2695100232887233,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1786132800,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
-    }
+      "preMarketPrice": 224.79,
+      "preMarketChangePercent": 2.648522763596506,
+      "preMarketTime": 1786353681,
+      "extended_change_percent": 2.648522763596506,
+      "quote_time": 1786353681,
+      "quote_time_label": "2026-08-10T09:21:21+00:00"
+    },
+    "soxx_vs_qqq_change": 1.75,
+    "nvda_vs_soxx_change": -0.75,
+    "overlay_score": 10
   },
   "compute_stress": {
     "score": 64,
     "status": "ok",
-    "generated_at": "2026-08-10T07:55:10+00:00",
+    "generated_at": "2026-08-10T09:21:33+00:00",
     "components": {
       "financing_event_score": {
         "score": 80,
