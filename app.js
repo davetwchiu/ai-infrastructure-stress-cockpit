@@ -211,14 +211,14 @@ function renderNarrativeHealth(data) {
     ${lane({
       title: "Hyperscaler CAPEX Return",
       score: null,
-      status: "UNMONITORED",
-      interpretation: "The cockpit does not yet ingest hyperscaler CAPEX, depreciation, operating cash flow, free cash flow, or AI/cloud revenue. It therefore cannot claim that rising CAPEX proves a healthy AI return cycle.",
+      status: "RESEARCH ONLY",
+      interpretation: "The official market score does not use CAPEX, depreciation, operating cash flow, free cash flow, or AI/cloud revenue. Validated Hermes research below shows these inputs transparently without changing that score.",
       evidence: [
         "Required: CAPEX growth versus cloud and AI revenue growth.",
         "Required: depreciation, operating cash flow, and free-cash-flow trend.",
         "Until these are added, narrative confidence should remain capped.",
       ],
-      source: "Coverage gap shown explicitly rather than filled with a false score.",
+      source: "Research coverage is separate from the official market score.",
     })}
     ${lane({
       title: "Neocloud Financing",

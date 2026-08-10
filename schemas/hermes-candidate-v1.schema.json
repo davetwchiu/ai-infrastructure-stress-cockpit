@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hermes research candidate v1",
+  "type": "object",
+  "required": ["schema_version", "run", "sources", "metrics", "evidence", "theses", "constraints", "cycle_assessment", "risk_flags", "agent_change_summary", "quality"],
+  "properties": {
+    "schema_version": {"const": "hermes-research-v1"},
+    "run": {"type": "object", "required": ["run_id", "generated_at", "research_cutoff", "previous_run_id", "agent", "status"], "properties": {"status": {"enum": ["complete", "partial", "failed"]}}},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["id", "title", "publisher", "url", "published_at", "tier"], "properties": {"tier": {"enum": [1, 2, 3, 4]}}}},
+    "metrics": {"type": "array", "items": {"type": "object", "required": ["id", "entity", "metric", "unit", "period", "period_type", "classification", "basis", "as_of", "source_ids", "comparability"], "properties": {"classification": {"enum": ["C", "G", "E", "I"]}, "comparability": {"enum": ["comparable", "partial", "not_comparable"]}, "capex_basis": {"enum": ["cash_capex", "pp&e_additions", "including_finance_leases", "company_defined", "unknown"]}}}},
+    "evidence": {"type": "array", "items": {"type": "object", "required": ["id", "classification", "source_id", "summary", "published_at"], "properties": {"classification": {"enum": ["C", "G", "E", "I"]}}}},
+    "theses": {"type": "array", "items": {"type": "object", "required": ["id", "pillar", "title", "claim", "status", "prior_status", "direction", "raw_confidence", "evidence_ids", "watch_trigger", "confirmation_trigger", "invalidation_trigger"], "properties": {"status": {"enum": ["confirmed", "watch", "invalidated", "indeterminate"]}, "raw_confidence": {"type": "number", "minimum": 0, "maximum": 1}}}},
+    "cycle_assessment": {"type": "object", "required": ["state"], "properties": {"state": {"enum": ["expansion", "late_expansion", "financial_strain", "contraction", "recovery", "indeterminate"]}}}
+  }
+}

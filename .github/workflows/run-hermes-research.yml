@@ -1,0 +1,30 @@
+name: Run Hermes research
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  request-research:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request a research-only Hermes run
+        env:
+          HERMES_WEBHOOK_URL: ${{ secrets.HERMES_WEBHOOK_URL }}
+          HERMES_WEBHOOK_SECRET: ${{ secrets.HERMES_WEBHOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          body="$(jq -cn \
+            --arg event_type dashboard_research \
+            --arg source cockpit_manual \
+            --arg run_id "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            '{event_type: $event_type, source: $source, run_id: $run_id}')"
+          signature="sha256=$(printf '%s' "$body" | openssl dgst -sha256 -hmac "$HERMES_WEBHOOK_SECRET" -hex | sed 's/^.* //')"
+          curl --fail-with-body --retry 2 --retry-connrefused --request POST "$HERMES_WEBHOOK_URL" \
+            --header "Content-Type: application/json" \
+            --header "X-GitHub-Event: dashboard_research" \
+            --header "X-GitHub-Delivery: $GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            --header "X-Hub-Signature-256: $signature" \
+            --data "$body"

@@ -1,0 +1,9 @@
+{
+  "schema_version": "hermes-research-v1",
+  "run": {"run_id": "bad-tier4-confirmed", "generated_at": "2026-08-10T09:00:00+00:00", "research_cutoff": "2026-08-10", "previous_run_id": "", "agent": "Hermes", "status": "complete"},
+  "sources": [{"id": "social", "title": "Social post", "publisher": "Social", "url": "https://example.com", "published_at": "2026-08-10", "tier": 4}],
+  "metrics": [],
+  "evidence": [{"id": "e1", "classification": "I", "source_id": "social", "summary": "Unverified", "published_at": "2026-08-10"}],
+  "theses": [{"id": "credit-stress", "pillar": "Credit Stress", "title": "Unsupported", "claim": "Unsupported", "status": "confirmed", "prior_status": "watch", "direction": "rising", "raw_confidence": 0.99, "evidence_ids": ["e1"], "watch_trigger": "x", "confirmation_trigger": "x", "invalidation_trigger": "x"}],
+  "constraints": {"items": []}, "cycle_assessment": {"state": "indeterminate"}, "risk_flags": [], "agent_change_summary": "", "quality": {"completeness": 0.1}
+}

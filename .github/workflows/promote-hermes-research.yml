@@ -1,0 +1,71 @@
+name: Validate and promote Hermes research
+
+on:
+  push:
+    branches:
+      - hermes-candidates
+    paths:
+      - incoming/hermes_candidate.json
+      - incoming/hermes_digest.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate-and-promote:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Read isolated candidate
+        run: |
+          set -euo pipefail
+          git fetch origin hermes-candidates
+          git show origin/hermes-candidates:incoming/hermes_candidate.json > /tmp/hermes_candidate.json
+      - name: Validate candidate and retain failure report
+        id: validate
+        run: |
+          set +e
+          python3 scripts/validate_hermes.py --candidate /tmp/hermes_candidate.json
+          result=$?
+          echo "result=$result" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Commit validated state or failure report
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data/hermes; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/hermes
+          if [ "${{ steps.validate.outputs.result }}" = "0" ]; then
+            git commit -m "Promote validated Hermes research"
+          else
+            git commit -m "Record Hermes research validation failure"
+          fi
+          git push origin HEAD:main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Mark invalid candidate run as failed
+        if: steps.validate.outputs.result != '0'
+        run: exit 1

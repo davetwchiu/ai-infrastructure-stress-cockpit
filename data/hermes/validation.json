@@ -1,0 +1,30 @@
+{
+  "status": "pass_with_warnings",
+  "validated_at": "2026-08-10T07:24:21+00:00",
+  "candidate_run_id": "hermes-2026-08-10-a",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "ambiguous_unit_period",
+      "message": "GPU/Rubin/HBM metric lacks a production/shipment/rack/GPU scope.",
+      "metric_id": "rubin-ambiguous"
+    },
+    {
+      "code": "low_quality_source_dependency",
+      "message": "Thesis depends only on Tier-4 material.",
+      "thesis_id": "gpus"
+    },
+    {
+      "code": "unsupported_cross_entity_inference",
+      "message": "Cross-entity inference has no direct supporting evidence.",
+      "thesis_id": "ai-monetisation"
+    },
+    {
+      "code": "low_quality_source_dependency",
+      "message": "Thesis depends only on Tier-4 material.",
+      "thesis_id": "china-ai"
+    }
+  ],
+  "stale": false,
+  "last_validated_at": "2026-08-10T07:22:30+00:00"
+}

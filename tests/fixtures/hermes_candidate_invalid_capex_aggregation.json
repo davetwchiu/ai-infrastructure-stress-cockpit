@@ -1,0 +1,9 @@
+{
+  "schema_version": "hermes-research-v1",
+  "run": {"run_id": "bad-capex-aggregation", "generated_at": "2026-08-10T09:00:00+00:00", "research_cutoff": "2026-08-10", "previous_run_id": "", "agent": "Hermes", "status": "complete"},
+  "sources": [{"id": "filing", "title": "Filing", "publisher": "Issuer", "url": "https://www.sec.gov", "published_at": "2026-08-10", "tier": 1}],
+  "metrics": [{"id": "total", "entity": "Hyperscalers", "metric": "aggregate capex", "value": 1, "unit": "USD", "period": "FY2026", "period_type": "annual", "classification": "C", "basis": "actual", "capex_basis": "company_defined", "as_of": "2026-08-10", "source_ids": ["filing"], "comparability": "not_comparable", "aggregation": true}],
+  "evidence": [{"id": "e1", "classification": "C", "source_id": "filing", "summary": "Filing", "published_at": "2026-08-10"}],
+  "theses": [{"id": "hyperscaler-capex", "pillar": "Hyperscaler Capex", "title": "Capex", "claim": "Capex", "status": "watch", "prior_status": "watch", "direction": "rising", "raw_confidence": 0.5, "evidence_ids": ["e1"], "watch_trigger": "x", "confirmation_trigger": "x", "invalidation_trigger": "x"}],
+  "constraints": {"items": []}, "cycle_assessment": {"state": "indeterminate"}, "risk_flags": [], "agent_change_summary": "", "quality": {"completeness": 0.1}
+}
