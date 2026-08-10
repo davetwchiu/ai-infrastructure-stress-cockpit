@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-08T01:11:08+00:00",
+  "updated_at": "2026-08-10T07:55:12+00:00",
   "updated_label": "2026-08-06 close",
   "stress": {
-    "score": 36,
+    "score": 35,
     "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 66,
+      "score": 64,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-08-08T01:11:08+00:00",
+    "generated_at": "2026-08-10T07:55:10+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -184,14 +184,14 @@
     }
   },
   "compute_stress": {
-    "score": 66,
+    "score": 64,
     "status": "ok",
-    "generated_at": "2026-08-08T01:11:08+00:00",
+    "generated_at": "2026-08-10T07:55:10+00:00",
     "components": {
       "financing_event_score": {
-        "score": 86,
+        "score": 80,
         "weight": 0.45,
-        "contribution": 38.7,
+        "contribution": 36.0,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -302,7 +302,7 @@
           "filing_date": "2026-06-10",
           "accession_number": "0001769628-26-000270",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -311,7 +311,7 @@
           "filing_date": "2026-06-09",
           "accession_number": "0001493152-26-027984",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -320,7 +320,7 @@
           "filing_date": "2026-06-09",
           "accession_number": "0001493152-26-027979",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -329,7 +329,7 @@
           "filing_date": "2026-06-09",
           "accession_number": "0001493152-26-027857",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -382,24 +382,6 @@
           "form": "8-K",
           "filing_date": "2026-05-12",
           "accession_number": "0001140361-26-020669",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-05-11",
-          "accession_number": "0001140361-26-020370",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-05-11",
-          "accession_number": "0001878848-26-000028",
           "signal_type": "recent_8k",
           "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
@@ -468,8 +450,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 2.45,
-        "relative_20d_pct_points": -0.18
+        "relative_5d_pct_points": 2.51,
+        "relative_20d_pct_points": -0.11
       },
       "sec_status": "ok",
       "caveats": [
@@ -494,7 +476,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-08-07T20:49:32+00:00",
+    "generated_at": "2026-08-10T07:55:12+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
