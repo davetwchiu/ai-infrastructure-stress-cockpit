@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-10T23:51:24+00:00",
+  "updated_at": "2026-08-11T01:16:22+00:00",
   "updated_label": "2026-08-07 close",
   "stress": {
     "score": 32,
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-08-10T23:51:23+00:00",
-    "as_of": "2026-08-10T23:51:20+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-08-11T01:16:21+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 529.39,
       "regularMarketChangePercent": -2.554899037311098,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1786392000,
-      "postMarketPrice": 530.4,
-      "postMarketChangePercent": 0.1907856211866399,
-      "postMarketTime": 1786405880,
-      "extended_change_percent": 0.1907856211866399,
-      "quote_time": 1786405880,
-      "quote_time_label": "2026-08-10T23:51:20+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 720.87,
       "regularMarketChangePercent": -0.2987427907555684,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1786392000,
-      "postMarketPrice": 720.1576,
-      "postMarketChangePercent": -0.09882503086547922,
-      "postMarketTime": 1786405851,
-      "extended_change_percent": -0.09882503086547922,
-      "quote_time": 1786405851,
-      "quote_time_label": "2026-08-10T23:50:51+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 217.55,
       "regularMarketChangePercent": -2.8621182353991803,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1786392000,
-      "postMarketPrice": 218.59,
-      "postMarketChangePercent": 0.4780510227533785,
-      "postMarketTime": 1786405880,
-      "extended_change_percent": 0.4780510227533785,
-      "quote_time": 1786405880,
-      "quote_time_label": "2026-08-10T23:51:20+00:00"
-    },
-    "soxx_vs_qqq_change": 0.29,
-    "nvda_vs_soxx_change": 0.29,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
     "score": 68,
     "status": "ok",
-    "generated_at": "2026-08-10T23:51:23+00:00",
+    "generated_at": "2026-08-11T01:16:21+00:00",
     "components": {
       "financing_event_score": {
-        "score": 88,
+        "score": 87,
         "weight": 0.45,
-        "contribution": 39.6,
+        "contribution": 39.15,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -314,7 +302,7 @@
           "filing_date": "2026-06-11",
           "accession_number": "0001769628-26-000278",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -397,15 +385,6 @@
           "signal_type": "material_financing_8k",
           "points": 2.4,
           "reason": "8-K references material agreement or debt item"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-05-12",
-          "accession_number": "0001140361-26-020669",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
         }
       ],
       "balance_sheet": [
