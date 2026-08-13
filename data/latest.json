@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-13T11:25:27+00:00",
+  "updated_at": "2026-08-13T12:09:46+00:00",
   "updated_label": "2026-08-11 close",
   "stress": {
     "score": 34,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 64,
+      "score": 65,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -141,8 +141,8 @@
   },
   "extended_hours": {
     "market_state": "PRE",
-    "generated_at": "2026-08-13T11:25:26+00:00",
-    "as_of": "2026-08-13T11:25:23+00:00",
+    "generated_at": "2026-08-13T12:09:44+00:00",
+    "as_of": "2026-08-13T12:09:42+00:00",
     "available": true,
     "is_stale": false,
     "is_active_session": true,
@@ -158,12 +158,12 @@
       "regularMarketChangePercent": 2.3230999625608373,
       "marketState": "PRE",
       "regularMarketTime": 1786564800,
-      "preMarketPrice": 547.25,
-      "preMarketChangePercent": 2.4429052789217476,
-      "preMarketTime": 1786620288,
-      "extended_change_percent": 2.4429052789217476,
-      "quote_time": 1786620288,
-      "quote_time_label": "2026-08-13T11:24:48+00:00"
+      "preMarketPrice": 544.69,
+      "preMarketChangePercent": 1.9636840134781064,
+      "preMarketTime": 1786622963,
+      "extended_change_percent": 1.9636840134781064,
+      "quote_time": 1786622963,
+      "quote_time_label": "2026-08-13T12:09:23+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
@@ -171,12 +171,12 @@
       "regularMarketChangePercent": 0.7307397870415455,
       "marketState": "PRE",
       "regularMarketTime": 1786564800,
-      "preMarketPrice": 724.0101,
-      "preMarketChangePercent": 0.7739021504627797,
-      "preMarketTime": 1786620321,
-      "extended_change_percent": 0.7739021504627797,
-      "quote_time": 1786620321,
-      "quote_time_label": "2026-08-13T11:25:21+00:00"
+      "preMarketPrice": 723.75,
+      "preMarketChangePercent": 0.7376992135847971,
+      "preMarketTime": 1786622982,
+      "extended_change_percent": 0.7376992135847971,
+      "quote_time": 1786622982,
+      "quote_time_label": "2026-08-13T12:09:42+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
@@ -184,26 +184,26 @@
       "regularMarketChangePercent": 3.02988505747126,
       "marketState": "PRE",
       "regularMarketTime": 1786564801,
-      "preMarketPrice": 223.9778,
-      "preMarketChangePercent": 2.978298850574723,
-      "preMarketTime": 1786620323,
-      "extended_change_percent": 2.978298850574723,
-      "quote_time": 1786620323,
-      "quote_time_label": "2026-08-13T11:25:23+00:00"
+      "preMarketPrice": 223.48,
+      "preMarketChangePercent": 2.7494252873563108,
+      "preMarketTime": 1786622981,
+      "extended_change_percent": 2.7494252873563108,
+      "quote_time": 1786622981,
+      "quote_time_label": "2026-08-13T12:09:41+00:00"
     },
-    "soxx_vs_qqq_change": 1.67,
-    "nvda_vs_soxx_change": 0.54,
+    "soxx_vs_qqq_change": 1.23,
+    "nvda_vs_soxx_change": 0.79,
     "overlay_score": 10
   },
   "compute_stress": {
-    "score": 64,
+    "score": 65,
     "status": "ok",
-    "generated_at": "2026-08-13T11:25:26+00:00",
+    "generated_at": "2026-08-13T12:09:44+00:00",
     "components": {
       "financing_event_score": {
-        "score": 87,
+        "score": 90,
         "weight": 0.45,
-        "contribution": 39.15,
+        "contribution": 40.5,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -227,6 +227,15 @@
     },
     "details": {
       "financing_events": [
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-08-13",
+          "accession_number": "0001140361-26-032638",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
         {
           "ticker": "CRWV",
           "form": "8-K",
@@ -463,7 +472,7 @@
         ],
         "benchmark": "50% QQQ / 50% XLI",
         "relative_5d_pct_points": 1.97,
-        "relative_20d_pct_points": 3.68
+        "relative_20d_pct_points": 5.35
       },
       "sec_status": "ok",
       "caveats": [
