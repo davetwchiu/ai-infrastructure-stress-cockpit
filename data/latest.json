@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-13T00:43:27+00:00",
+  "updated_at": "2026-08-13T01:25:49+00:00",
   "updated_label": "2026-08-11 close",
   "stress": {
     "score": 34,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-08-13T00:43:26+00:00",
+    "generated_at": "2026-08-13T01:25:48+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -186,7 +186,7 @@
   "compute_stress": {
     "score": 64,
     "status": "ok",
-    "generated_at": "2026-08-13T00:43:26+00:00",
+    "generated_at": "2026-08-13T01:25:48+00:00",
     "components": {
       "financing_event_score": {
         "score": 87,
@@ -451,7 +451,7 @@
         ],
         "benchmark": "50% QQQ / 50% XLI",
         "relative_5d_pct_points": 1.97,
-        "relative_20d_pct_points": 5.35
+        "relative_20d_pct_points": 4.37
       },
       "sec_status": "ok",
       "caveats": [
