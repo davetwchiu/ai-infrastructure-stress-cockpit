@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-17T23:56:59+00:00",
+  "updated_at": "2026-08-18T00:55:19+00:00",
   "updated_label": "2026-08-14 close",
   "stress": {
-    "score": 32,
+    "score": 31,
     "status": "WATCH",
     "regime": "Rates high, credit stable",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 63,
+      "score": 61,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-08-17T23:56:58+00:00",
-    "as_of": "2026-08-17T23:56:56+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-08-18T00:55:17+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 559.12,
       "regularMarketChangePercent": 1.5806111696522684,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1786996801,
-      "postMarketPrice": 559.89,
-      "postMarketChangePercent": 0.13771641150379654,
-      "postMarketTime": 1787010974,
-      "extended_change_percent": 0.13771641150379654,
-      "quote_time": 1787010974,
-      "quote_time_label": "2026-08-17T23:56:14+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 729.87,
       "regularMarketChangePercent": -0.1641429685255935,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1786996801,
-      "postMarketPrice": 730.01,
-      "postMarketChangePercent": 0.01918149807500491,
-      "postMarketTime": 1787011016,
-      "extended_change_percent": 0.01918149807500491,
-      "quote_time": 1787011016,
-      "quote_time_label": "2026-08-17T23:56:56+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 225.01,
       "regularMarketChangePercent": -0.06661929294724533,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1786996800,
-      "postMarketPrice": 225.1205,
-      "postMarketChangePercent": 0.04910892849205872,
-      "postMarketTime": 1787011015,
-      "extended_change_percent": 0.04910892849205872,
-      "quote_time": 1787011015,
-      "quote_time_label": "2026-08-17T23:56:55+00:00"
-    },
-    "soxx_vs_qqq_change": 0.12,
-    "nvda_vs_soxx_change": -0.09,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 63,
+    "score": 61,
     "status": "ok",
-    "generated_at": "2026-08-17T23:56:58+00:00",
+    "generated_at": "2026-08-18T00:55:17+00:00",
     "components": {
       "financing_event_score": {
-        "score": 86,
+        "score": 83,
         "weight": 0.45,
-        "contribution": 38.7,
+        "contribution": 37.35,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -314,7 +302,7 @@
           "filing_date": "2026-06-18",
           "accession_number": "0001769628-26-000291",
           "signal_type": "material_financing_8k",
-          "points": 4.8,
+          "points": 2.4,
           "reason": "8-K references material agreement or debt item"
         },
         {
