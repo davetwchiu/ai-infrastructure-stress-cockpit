@@ -1,9 +1,9 @@
 {
-  "score": 43,
+  "score": 42,
   "status": "WATCH",
   "data_status": "partial",
   "coverage_ratio": 0.65,
-  "generated_at": "2026-08-25T08:41:55+00:00",
+  "generated_at": "2026-08-25T20:35:57+00:00",
   "manual_reviewed_through": null,
   "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
   "components": {
@@ -295,12 +295,12 @@
       ]
     },
     "credit_spreads": {
-      "score": 22,
+      "score": 20,
       "status": "broad_proxy",
       "weight": 0.25,
       "evidence_count": 0,
       "observations": [],
-      "broad_ig_change_bps": 1.0
+      "broad_ig_change_bps": 0.0
     },
     "rating_changes": {
       "score": null,
