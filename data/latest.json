@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T11:12:37+00:00",
+  "updated_at": "2026-08-25T11:47:54+00:00",
   "updated_label": "2026-08-21 close",
   "stress": {
     "score": 33,
@@ -141,8 +141,8 @@
   },
   "extended_hours": {
     "market_state": "PRE",
-    "generated_at": "2026-08-25T11:12:36+00:00",
-    "as_of": "2026-08-25T11:12:35+00:00",
+    "generated_at": "2026-08-25T11:47:52+00:00",
+    "as_of": "2026-08-25T11:47:51+00:00",
     "available": true,
     "is_stale": false,
     "is_active_session": true,
@@ -158,12 +158,12 @@
       "regularMarketChangePercent": -2.6670512450725825,
       "marketState": "PRE",
       "regularMarketTime": 1787601600,
-      "preMarketPrice": 516.7,
-      "preMarketChangePercent": -0.6441688299201775,
-      "preMarketTime": 1787656352,
-      "extended_change_percent": -0.6441688299201775,
-      "quote_time": 1787656352,
-      "quote_time_label": "2026-08-25T11:12:32+00:00"
+      "preMarketPrice": 518.0,
+      "preMarketChangePercent": -0.39419286607056403,
+      "preMarketTime": 1787658464,
+      "extended_change_percent": -0.39419286607056403,
+      "quote_time": 1787658464,
+      "quote_time_label": "2026-08-25T11:47:44+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
@@ -171,12 +171,12 @@
       "regularMarketChangePercent": -0.997981610226506,
       "marketState": "PRE",
       "regularMarketTime": 1787601600,
-      "preMarketPrice": 712.0312,
-      "preMarketChangePercent": -0.19746579950662424,
-      "preMarketTime": 1787656355,
-      "extended_change_percent": -0.19746579950662424,
-      "quote_time": 1787656355,
-      "quote_time_label": "2026-08-25T11:12:35+00:00"
+      "preMarketPrice": 713.09,
+      "preMarketChangePercent": -0.049058084772368726,
+      "preMarketTime": 1787658471,
+      "extended_change_percent": -0.049058084772368726,
+      "quote_time": 1787658471,
+      "quote_time_label": "2026-08-25T11:47:51+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
@@ -184,21 +184,21 @@
       "regularMarketChangePercent": -2.9061102831594687,
       "marketState": "PRE",
       "regularMarketTime": 1787601600,
-      "preMarketPrice": 210.41,
-      "preMarketChangePercent": -2.0072652757079035,
-      "preMarketTime": 1787656354,
-      "extended_change_percent": -2.0072652757079035,
-      "quote_time": 1787656354,
-      "quote_time_label": "2026-08-25T11:12:34+00:00"
+      "preMarketPrice": 210.7017,
+      "preMarketChangePercent": -1.871413934426236,
+      "preMarketTime": 1787658464,
+      "extended_change_percent": -1.871413934426236,
+      "quote_time": 1787658464,
+      "quote_time_label": "2026-08-25T11:47:44+00:00"
     },
-    "soxx_vs_qqq_change": -0.45,
-    "nvda_vs_soxx_change": -1.36,
+    "soxx_vs_qqq_change": -0.35,
+    "nvda_vs_soxx_change": -1.48,
     "overlay_score": 45
   },
   "compute_stress": {
     "score": 64,
     "status": "ok",
-    "generated_at": "2026-08-25T11:12:36+00:00",
+    "generated_at": "2026-08-25T11:47:52+00:00",
     "components": {
       "financing_event_score": {
         "score": 80,
