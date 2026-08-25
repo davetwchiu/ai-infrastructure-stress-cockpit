@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-24T23:41:13+00:00",
+  "updated_at": "2026-08-25T00:23:54+00:00",
   "updated_label": "2026-08-21 close",
   "stress": {
     "score": 33,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 65,
+      "score": 64,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-08-24T23:41:12+00:00",
-    "as_of": "2026-08-24T23:41:10+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-08-25T00:23:53+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 506.18,
       "regularMarketChangePercent": -2.6670512450725825,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1787601600,
-      "postMarketPrice": 505.45,
-      "postMarketChangePercent": -0.14421747204551583,
-      "postMarketTime": 1787614843,
-      "extended_change_percent": -0.14421747204551583,
-      "quote_time": 1787614843,
-      "quote_time_label": "2026-08-24T23:40:43+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 706.32,
       "regularMarketChangePercent": -0.997981610226506,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1787601600,
-      "postMarketPrice": 706.21,
-      "postMarketChangePercent": -0.015573677653191176,
-      "postMarketTime": 1787614870,
-      "extended_change_percent": -0.015573677653191176,
-      "quote_time": 1787614870,
-      "quote_time_label": "2026-08-24T23:41:10+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 208.48,
       "regularMarketChangePercent": -2.9061102831594687,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1787601600,
-      "postMarketPrice": 208.6796,
-      "postMarketChangePercent": 0.09574059861856554,
-      "postMarketTime": 1787614870,
-      "extended_change_percent": 0.09574059861856554,
-      "quote_time": 1787614870,
-      "quote_time_label": "2026-08-24T23:41:10+00:00"
-    },
-    "soxx_vs_qqq_change": -0.13,
-    "nvda_vs_soxx_change": 0.24,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 65,
+    "score": 64,
     "status": "ok",
-    "generated_at": "2026-08-24T23:41:12+00:00",
+    "generated_at": "2026-08-25T00:23:53+00:00",
     "components": {
       "financing_event_score": {
-        "score": 82,
+        "score": 80,
         "weight": 0.45,
-        "contribution": 36.9,
+        "contribution": 36.0,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -385,15 +373,6 @@
           "form": "8-K",
           "filing_date": "2026-06-01",
           "accession_number": "0001140361-26-023427",
-          "signal_type": "material_financing_8k",
-          "points": 2.4,
-          "reason": "8-K references material agreement or debt item"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-05-26",
-          "accession_number": "0001878848-26-000030",
           "signal_type": "material_financing_8k",
           "points": 2.4,
           "reason": "8-K references material agreement or debt item"
