@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T05:16:59+00:00",
+  "updated_at": "2026-08-31T15:53:25+00:00",
   "updated_label": "2026-08-27 close",
   "stress": {
     "score": 28,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 63,
+      "score": 65,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,58 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-08-29T05:16:57+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-08-31T15:53:23+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 508.62,
-      "regularMarketChangePercent": -3.199284395637847,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1787947200,
+      "regularMarketPrice": 508.55,
+      "regularMarketChangePercent": -0.013762730525734845,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1788191600,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 716.43,
-      "regularMarketChangePercent": -0.6489994591671211,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1787947200,
+      "regularMarketPrice": 714.841,
+      "regularMarketChangePercent": -0.22179417388997757,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1788191600,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 217.55,
-      "regularMarketChangePercent": -4.574962716027708,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1787947200,
+      "regularMarketPrice": 220.183,
+      "regularMarketChangePercent": 1.210296483566986,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1788191602,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 63,
+    "score": 65,
     "status": "ok",
-    "generated_at": "2026-08-29T05:16:57+00:00",
+    "generated_at": "2026-08-31T15:53:23+00:00",
     "components": {
       "financing_event_score": {
-        "score": 79,
+        "score": 76,
         "weight": 0.45,
-        "contribution": 35.55,
+        "contribution": 34.2,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 51,
+        "score": 65,
         "weight": 0.2,
-        "contribution": 10.2,
+        "contribution": 13.0,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 30,
+        "score": 33,
         "weight": 0.1,
-        "contribution": 3.0,
+        "contribution": 3.3,
         "status": "ok"
       }
     },
@@ -293,7 +293,7 @@
           "filing_date": "2026-07-01",
           "accession_number": "0001140361-26-027202",
           "signal_type": "recent_8k",
-          "points": 1.8,
+          "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -376,15 +376,6 @@
           "signal_type": "shelf_registration",
           "points": 2.4,
           "reason": "Shelf registration or financing capacity filing"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-06-01",
-          "accession_number": "0001140361-26-023427",
-          "signal_type": "material_financing_8k",
-          "points": 2.4,
-          "reason": "8-K references material agreement or debt item"
         }
       ],
       "balance_sheet": [
@@ -437,10 +428,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -4.29,
-        "relative_20d_pct_points": 4.54,
-        "relative_60d_pct_points": -23.12,
-        "nvda_relative_20d_pct_points": -7.53
+        "relative_5d_pct_points": -6.42,
+        "relative_20d_pct_points": -8.79,
+        "relative_60d_pct_points": -22.74,
+        "nvda_relative_20d_pct_points": -14.21
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -450,8 +441,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -0.39,
-        "relative_20d_pct_points": 4.35
+        "relative_5d_pct_points": -0.96,
+        "relative_20d_pct_points": -2.32
       },
       "sec_status": "ok",
       "caveats": [
@@ -476,7 +467,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-08-29T02:46:37+00:00",
+    "generated_at": "2026-08-31T15:53:25+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
