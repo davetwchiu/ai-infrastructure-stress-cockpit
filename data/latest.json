@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03T00:39:27+00:00",
+  "updated_at": "2026-09-03T02:37:28+00:00",
   "updated_label": "2026-09-01 close",
   "stress": {
     "score": 39,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 65,
+      "score": 63,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-09-03T00:39:24+00:00",
+    "generated_at": "2026-09-03T02:37:27+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -184,9 +184,9 @@
     }
   },
   "compute_stress": {
-    "score": 65,
+    "score": 63,
     "status": "ok",
-    "generated_at": "2026-09-03T00:39:24+00:00",
+    "generated_at": "2026-09-03T02:37:27+00:00",
     "components": {
       "financing_event_score": {
         "score": 76,
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 67,
+        "score": 55,
         "weight": 0.2,
-        "contribution": 13.4,
+        "contribution": 11.0,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 32,
+        "score": 34,
         "weight": 0.1,
-        "contribution": 3.2,
+        "contribution": 3.4,
         "status": "ok"
       }
     },
@@ -428,10 +428,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -9.87,
-        "relative_20d_pct_points": -8.7,
-        "relative_60d_pct_points": -22.06,
-        "nvda_relative_20d_pct_points": -16.28
+        "relative_5d_pct_points": -3.47,
+        "relative_20d_pct_points": -4.57,
+        "relative_60d_pct_points": -18.37,
+        "nvda_relative_20d_pct_points": -10.26
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -441,8 +441,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -1.55,
-        "relative_20d_pct_points": -1.31
+        "relative_5d_pct_points": -2.78,
+        "relative_20d_pct_points": -3.0
       },
       "sec_status": "ok",
       "caveats": [
