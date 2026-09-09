@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T00:37:11+00:00",
+  "updated_at": "2026-09-09T02:41:35+00:00",
   "updated_label": "2026-09-04 close",
   "stress": {
     "score": 37,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 54,
+      "score": 53,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-09-09T00:37:10+00:00",
+    "generated_at": "2026-09-09T02:41:34+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -184,9 +184,9 @@
     }
   },
   "compute_stress": {
-    "score": 54,
+    "score": 53,
     "status": "ok",
-    "generated_at": "2026-09-09T00:37:10+00:00",
+    "generated_at": "2026-09-09T02:41:34+00:00",
     "components": {
       "financing_event_score": {
         "score": 64,
@@ -201,9 +201,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 40,
+        "score": 34,
         "weight": 0.2,
-        "contribution": 8.0,
+        "contribution": 6.8,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -383,10 +383,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": 9.82,
-        "relative_20d_pct_points": 6.84,
-        "relative_60d_pct_points": -11.18,
-        "nvda_relative_20d_pct_points": 1.54
+        "relative_5d_pct_points": 16.61,
+        "relative_20d_pct_points": 16.32,
+        "relative_60d_pct_points": -3.92,
+        "nvda_relative_20d_pct_points": 12.3
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -396,8 +396,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 3.32,
-        "relative_20d_pct_points": 0.86
+        "relative_5d_pct_points": 4.85,
+        "relative_20d_pct_points": 3.4
       },
       "sec_status": "ok",
       "caveats": [
