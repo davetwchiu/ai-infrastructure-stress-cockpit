@@ -3,7 +3,7 @@
   "status": "WATCH",
   "data_status": "partial",
   "coverage_ratio": 0.65,
-  "generated_at": "2026-09-08T22:30:41+00:00",
+  "generated_at": "2026-09-09T12:45:52+00:00",
   "manual_reviewed_through": null,
   "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
   "components": {
@@ -13,6 +13,21 @@
       "weight": 0.15,
       "evidence_count": 19,
       "events": [
+        {
+          "ticker": "AMZN",
+          "category": "bond_issuance",
+          "event_type": "bond_issuance_filing",
+          "date": "2026-09-09",
+          "form": "424B5",
+          "accession_number": "0001104659-26-106115",
+          "matched_terms": [
+            "senior notes",
+            "notes due",
+            "debt securities"
+          ],
+          "source": "SEC EDGAR filing",
+          "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+        },
         {
           "ticker": "AMZN",
           "category": "bond_issuance",
@@ -262,20 +277,6 @@
           ],
           "source": "SEC EDGAR filing",
           "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-        },
-        {
-          "ticker": "GOOGL",
-          "category": "bond_issuance",
-          "event_type": "bond_issuance_filing",
-          "date": "2026-05-11",
-          "form": "424B5",
-          "accession_number": "0001193125-26-215570",
-          "matched_terms": [
-            "notes due",
-            "debt securities"
-          ],
-          "source": "SEC EDGAR filing",
-          "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
         }
       ]
     },
@@ -401,6 +402,21 @@
     }
   ],
   "events": [
+    {
+      "ticker": "AMZN",
+      "category": "bond_issuance",
+      "event_type": "bond_issuance_filing",
+      "date": "2026-09-09",
+      "form": "424B5",
+      "accession_number": "0001104659-26-106115",
+      "matched_terms": [
+        "senior notes",
+        "notes due",
+        "debt securities"
+      ],
+      "source": "SEC EDGAR filing",
+      "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+    },
     {
       "ticker": "AMZN",
       "category": "bond_issuance",
@@ -644,20 +660,6 @@
       "date": "2026-05-18",
       "form": "424B5",
       "accession_number": "0001193125-26-228923",
-      "matched_terms": [
-        "notes due",
-        "debt securities"
-      ],
-      "source": "SEC EDGAR filing",
-      "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-    },
-    {
-      "ticker": "GOOGL",
-      "category": "bond_issuance",
-      "event_type": "bond_issuance_filing",
-      "date": "2026-05-11",
-      "form": "424B5",
-      "accession_number": "0001193125-26-215570",
       "matched_terms": [
         "notes due",
         "debt securities"
