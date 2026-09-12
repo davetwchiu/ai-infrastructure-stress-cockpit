@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-12T00:31:22+00:00",
+  "updated_at": "2026-09-12T02:46:15+00:00",
   "updated_label": "2026-09-10 close",
   "stress": {
     "score": 46,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-09-12T00:31:20+00:00",
+    "generated_at": "2026-09-12T02:46:14+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -186,7 +186,7 @@
   "compute_stress": {
     "score": 55,
     "status": "ok",
-    "generated_at": "2026-09-12T00:31:20+00:00",
+    "generated_at": "2026-09-12T02:46:14+00:00",
     "components": {
       "financing_event_score": {
         "score": 58,
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 55,
+        "score": 58,
         "weight": 0.2,
-        "contribution": 11.0,
+        "contribution": 11.6,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 34,
+        "score": 31,
         "weight": 0.1,
-        "contribution": 3.4,
+        "contribution": 3.1,
         "status": "ok"
       }
     },
@@ -374,10 +374,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": 7.34,
-        "relative_20d_pct_points": -7.94,
-        "relative_60d_pct_points": -14.24,
-        "nvda_relative_20d_pct_points": -9.2
+        "relative_5d_pct_points": 2.48,
+        "relative_20d_pct_points": -7.68,
+        "relative_60d_pct_points": -20.62,
+        "nvda_relative_20d_pct_points": -8.0
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -387,8 +387,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 1.35,
-        "relative_20d_pct_points": -3.52
+        "relative_5d_pct_points": 1.54,
+        "relative_20d_pct_points": -1.23
       },
       "sec_status": "ok",
       "caveats": [
