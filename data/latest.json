@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T23:02:12+00:00",
+  "updated_at": "2026-09-15T01:26:05+00:00",
   "updated_label": "2026-09-11 close",
   "stress": {
     "score": 50,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 57,
+      "score": 54,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-09-14T23:02:10+00:00",
-    "as_of": "2026-09-14T23:02:08+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-09-15T01:26:03+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 497.4,
       "regularMarketChangePercent": -5.629233308668691,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1789416000,
-      "postMarketPrice": 499.74,
-      "postMarketChangePercent": 0.4704463208685228,
-      "postMarketTime": 1789426899,
-      "extended_change_percent": 0.4704463208685228,
-      "quote_time": 1789426899,
-      "quote_time_label": "2026-09-14T23:01:39+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 709.18,
       "regularMarketChangePercent": -0.797336615935551,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1789416000,
-      "postMarketPrice": 709.55,
-      "postMarketChangePercent": 0.05217293211878804,
-      "postMarketTime": 1789426924,
-      "extended_change_percent": 0.05217293211878804,
-      "quote_time": 1789426924,
-      "quote_time_label": "2026-09-14T23:02:04+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 210.96,
       "regularMarketChangePercent": -3.3579183654771083,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1789416000,
-      "postMarketPrice": 212.2987,
-      "postMarketChangePercent": 0.6345752749336242,
-      "postMarketTime": 1789426928,
-      "extended_change_percent": 0.6345752749336242,
-      "quote_time": 1789426928,
-      "quote_time_label": "2026-09-14T23:02:08+00:00"
-    },
-    "soxx_vs_qqq_change": 0.42,
-    "nvda_vs_soxx_change": 0.16,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 57,
+    "score": 54,
     "status": "ok",
-    "generated_at": "2026-09-14T23:02:10+00:00",
+    "generated_at": "2026-09-15T01:26:03+00:00",
     "components": {
       "financing_event_score": {
-        "score": 57,
+        "score": 55,
         "weight": 0.45,
-        "contribution": 25.65,
+        "contribution": 24.75,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -213,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 65,
+        "score": 58,
         "weight": 0.2,
-        "contribution": 13.0,
+        "contribution": 11.6,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 39,
+        "score": 31,
         "weight": 0.1,
-        "contribution": 3.9,
+        "contribution": 3.1,
         "status": "ok"
       }
     },
@@ -325,15 +313,6 @@
           "signal_type": "material_financing_8k",
           "points": 2.4,
           "reason": "8-K references material agreement or debt item"
-        },
-        {
-          "ticker": "APLD",
-          "form": "8-K",
-          "filing_date": "2026-06-16",
-          "accession_number": "0001493152-26-028899",
-          "signal_type": "material_financing_8k",
-          "points": 2.4,
-          "reason": "8-K references material agreement or debt item"
         }
       ],
       "balance_sheet": [
@@ -386,10 +365,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -3.05,
-        "relative_20d_pct_points": -10.68,
-        "relative_60d_pct_points": -21.65,
-        "nvda_relative_20d_pct_points": -10.8
+        "relative_5d_pct_points": 2.48,
+        "relative_20d_pct_points": -7.68,
+        "relative_60d_pct_points": -20.62,
+        "nvda_relative_20d_pct_points": -8.0
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -399,8 +378,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -4.84,
-        "relative_20d_pct_points": -6.95
+        "relative_5d_pct_points": 1.54,
+        "relative_20d_pct_points": -1.23
       },
       "sec_status": "ok",
       "caveats": [
