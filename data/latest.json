@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T02:58:07+00:00",
+  "updated_at": "2026-09-16T13:11:37+00:00",
   "updated_label": "2026-09-14 close",
   "stress": {
     "score": 52,
@@ -140,53 +140,65 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-09-16T02:58:05+00:00",
-    "as_of": null,
-    "available": false,
-    "is_stale": null,
-    "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
-    "quote_age_minutes": null,
+    "market_state": "PRE",
+    "generated_at": "2026-09-16T13:11:36+00:00",
+    "as_of": "2026-09-16T13:11:33+00:00",
+    "available": true,
+    "is_stale": false,
+    "is_active_session": true,
+    "stale_reason": "",
+    "quote_age_minutes": 0,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 498.85,
       "regularMarketChangePercent": 0.3570889704773039,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1789502401,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 506.08,
+      "preMarketChangePercent": 1.8115978474073424,
+      "preMarketTime": 1789564252,
+      "extended_change_percent": 1.8115978474073424,
+      "quote_time": 1789564252,
+      "quote_time_label": "2026-09-16T13:10:52+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 704.54,
       "regularMarketChangePercent": -0.6542767703544894,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1789502401,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 708.05,
+      "preMarketChangePercent": -0.15933895484926408,
+      "preMarketTime": 1789564290,
+      "extended_change_percent": -0.15933895484926408,
+      "quote_time": 1789564290,
+      "quote_time_label": "2026-09-16T13:11:30+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 212.17,
       "regularMarketChangePercent": 0.5735684489950543,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1789502401,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
-    }
+      "preMarketPrice": 213.8462,
+      "preMarketChangePercent": 1.3681266590822805,
+      "preMarketTime": 1789564293,
+      "extended_change_percent": 1.3681266590822805,
+      "quote_time": 1789564293,
+      "quote_time_label": "2026-09-16T13:11:33+00:00"
+    },
+    "soxx_vs_qqq_change": 1.97,
+    "nvda_vs_soxx_change": -0.44,
+    "overlay_score": 10
   },
   "compute_stress": {
     "score": 58,
     "status": "ok",
-    "generated_at": "2026-09-16T02:58:05+00:00",
+    "generated_at": "2026-09-16T13:11:36+00:00",
     "components": {
       "financing_event_score": {
         "score": 55,
@@ -404,7 +416,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-09-15T22:49:01+00:00",
+    "generated_at": "2026-09-16T13:11:37+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
@@ -412,7 +424,7 @@
         "score": 39,
         "status": "ok",
         "weight": 0.15,
-        "evidence_count": 20,
+        "evidence_count": 19,
         "events": [
           {
             "ticker": "AMZN",
@@ -675,20 +687,6 @@
             "form": "424B5",
             "accession_number": "0001193125-26-252362",
             "matched_terms": [
-              "debt securities"
-            ],
-            "source": "SEC EDGAR filing",
-            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-          },
-          {
-            "ticker": "GOOGL",
-            "category": "bond_issuance",
-            "event_type": "bond_issuance_filing",
-            "date": "2026-05-18",
-            "form": "424B5",
-            "accession_number": "0001193125-26-228923",
-            "matched_terms": [
-              "notes due",
               "debt securities"
             ],
             "source": "SEC EDGAR filing",
@@ -1079,20 +1077,6 @@
         "form": "424B5",
         "accession_number": "0001193125-26-252362",
         "matched_terms": [
-          "debt securities"
-        ],
-        "source": "SEC EDGAR filing",
-        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-      },
-      {
-        "ticker": "GOOGL",
-        "category": "bond_issuance",
-        "event_type": "bond_issuance_filing",
-        "date": "2026-05-18",
-        "form": "424B5",
-        "accession_number": "0001193125-26-228923",
-        "matched_terms": [
-          "notes due",
           "debt securities"
         ],
         "source": "SEC EDGAR filing",
