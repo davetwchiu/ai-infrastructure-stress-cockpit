@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-17T03:01:21+00:00",
+  "updated_at": "2026-09-17T13:05:27+00:00",
   "updated_label": "2026-09-15 close",
   "stress": {
-    "score": 51,
+    "score": 52,
     "status": "STRESS",
     "regime": "Credit pressure rising",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 53,
+      "score": 60,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,58 +140,70 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-09-17T03:01:20+00:00",
-    "as_of": null,
-    "available": false,
-    "is_stale": null,
-    "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
-    "quote_age_minutes": null,
+    "market_state": "PRE",
+    "generated_at": "2026-09-17T13:05:26+00:00",
+    "as_of": "2026-09-17T13:05:24+00:00",
+    "available": true,
+    "is_stale": false,
+    "is_active_session": true,
+    "stale_reason": "",
+    "quote_age_minutes": 0,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
-    "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "status": "WATCH",
+    "interpretation": "One extended-hours equity warning is active; wait for regular-session and credit confirmation.",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 502.06,
       "regularMarketChangePercent": 0.6434800040092226,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1789588800,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 518.3,
+      "preMarketChangePercent": 3.8989676255387185,
+      "preMarketTime": 1789650323,
+      "extended_change_percent": 3.8989676255387185,
+      "quote_time": 1789650323,
+      "quote_time_label": "2026-09-17T13:05:23+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 704.72,
       "regularMarketChangePercent": 0.025548584892276516,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1789588801,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 716.3,
+      "preMarketChangePercent": 1.6691742129616438,
+      "preMarketTime": 1789650322,
+      "extended_change_percent": 1.6691742129616438,
+      "quote_time": 1789650322,
+      "quote_time_label": "2026-09-17T13:05:22+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 213.9,
       "regularMarketChangePercent": 0.8153838902766664,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1789588801,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
-    }
+      "preMarketPrice": 218.4892,
+      "preMarketChangePercent": 2.9783664042984492,
+      "preMarketTime": 1789650324,
+      "extended_change_percent": 2.9783664042984492,
+      "quote_time": 1789650324,
+      "quote_time_label": "2026-09-17T13:05:24+00:00"
+    },
+    "soxx_vs_qqq_change": 2.23,
+    "nvda_vs_soxx_change": -0.92,
+    "overlay_score": 45
   },
   "compute_stress": {
-    "score": 53,
+    "score": 60,
     "status": "ok",
-    "generated_at": "2026-09-17T03:01:20+00:00",
+    "generated_at": "2026-09-17T13:05:26+00:00",
     "components": {
       "financing_event_score": {
-        "score": 52,
+        "score": 67,
         "weight": 0.45,
-        "contribution": 23.4,
+        "contribution": 30.15,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -215,6 +227,24 @@
     },
     "details": {
       "financing_events": [
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-09-17",
+          "accession_number": "0001769628-26-000429",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "424B5",
+          "filing_date": "2026-09-17",
+          "accession_number": "0001628280-26-062362",
+          "signal_type": "offering_prospectus",
+          "points": 12.0,
+          "reason": "Prospectus or offering supplement"
+        },
         {
           "ticker": "IREN",
           "form": "8-K",
@@ -395,7 +425,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-09-16T22:49:08+00:00",
+    "generated_at": "2026-09-17T13:05:27+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
