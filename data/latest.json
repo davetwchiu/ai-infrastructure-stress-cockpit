@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-16T22:49:08+00:00",
+  "updated_at": "2026-09-17T00:57:44+00:00",
   "updated_label": "2026-09-15 close",
   "stress": {
-    "score": 51,
+    "score": 52,
     "status": "STRESS",
     "regime": "Credit pressure rising",
     "confidence": "High for macro / Medium overall",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 54,
+      "score": 57,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-09-16T22:49:06+00:00",
-    "as_of": "2026-09-16T22:49:05+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-09-17T00:57:43+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 502.06,
       "regularMarketChangePercent": 0.6434800040092226,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1789588800,
-      "postMarketPrice": 505.8726,
-      "postMarketChangePercent": 0.7593913078118186,
-      "postMarketTime": 1789598938,
-      "extended_change_percent": 0.7593913078118186,
-      "quote_time": 1789598938,
-      "quote_time_label": "2026-09-16T22:48:58+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 704.72,
       "regularMarketChangePercent": 0.025548584892276516,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1789588801,
-      "postMarketPrice": 707.1,
-      "postMarketChangePercent": 0.33772278351684726,
-      "postMarketTime": 1789598937,
-      "extended_change_percent": 0.33772278351684726,
-      "quote_time": 1789598937,
-      "quote_time_label": "2026-09-16T22:48:57+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 213.9,
       "regularMarketChangePercent": 0.8153838902766664,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1789588801,
-      "postMarketPrice": 215.0977,
-      "postMarketChangePercent": 0.5599345488546126,
-      "postMarketTime": 1789598945,
-      "extended_change_percent": 0.5599345488546126,
-      "quote_time": 1789598945,
-      "quote_time_label": "2026-09-16T22:49:05+00:00"
-    },
-    "soxx_vs_qqq_change": 0.42,
-    "nvda_vs_soxx_change": -0.2,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 54,
+    "score": 57,
     "status": "ok",
-    "generated_at": "2026-09-16T22:49:06+00:00",
+    "generated_at": "2026-09-17T00:57:43+00:00",
     "components": {
       "financing_event_score": {
-        "score": 55,
+        "score": 52,
         "weight": 0.45,
-        "contribution": 24.75,
+        "contribution": 23.4,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -213,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 58,
+        "score": 74,
         "weight": 0.2,
-        "contribution": 11.6,
+        "contribution": 14.8,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 34,
+        "score": 39,
         "weight": 0.1,
-        "contribution": 3.4,
+        "contribution": 3.9,
         "status": "ok"
       }
     },
@@ -316,15 +304,6 @@
           "signal_type": "material_financing_8k",
           "points": 2.4,
           "reason": "8-K references material agreement or debt item"
-        },
-        {
-          "ticker": "CRWV",
-          "form": "8-K",
-          "filing_date": "2026-06-18",
-          "accession_number": "0001769628-26-000291",
-          "signal_type": "material_financing_8k",
-          "points": 2.4,
-          "reason": "8-K references material agreement or debt item"
         }
       ],
       "balance_sheet": [
@@ -377,10 +356,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -6.73,
-        "relative_20d_pct_points": -6.19,
-        "relative_60d_pct_points": -16.69,
-        "nvda_relative_20d_pct_points": -7.26
+        "relative_5d_pct_points": -11.92,
+        "relative_20d_pct_points": -12.61,
+        "relative_60d_pct_points": -21.51,
+        "nvda_relative_20d_pct_points": -14.1
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -390,8 +369,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -3.11,
-        "relative_20d_pct_points": -3.17
+        "relative_5d_pct_points": -6.04,
+        "relative_20d_pct_points": -6.13
       },
       "sec_status": "ok",
       "caveats": [
