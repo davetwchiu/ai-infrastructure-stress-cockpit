@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T00:32:43+00:00",
+  "updated_at": "2026-09-19T02:47:32+00:00",
   "updated_label": "2026-09-17 close",
   "stress": {
     "score": 50,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 59,
+      "score": 57,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-09-19T00:32:41+00:00",
+    "generated_at": "2026-09-19T02:47:31+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -184,9 +184,9 @@
     }
   },
   "compute_stress": {
-    "score": 59,
+    "score": 57,
     "status": "ok",
-    "generated_at": "2026-09-19T00:32:41+00:00",
+    "generated_at": "2026-09-19T02:47:31+00:00",
     "components": {
       "financing_event_score": {
         "score": 66,
@@ -201,9 +201,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 57,
+        "score": 46,
         "weight": 0.2,
-        "contribution": 11.4,
+        "contribution": 9.2,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -374,10 +374,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -3.99,
-        "relative_20d_pct_points": -4.98,
-        "relative_60d_pct_points": -20.15,
-        "nvda_relative_20d_pct_points": -5.88
+        "relative_5d_pct_points": -0.08,
+        "relative_20d_pct_points": -1.82,
+        "relative_60d_pct_points": -13.47,
+        "nvda_relative_20d_pct_points": -2.63
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -387,8 +387,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -0.7,
-        "relative_20d_pct_points": -1.34
+        "relative_5d_pct_points": -1.56,
+        "relative_20d_pct_points": -1.64
       },
       "sec_status": "ok",
       "caveats": [
