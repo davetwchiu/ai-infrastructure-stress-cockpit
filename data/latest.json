@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-23T01:22:18+00:00",
+  "updated_at": "2026-09-23T02:57:19+00:00",
   "updated_label": "2026-09-21 close",
   "stress": {
     "score": 49,
@@ -141,7 +141,7 @@
   },
   "extended_hours": {
     "market_state": "CLOSED",
-    "generated_at": "2026-09-23T01:22:17+00:00",
+    "generated_at": "2026-09-23T02:57:16+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
@@ -186,7 +186,7 @@
   "compute_stress": {
     "score": 59,
     "status": "ok",
-    "generated_at": "2026-09-23T01:22:17+00:00",
+    "generated_at": "2026-09-23T02:57:16+00:00",
     "components": {
       "financing_event_score": {
         "score": 74,
