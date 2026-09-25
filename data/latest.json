@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-25T03:04:46+00:00",
+  "updated_at": "2026-09-25T13:18:00+00:00",
   "updated_label": "2026-09-23 close",
   "stress": {
     "score": 52,
@@ -140,53 +140,65 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-09-25T03:04:45+00:00",
-    "as_of": null,
-    "available": false,
-    "is_stale": null,
-    "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
-    "quote_age_minutes": null,
+    "market_state": "PRE",
+    "generated_at": "2026-09-25T13:17:58+00:00",
+    "as_of": "2026-09-25T13:17:55+00:00",
+    "available": true,
+    "is_stale": false,
+    "is_active_session": true,
+    "stale_reason": "",
+    "quote_age_minutes": 0,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
-    "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "status": "WATCH",
+    "interpretation": "One extended-hours equity warning is active; wait for regular-session and credit confirmation.",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 566.07,
       "regularMarketChangePercent": 0.06186806193877459,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1790280000,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 572.065,
+      "preMarketChangePercent": 1.1215795800042505,
+      "preMarketTime": 1790342242,
+      "extended_change_percent": 1.1215795800042505,
+      "quote_time": 1790342242,
+      "quote_time_label": "2026-09-25T13:17:22+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 741.1,
       "regularMarketChangePercent": -0.014840598480869716,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1790280000,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "preMarketPrice": 744.14,
+      "preMarketChangePercent": 0.3952995777175117,
+      "preMarketTime": 1790342275,
+      "extended_change_percent": 0.3952995777175117,
+      "quote_time": 1790342275,
+      "quote_time_label": "2026-09-25T13:17:55+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 224.58,
       "regularMarketChangePercent": -0.41239856325661073,
-      "marketState": "CLOSED",
+      "marketState": "PRE",
       "regularMarketTime": 1790280001,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
-    }
+      "preMarketPrice": 225.498,
+      "preMarketChangePercent": -0.005321271783953474,
+      "preMarketTime": 1790342274,
+      "extended_change_percent": -0.005321271783953474,
+      "quote_time": 1790342274,
+      "quote_time_label": "2026-09-25T13:17:54+00:00"
+    },
+    "soxx_vs_qqq_change": 0.73,
+    "nvda_vs_soxx_change": -1.13,
+    "overlay_score": 45
   },
   "compute_stress": {
     "score": 58,
     "status": "ok",
-    "generated_at": "2026-09-25T03:04:45+00:00",
+    "generated_at": "2026-09-25T13:17:58+00:00",
     "components": {
       "financing_event_score": {
         "score": 72,
@@ -207,9 +219,9 @@
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 31,
+        "score": 32,
         "weight": 0.1,
-        "contribution": 3.1,
+        "contribution": 3.2,
         "status": "ok"
       }
     },
@@ -387,8 +399,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 1.8,
-        "relative_20d_pct_points": -0.93
+        "relative_5d_pct_points": 0.21,
+        "relative_20d_pct_points": -2.09
       },
       "sec_status": "ok",
       "caveats": [
@@ -413,7 +425,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-09-24T23:08:14+00:00",
+    "generated_at": "2026-09-25T13:18:00+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
