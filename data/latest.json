@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-29T23:35:21+00:00",
+  "updated_at": "2026-09-30T02:22:56+00:00",
   "updated_label": "2026-09-28 close",
   "stress": {
     "score": 57,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 58,
+      "score": 57,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,70 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "POST",
-    "generated_at": "2026-09-29T23:35:20+00:00",
-    "as_of": "2026-09-29T23:35:18+00:00",
-    "available": true,
-    "is_stale": false,
-    "is_active_session": true,
-    "stale_reason": "",
-    "quote_age_minutes": 0,
+    "market_state": "CLOSED",
+    "generated_at": "2026-09-30T02:22:55+00:00",
+    "as_of": null,
+    "available": false,
+    "is_stale": null,
+    "is_active_session": false,
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
       "regularMarketPrice": 567.44,
       "regularMarketChangePercent": 1.1858271367178652,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1790712000,
-      "postMarketPrice": 569.19,
-      "postMarketChangePercent": 0.3084026505004944,
-      "postMarketTime": 1790724818,
-      "extended_change_percent": 0.3084026505004944,
-      "quote_time": 1790724818,
-      "quote_time_label": "2026-09-29T23:33:38+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
       "regularMarketPrice": 737.93,
       "regularMarketChangePercent": 0.19008051267428439,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1790712000,
-      "postMarketPrice": 739.7,
-      "postMarketChangePercent": 0.2398601493366792,
-      "postMarketTime": 1790724914,
-      "extended_change_percent": 0.2398601493366792,
-      "quote_time": 1790724914,
-      "quote_time_label": "2026-09-29T23:35:14+00:00"
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
       "regularMarketPrice": 227.21,
       "regularMarketChangePercent": -0.720964781962774,
-      "marketState": "POST",
+      "marketState": "CLOSED",
       "regularMarketTime": 1790712000,
-      "postMarketPrice": 228.1995,
-      "postMarketChangePercent": 0.43550019805465023,
-      "postMarketTime": 1790724918,
-      "extended_change_percent": 0.43550019805465023,
-      "quote_time": 1790724918,
-      "quote_time_label": "2026-09-29T23:35:18+00:00"
-    },
-    "soxx_vs_qqq_change": 0.07,
-    "nvda_vs_soxx_change": 0.13,
-    "overlay_score": 10
+      "extended_change_percent": null,
+      "quote_time": null,
+      "quote_time_label": null
+    }
   },
   "compute_stress": {
-    "score": 58,
+    "score": 57,
     "status": "ok",
-    "generated_at": "2026-09-29T23:35:20+00:00",
+    "generated_at": "2026-09-30T02:22:55+00:00",
     "components": {
       "financing_event_score": {
-        "score": 70,
+        "score": 69,
         "weight": 0.45,
-        "contribution": 31.5,
+        "contribution": 31.05,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -322,15 +310,6 @@
           "form": "8-K",
           "filing_date": "2026-07-20",
           "accession_number": "0001140361-26-028871",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-07-01",
-          "accession_number": "0001140361-26-027202",
           "signal_type": "recent_8k",
           "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
