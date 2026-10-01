@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T03:43:12+00:00",
+  "updated_at": "2026-10-01T15:09:11+00:00",
   "updated_label": "2026-09-29 close",
   "stress": {
     "score": 58,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 57,
+      "score": 60,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,53 +140,53 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-10-01T03:43:09+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-10-01T15:09:10+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 568.64,
-      "regularMarketChangePercent": 0.2114761032003365,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1790798401,
+      "regularMarketPrice": 567.748,
+      "regularMarketChangePercent": -0.15686550365784369,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1790867346,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 739.77,
-      "regularMarketChangePercent": 0.24934614394320764,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1790798400,
+      "regularMarketPrice": 737.11,
+      "regularMarketChangePercent": -0.35957121808128933,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1790867349,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 228.38,
-      "regularMarketChangePercent": 0.5149421240262297,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1790798401,
+      "regularMarketPrice": 228.72,
+      "regularMarketChangePercent": 0.14887468254662917,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1790867349,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 57,
+    "score": 60,
     "status": "ok",
-    "generated_at": "2026-10-01T03:43:09+00:00",
+    "generated_at": "2026-10-01T15:09:10+00:00",
     "components": {
       "financing_event_score": {
         "score": 69,
@@ -201,9 +201,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 40,
+        "score": 55,
         "weight": 0.2,
-        "contribution": 8.0,
+        "contribution": 11.0,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -365,10 +365,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -4.98,
-        "relative_20d_pct_points": -0.19,
-        "relative_60d_pct_points": -1.97,
-        "nvda_relative_20d_pct_points": 3.85
+        "relative_5d_pct_points": -9.09,
+        "relative_20d_pct_points": -5.18,
+        "relative_60d_pct_points": -10.12,
+        "nvda_relative_20d_pct_points": 1.46
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -378,8 +378,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -1.7,
-        "relative_20d_pct_points": -1.0
+        "relative_5d_pct_points": -1.71,
+        "relative_20d_pct_points": -0.86
       },
       "sec_status": "ok",
       "caveats": [
@@ -404,7 +404,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-09-30T23:37:50+00:00",
+    "generated_at": "2026-10-01T15:09:11+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
@@ -412,7 +412,7 @@
         "score": 39,
         "status": "ok",
         "weight": 0.15,
-        "evidence_count": 19,
+        "evidence_count": 15,
         "events": [
           {
             "ticker": "AMZN",
@@ -622,58 +622,6 @@
             "date": "2026-06-04",
             "form": "424B5",
             "accession_number": "0001193125-26-256375",
-            "matched_terms": [
-              "debt securities"
-            ],
-            "source": "SEC EDGAR filing",
-            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-          },
-          {
-            "ticker": "GOOGL",
-            "category": "bond_issuance",
-            "event_type": "bond_issuance_filing",
-            "date": "2026-06-02",
-            "form": "424B5",
-            "accession_number": "0001193125-26-252439",
-            "matched_terms": [
-              "debt securities"
-            ],
-            "source": "SEC EDGAR filing",
-            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-          },
-          {
-            "ticker": "GOOGL",
-            "category": "bond_issuance",
-            "event_type": "bond_issuance_filing",
-            "date": "2026-06-02",
-            "form": "424B5",
-            "accession_number": "0001193125-26-252392",
-            "matched_terms": [
-              "debt securities"
-            ],
-            "source": "SEC EDGAR filing",
-            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-          },
-          {
-            "ticker": "GOOGL",
-            "category": "bond_issuance",
-            "event_type": "bond_issuance_filing",
-            "date": "2026-06-02",
-            "form": "424B5",
-            "accession_number": "0001193125-26-252374",
-            "matched_terms": [
-              "debt securities"
-            ],
-            "source": "SEC EDGAR filing",
-            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-          },
-          {
-            "ticker": "GOOGL",
-            "category": "bond_issuance",
-            "event_type": "bond_issuance_filing",
-            "date": "2026-06-02",
-            "form": "424B5",
-            "accession_number": "0001193125-26-252362",
             "matched_terms": [
               "debt securities"
             ],
@@ -1012,58 +960,6 @@
         "date": "2026-06-04",
         "form": "424B5",
         "accession_number": "0001193125-26-256375",
-        "matched_terms": [
-          "debt securities"
-        ],
-        "source": "SEC EDGAR filing",
-        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-      },
-      {
-        "ticker": "GOOGL",
-        "category": "bond_issuance",
-        "event_type": "bond_issuance_filing",
-        "date": "2026-06-02",
-        "form": "424B5",
-        "accession_number": "0001193125-26-252439",
-        "matched_terms": [
-          "debt securities"
-        ],
-        "source": "SEC EDGAR filing",
-        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-      },
-      {
-        "ticker": "GOOGL",
-        "category": "bond_issuance",
-        "event_type": "bond_issuance_filing",
-        "date": "2026-06-02",
-        "form": "424B5",
-        "accession_number": "0001193125-26-252392",
-        "matched_terms": [
-          "debt securities"
-        ],
-        "source": "SEC EDGAR filing",
-        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-      },
-      {
-        "ticker": "GOOGL",
-        "category": "bond_issuance",
-        "event_type": "bond_issuance_filing",
-        "date": "2026-06-02",
-        "form": "424B5",
-        "accession_number": "0001193125-26-252374",
-        "matched_terms": [
-          "debt securities"
-        ],
-        "source": "SEC EDGAR filing",
-        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-      },
-      {
-        "ticker": "GOOGL",
-        "category": "bond_issuance",
-        "event_type": "bond_issuance_filing",
-        "date": "2026-06-02",
-        "form": "424B5",
-        "accession_number": "0001193125-26-252362",
         "matched_terms": [
           "debt securities"
         ],
