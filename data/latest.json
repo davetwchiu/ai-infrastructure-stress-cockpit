@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-02T03:42:23+00:00",
+  "updated_at": "2026-10-02T14:29:56+00:00",
   "updated_label": "2026-09-30 close",
   "stress": {
     "score": 58,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 59,
+      "score": 57,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,53 +140,53 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-10-02T03:42:22+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-10-02T14:29:54+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 576.33,
-      "regularMarketChangePercent": 1.3523494653911117,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1790884801,
+      "regularMarketPrice": 595.74,
+      "regularMarketChangePercent": 3.367862162302848,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1790951393,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 742.03,
-      "regularMarketChangePercent": 0.3055003582194349,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1790884800,
+      "regularMarketPrice": 754.29,
+      "regularMarketChangePercent": 1.652224303599592,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1790951393,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 230.86,
-      "regularMarketChangePercent": 1.0859094491636911,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1790884801,
+      "regularMarketPrice": 237.45,
+      "regularMarketChangePercent": 2.854543879407423,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1790951392,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 59,
+    "score": 57,
     "status": "ok",
-    "generated_at": "2026-10-02T03:42:22+00:00",
+    "generated_at": "2026-10-02T14:29:54+00:00",
     "components": {
       "financing_event_score": {
         "score": 69,
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 52,
+        "score": 42,
         "weight": 0.2,
-        "contribution": 10.4,
+        "contribution": 8.4,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 31,
+        "score": 32,
         "weight": 0.1,
-        "contribution": 3.1,
+        "contribution": 3.2,
         "status": "ok"
       }
     },
@@ -365,10 +365,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -8.21,
-        "relative_20d_pct_points": -4.15,
-        "relative_60d_pct_points": -9.24,
-        "nvda_relative_20d_pct_points": 2.73
+        "relative_5d_pct_points": -0.4,
+        "relative_20d_pct_points": -3.65,
+        "relative_60d_pct_points": -2.55,
+        "nvda_relative_20d_pct_points": 4.26
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -378,8 +378,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -1.24,
-        "relative_20d_pct_points": -0.35
+        "relative_5d_pct_points": -0.1,
+        "relative_20d_pct_points": -1.58
       },
       "sec_status": "ok",
       "caveats": [
@@ -404,7 +404,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-10-01T23:49:47+00:00",
+    "generated_at": "2026-10-02T14:29:57+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
