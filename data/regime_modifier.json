@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-06T01:14:57+00:00",
+  "as_of": "2026-10-06T14:47:09+00:00",
   "source_repo": "davetwchiu/ai-infrastructure-stress-cockpit",
   "hyperscaler_funding": {
     "score": 42.0,
@@ -9,7 +9,7 @@
     "data_status": "partial"
   },
   "neocloud_financing": {
-    "score": 59.0,
+    "score": 60.0,
     "status": "STRESS",
     "data_status": "ok"
   },
