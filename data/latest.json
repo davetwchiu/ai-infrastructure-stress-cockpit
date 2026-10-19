@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T02:39:52+00:00",
+  "updated_at": "2026-10-19T15:19:00+00:00",
   "updated_label": "2026-10-15 close",
   "stress": {
     "score": 43,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 67,
+      "score": 62,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,58 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-10-17T02:39:51+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-10-19T15:18:57+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 493.39,
-      "regularMarketChangePercent": -4.142138291465103,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1792180801,
+      "regularMarketPrice": 510.75,
+      "regularMarketChangePercent": 3.5185147651958903,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1792423135,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 709.8,
-      "regularMarketChangePercent": -2.500000000000002,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1792180800,
+      "regularMarketPrice": 722.79,
+      "regularMarketChangePercent": 1.8300929839391467,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1792423137,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 214.13,
-      "regularMarketChangePercent": -1.4270588776872373,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1792180800,
+      "regularMarketPrice": 218.241,
+      "regularMarketChangePercent": 1.9198617662167905,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1792423136,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 67,
+    "score": 62,
     "status": "ok",
-    "generated_at": "2026-10-17T02:39:51+00:00",
+    "generated_at": "2026-10-19T15:18:57+00:00",
     "components": {
       "financing_event_score": {
-        "score": 63,
+        "score": 56,
         "weight": 0.45,
-        "contribution": 28.35,
+        "contribution": 25.2,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 100,
+        "score": 91,
         "weight": 0.2,
-        "contribution": 20.0,
+        "contribution": 18.2,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 38,
+        "score": 40,
         "weight": 0.1,
-        "contribution": 3.8,
+        "contribution": 4.0,
         "status": "ok"
       }
     },
@@ -239,7 +239,7 @@
           "filing_date": "2026-09-17",
           "accession_number": "0001769628-26-000429",
           "signal_type": "recent_8k",
-          "points": 3.0,
+          "points": 1.8,
           "reason": "Recent 8-K counted as light financing flag"
         },
         {
@@ -248,7 +248,7 @@
           "filing_date": "2026-09-17",
           "accession_number": "0001628280-26-062362",
           "signal_type": "offering_prospectus",
-          "points": 12.0,
+          "points": 7.2,
           "reason": "Prospectus or offering supplement"
         },
         {
@@ -313,15 +313,6 @@
           "signal_type": "recent_8k",
           "points": 0.9,
           "reason": "Recent 8-K counted as light financing flag"
-        },
-        {
-          "ticker": "IREN",
-          "form": "8-K",
-          "filing_date": "2026-07-20",
-          "accession_number": "0001140361-26-028871",
-          "signal_type": "recent_8k",
-          "points": 0.9,
-          "reason": "Recent 8-K counted as light financing flag"
         }
       ],
       "balance_sheet": [
@@ -374,10 +365,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -15.7,
-        "relative_20d_pct_points": -27.65,
-        "relative_60d_pct_points": -26.75,
-        "nvda_relative_20d_pct_points": -28.47
+        "relative_5d_pct_points": -13.72,
+        "relative_20d_pct_points": -25.06,
+        "relative_60d_pct_points": -19.38,
+        "nvda_relative_20d_pct_points": -26.66
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -387,8 +378,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -4.15,
-        "relative_20d_pct_points": -6.78
+        "relative_5d_pct_points": -5.07,
+        "relative_20d_pct_points": -7.94
       },
       "sec_status": "ok",
       "caveats": [
@@ -413,7 +404,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-10-16T22:43:22+00:00",
+    "generated_at": "2026-10-19T15:19:00+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
