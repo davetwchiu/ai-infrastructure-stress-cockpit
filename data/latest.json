@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-21T02:59:17+00:00",
+  "updated_at": "2026-10-21T13:30:05+00:00",
   "updated_label": "2026-10-19 close",
   "stress": {
     "score": 45,
@@ -140,44 +140,44 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-10-21T02:59:15+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-10-21T13:30:02+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 500.01,
-      "regularMarketChangePercent": -0.38252345944653765,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1792526400,
+      "regularMarketPrice": 509.92,
+      "regularMarketChangePercent": 1.9819603607927894,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1792589400,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 717.63,
-      "regularMarketChangePercent": -0.10162035748093601,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1792526400,
+      "regularMarketPrice": 722.33,
+      "regularMarketChangePercent": 0.6549336008806916,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1792589400,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 216.47,
-      "regularMarketChangePercent": -0.28559583582845605,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1792526401,
+      "regularMarketPrice": 220.925,
+      "regularMarketChangePercent": 2.0580218967986452,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1792589400,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
@@ -186,7 +186,7 @@
   "compute_stress": {
     "score": 62,
     "status": "ok",
-    "generated_at": "2026-10-21T02:59:15+00:00",
+    "generated_at": "2026-10-21T13:30:02+00:00",
     "components": {
       "financing_event_score": {
         "score": 56,
@@ -404,7 +404,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-10-20T23:04:50+00:00",
+    "generated_at": "2026-10-21T13:30:05+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
