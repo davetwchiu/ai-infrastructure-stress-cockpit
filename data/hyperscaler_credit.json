@@ -3,7 +3,7 @@
   "status": "WATCH",
   "data_status": "partial",
   "coverage_ratio": 0.65,
-  "generated_at": "2026-10-21T13:30:05+00:00",
+  "generated_at": "2026-10-22T13:31:33+00:00",
   "manual_reviewed_through": null,
   "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
   "components": {
@@ -133,7 +133,7 @@
       "events": []
     },
     "capex_to_ocf": {
-      "score": 58,
+      "score": 60,
       "status": "ok",
       "weight": 0.25,
       "evidence_count": 5
@@ -205,17 +205,17 @@
       "ticker": "META",
       "name": "Meta",
       "data_status": "ok",
-      "score": 45,
+      "score": 60,
       "period_start": "2026-01-01",
-      "period_end": "2026-06-30",
-      "filing_date": "2026-07-30",
+      "period_end": "2026-09-30",
+      "filing_date": "2026-10-22",
       "form": "10-Q",
       "fiscal_year": 2026,
-      "fiscal_period": "Q2",
-      "operating_cash_flow": 64088000000.0,
-      "capex": 49113000000.0,
-      "capex_to_ocf": 0.766,
-      "fcf_proxy": 14975000000.0,
+      "fiscal_period": "Q3",
+      "operating_cash_flow": 96873000000.0,
+      "capex": 83055000000.0,
+      "capex_to_ocf": 0.857,
+      "fcf_proxy": 13818000000.0,
       "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
       "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
     },
