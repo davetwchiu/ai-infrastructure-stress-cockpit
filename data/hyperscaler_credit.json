@@ -3,7 +3,7 @@
   "status": "WATCH",
   "data_status": "partial",
   "coverage_ratio": 0.65,
-  "generated_at": "2026-10-23T22:59:45+00:00",
+  "generated_at": "2026-10-26T14:53:35+00:00",
   "manual_reviewed_through": null,
   "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
   "components": {
@@ -11,8 +11,34 @@
       "score": 39,
       "status": "ok",
       "weight": 0.15,
-      "evidence_count": 7,
+      "evidence_count": 9,
       "events": [
+        {
+          "ticker": "META",
+          "category": "bond_issuance",
+          "event_type": "bond_issuance_filing",
+          "date": "2026-10-26",
+          "form": "424B5",
+          "accession_number": "0001193125-26-431043",
+          "matched_terms": [
+            "debt securities"
+          ],
+          "source": "SEC EDGAR filing",
+          "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+        },
+        {
+          "ticker": "META",
+          "category": "bond_issuance",
+          "event_type": "bond_issuance_filing",
+          "date": "2026-10-26",
+          "form": "424B5",
+          "accession_number": "0001193125-26-431040",
+          "matched_terms": [
+            "debt securities"
+          ],
+          "source": "SEC EDGAR filing",
+          "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+        },
         {
           "ticker": "AMZN",
           "category": "bond_issuance",
@@ -239,6 +265,32 @@
     }
   ],
   "events": [
+    {
+      "ticker": "META",
+      "category": "bond_issuance",
+      "event_type": "bond_issuance_filing",
+      "date": "2026-10-26",
+      "form": "424B5",
+      "accession_number": "0001193125-26-431043",
+      "matched_terms": [
+        "debt securities"
+      ],
+      "source": "SEC EDGAR filing",
+      "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+    },
+    {
+      "ticker": "META",
+      "category": "bond_issuance",
+      "event_type": "bond_issuance_filing",
+      "date": "2026-10-26",
+      "form": "424B5",
+      "accession_number": "0001193125-26-431040",
+      "matched_terms": [
+        "debt securities"
+      ],
+      "source": "SEC EDGAR filing",
+      "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+    },
     {
       "ticker": "AMZN",
       "category": "bond_issuance",
