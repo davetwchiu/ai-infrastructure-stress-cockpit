@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T03:39:36+00:00",
+  "updated_at": "2026-10-28T14:53:35+00:00",
   "updated_label": "2026-10-26 close",
   "stress": {
     "score": 40,
@@ -140,44 +140,44 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-10-28T03:39:35+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-10-28T14:53:34+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 511.06,
-      "regularMarketChangePercent": 3.909887562775749,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1793131200,
+      "regularMarketPrice": 514.21,
+      "regularMarketChangePercent": 0.6163659844245384,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1793199211,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 721.25,
-      "regularMarketChangePercent": 1.270710474585779,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1793131200,
+      "regularMarketPrice": 721.27,
+      "regularMarketChangePercent": 0.002772963604846801,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1793199214,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 217.94,
-      "regularMarketChangePercent": 0.8981481481481479,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1793131201,
+      "regularMarketPrice": 217.682,
+      "regularMarketChangePercent": -0.11838120583647083,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1793199213,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
@@ -186,7 +186,7 @@
   "compute_stress": {
     "score": 58,
     "status": "ok",
-    "generated_at": "2026-10-28T03:39:35+00:00",
+    "generated_at": "2026-10-28T14:53:34+00:00",
     "components": {
       "financing_event_score": {
         "score": 51,
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 86,
+        "score": 87,
         "weight": 0.2,
-        "contribution": 17.2,
+        "contribution": 17.4,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 35,
+        "score": 32,
         "weight": 0.1,
-        "contribution": 3.5,
+        "contribution": 3.2,
         "status": "ok"
       }
     },
@@ -356,10 +356,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -1.53,
-        "relative_20d_pct_points": -22.84,
-        "relative_60d_pct_points": -30.72,
-        "nvda_relative_20d_pct_points": -24.86
+        "relative_5d_pct_points": -3.6,
+        "relative_20d_pct_points": -22.23,
+        "relative_60d_pct_points": -30.05,
+        "nvda_relative_20d_pct_points": -23.59
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -369,8 +369,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": 1.0,
-        "relative_20d_pct_points": -5.39
+        "relative_5d_pct_points": 3.45,
+        "relative_20d_pct_points": -1.65
       },
       "sec_status": "ok",
       "caveats": [
@@ -395,7 +395,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-10-27T23:39:41+00:00",
+    "generated_at": "2026-10-28T14:53:35+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
