@@ -1,9 +1,9 @@
 {
-  "score": 47,
+  "score": 44,
   "status": "WATCH",
   "data_status": "partial",
   "coverage_ratio": 0.65,
-  "generated_at": "2026-10-28T14:53:35+00:00",
+  "generated_at": "2026-10-28T23:57:25+00:00",
   "manual_reviewed_through": null,
   "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
   "components": {
@@ -11,8 +11,34 @@
       "score": 39,
       "status": "ok",
       "weight": 0.15,
-      "evidence_count": 9,
+      "evidence_count": 11,
       "events": [
+        {
+          "ticker": "META",
+          "category": "bond_issuance",
+          "event_type": "bond_issuance_filing",
+          "date": "2026-10-28",
+          "form": "424B5",
+          "accession_number": "0001193125-26-436410",
+          "matched_terms": [
+            "debt securities"
+          ],
+          "source": "SEC EDGAR filing",
+          "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+        },
+        {
+          "ticker": "META",
+          "category": "bond_issuance",
+          "event_type": "bond_issuance_filing",
+          "date": "2026-10-28",
+          "form": "424B5",
+          "accession_number": "0001193125-26-436405",
+          "matched_terms": [
+            "debt securities"
+          ],
+          "source": "SEC EDGAR filing",
+          "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+        },
         {
           "ticker": "META",
           "category": "bond_issuance",
@@ -144,12 +170,12 @@
       ]
     },
     "credit_spreads": {
-      "score": 38,
+      "score": 30,
       "status": "broad_proxy",
       "weight": 0.25,
       "evidence_count": 0,
       "observations": [],
-      "broad_ig_change_bps": 9.0
+      "broad_ig_change_bps": 5.0
     },
     "rating_changes": {
       "score": null,
@@ -178,16 +204,16 @@
       "name": "Microsoft",
       "data_status": "ok",
       "score": 45,
-      "period_start": "2025-07-01",
-      "period_end": "2026-06-30",
-      "filing_date": "2026-07-29",
-      "form": "10-K",
-      "fiscal_year": 2026,
-      "fiscal_period": "FY",
-      "operating_cash_flow": 182935000000.0,
-      "capex": 115948000000.0,
-      "capex_to_ocf": 0.634,
-      "fcf_proxy": 66987000000.0,
+      "period_start": "2026-07-01",
+      "period_end": "2026-09-30",
+      "filing_date": "2026-10-28",
+      "form": "10-Q",
+      "fiscal_year": 2027,
+      "fiscal_period": "Q1",
+      "operating_cash_flow": 58000000000.0,
+      "capex": 39367000000.0,
+      "capex_to_ocf": 0.679,
+      "fcf_proxy": 18633000000.0,
       "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
       "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
     },
@@ -265,6 +291,32 @@
     }
   ],
   "events": [
+    {
+      "ticker": "META",
+      "category": "bond_issuance",
+      "event_type": "bond_issuance_filing",
+      "date": "2026-10-28",
+      "form": "424B5",
+      "accession_number": "0001193125-26-436410",
+      "matched_terms": [
+        "debt securities"
+      ],
+      "source": "SEC EDGAR filing",
+      "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+    },
+    {
+      "ticker": "META",
+      "category": "bond_issuance",
+      "event_type": "bond_issuance_filing",
+      "date": "2026-10-28",
+      "form": "424B5",
+      "accession_number": "0001193125-26-436405",
+      "matched_terms": [
+        "debt securities"
+      ],
+      "source": "SEC EDGAR filing",
+      "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+    },
     {
       "ticker": "META",
       "category": "bond_issuance",
