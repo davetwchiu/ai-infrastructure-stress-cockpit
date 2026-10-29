@@ -1,9 +1,9 @@
 {
-  "score": 30,
-  "status": "WATCH",
+  "score": 24,
+  "status": "NORMAL",
   "data_status": "partial",
   "coverage_ratio": 0.25,
-  "generated_at": "2026-10-29T14:58:28+00:00",
+  "generated_at": "2026-10-29T23:52:54+00:00",
   "manual_reviewed_through": null,
   "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
   "components": {
@@ -15,12 +15,12 @@
       "events": []
     },
     "credit_spreads": {
-      "score": 30,
+      "score": 24,
       "status": "broad_proxy",
       "weight": 0.25,
       "evidence_count": 0,
       "observations": [],
-      "broad_ig_change_bps": 5.0
+      "broad_ig_change_bps": 2.0
     },
     "rating_changes": {
       "score": null,
