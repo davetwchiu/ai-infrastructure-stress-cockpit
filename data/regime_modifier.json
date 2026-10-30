@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-30T14:52:19+00:00",
+  "as_of": "2026-10-30T23:34:25+00:00",
   "source_repo": "davetwchiu/ai-infrastructure-stress-cockpit",
   "hyperscaler_funding": {
-    "score": 24.0,
-    "status": "NORMAL",
+    "score": 30.0,
+    "status": "WATCH",
     "coverage_ratio": 0.25,
     "data_status": "partial"
   },
@@ -14,7 +14,7 @@
     "data_status": "partial"
   },
   "market_plumbing": {
-    "score": 55.0,
+    "score": 54.0,
     "status": "STRESS",
     "data_status": "ok"
   },
