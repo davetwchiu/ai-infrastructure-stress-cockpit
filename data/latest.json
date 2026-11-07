@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-06T15:42:49+00:00",
-  "updated_label": "2026-11-04 close",
+  "updated_at": "2026-11-07T00:01:26+00:00",
+  "updated_label": "2026-11-05 close",
   "stress": {
-    "score": 41,
+    "score": 46,
     "status": "WATCH",
     "regime": "Credit pressure rising",
     "confidence": "High for macro / Medium overall",
@@ -22,7 +22,7 @@
     {
       "key": "credit",
       "title": "Credit Pressure",
-      "score": 28,
+      "score": 33,
       "status": "WATCH",
       "bullets": [
         "HY OAS widening",
@@ -32,8 +32,8 @@
     {
       "key": "equity",
       "title": "Equity Confirmation",
-      "score": 70,
-      "status": "STRESS",
+      "score": 77,
+      "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SOXX lagging QQQ",
         "NVDA holding vs SOXX"
@@ -42,11 +42,11 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 42,
-      "status": "WATCH",
+      "score": 59,
+      "status": "STRESS",
       "bullets": [
-        "SEC data partial",
-        "No recent financing filing signal"
+        "SEC data ok",
+        "Financing filings detected"
       ]
     }
   ],
@@ -62,8 +62,8 @@
       "SOXX trend negative vs QQQ over 20d"
     ],
     "negative": [
-      "No recent financing filing signal",
-      "Balance-sheet data partial",
+      "Recent financing filings detected",
+      "Balance-sheet extraction usable",
       "No GPU rental pricing scraped"
     ]
   },
@@ -71,62 +71,62 @@
     {
       "key": "sofr",
       "label": "SOFR",
-      "value": 3.94,
-      "value_label": "3.94%",
-      "change_5d": 0.0,
+      "value": 3.92,
+      "value_label": "3.92%",
+      "change_5d": -0.02,
       "change_20d": 0.04,
-      "change_5d_label": "+0.00",
+      "change_5d_label": "-0.02",
       "change_20d_label": "+0.04"
     },
     {
       "key": "dgs2",
       "label": "2Y Treasury",
-      "value": 4.58,
-      "value_label": "4.58%",
-      "change_5d": -0.09,
-      "change_20d": -0.21,
-      "change_5d_label": "-0.09",
-      "change_20d_label": "-0.21"
+      "value": 4.46,
+      "value_label": "4.46%",
+      "change_5d": -0.15,
+      "change_20d": -0.31,
+      "change_5d_label": "-0.15",
+      "change_20d_label": "-0.31"
     },
     {
       "key": "dgs10",
       "label": "10Y Treasury",
-      "value": 4.9,
-      "value_label": "4.90%",
-      "change_5d": -0.15,
-      "change_20d": -0.37,
-      "change_5d_label": "-0.15",
-      "change_20d_label": "-0.37"
+      "value": 4.84,
+      "value_label": "4.84%",
+      "change_5d": -0.14,
+      "change_20d": -0.44,
+      "change_5d_label": "-0.14",
+      "change_20d_label": "-0.44"
     },
     {
       "key": "ig_oas",
       "label": "IG OAS",
-      "value": 0.91,
-      "value_label": "91 bps",
-      "change_5d": 0.05,
-      "change_20d": 0.08,
-      "change_5d_label": "+0.05",
-      "change_20d_label": "+0.08"
+      "value": 0.93,
+      "value_label": "93 bps",
+      "change_5d": 0.04,
+      "change_20d": 0.11,
+      "change_5d_label": "+0.04",
+      "change_20d_label": "+0.11"
     },
     {
       "key": "hy_oas",
       "label": "HY OAS",
-      "value": 3.32,
-      "value_label": "332 bps",
-      "change_5d": 0.18,
-      "change_20d": 0.29,
-      "change_5d_label": "+0.18",
-      "change_20d_label": "+0.29"
+      "value": 3.48,
+      "value_label": "348 bps",
+      "change_5d": 0.22,
+      "change_20d": 0.39,
+      "change_5d_label": "+0.22",
+      "change_20d_label": "+0.39"
     },
     {
       "key": "soxx_qqq_rel",
       "label": "SOXX / QQQ Relative",
-      "value": 21.697618371991872,
-      "value_label": "21.70",
-      "change_5d": -9.5068,
-      "change_20d": -16.1109,
-      "change_5d_label": "-9.5%",
-      "change_20d_label": "-16.1%"
+      "value": 20.384822870700265,
+      "value_label": "20.38",
+      "change_5d": -14.8674,
+      "change_20d": -20.4925,
+      "change_5d_label": "-14.9%",
+      "change_20d_label": "-20.5%"
     }
   ],
   "action": {
@@ -140,70 +140,82 @@
     ]
   },
   "extended_hours": {
-    "market_state": "REGULAR",
-    "generated_at": "2026-11-06T15:42:48+00:00",
-    "as_of": null,
-    "available": false,
-    "is_stale": null,
-    "is_active_session": false,
-    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
-    "quote_age_minutes": null,
+    "market_state": "POST",
+    "generated_at": "2026-11-07T00:01:24+00:00",
+    "as_of": "2026-11-07T00:01:13+00:00",
+    "available": true,
+    "is_stale": false,
+    "is_active_session": true,
+    "stale_reason": "",
+    "quote_age_minutes": 0,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Regular session is active; extended-hours overlay is inactive",
+    "interpretation": "Extended-hours equity moves are not showing material AI infrastructure stress.",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 135.19,
-      "regularMarketChangePercent": 2.4943138741470694,
-      "marketState": "REGULAR",
-      "regularMarketTime": 1793979767,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "regularMarketPrice": 136.53,
+      "regularMarketChangePercent": 3.5102350265352467,
+      "marketState": "POST",
+      "regularMarketTime": 1793998801,
+      "postMarketPrice": 136.8,
+      "postMarketChangePercent": 0.19775873434411118,
+      "postMarketTime": 1794009673,
+      "extended_change_percent": 0.19775873434411118,
+      "quote_time": 1794009673,
+      "quote_time_label": "2026-11-07T00:01:13+00:00"
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 657.78,
-      "regularMarketChangePercent": 1.658295340391014,
-      "marketState": "REGULAR",
-      "regularMarketTime": 1793979767,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
+      "regularMarketPrice": 656.1,
+      "regularMarketChangePercent": 1.3986554362104942,
+      "marketState": "POST",
+      "regularMarketTime": 1793998800,
+      "postMarketPrice": 656.99,
+      "postMarketChangePercent": 0.13565005334552627,
+      "postMarketTime": 1794009671,
+      "extended_change_percent": 0.13565005334552627,
+      "quote_time": 1794009671,
+      "quote_time_label": "2026-11-07T00:01:11+00:00"
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 188.455,
-      "regularMarketChangePercent": 3.7747797356828316,
-      "marketState": "REGULAR",
-      "regularMarketTime": 1793979767,
-      "extended_change_percent": null,
-      "quote_time": null,
-      "quote_time_label": null
-    }
+      "regularMarketPrice": 186.64,
+      "regularMarketChangePercent": 2.7753303964757725,
+      "marketState": "POST",
+      "regularMarketTime": 1793998800,
+      "postMarketPrice": 188.14,
+      "postMarketChangePercent": 0.8036862408915546,
+      "postMarketTime": 1794009673,
+      "extended_change_percent": 0.8036862408915546,
+      "quote_time": 1794009673,
+      "quote_time_label": "2026-11-07T00:01:13+00:00"
+    },
+    "soxx_vs_qqq_change": 0.06,
+    "nvda_vs_soxx_change": 0.61,
+    "overlay_score": 10
   },
   "compute_stress": {
-    "score": 42,
-    "status": "partial",
-    "generated_at": "2026-11-06T15:42:48+00:00",
+    "score": 59,
+    "status": "ok",
+    "generated_at": "2026-11-07T00:01:24+00:00",
     "components": {
       "financing_event_score": {
-        "score": 25,
+        "score": 52,
         "weight": 0.45,
-        "contribution": 11.25,
-        "status": "failed"
+        "contribution": 23.4,
+        "status": "ok"
       },
       "balance_sheet_pressure_score": {
-        "score": 35,
+        "score": 60,
         "weight": 0.25,
-        "contribution": 8.75,
-        "status": "failed"
+        "contribution": 15.0,
+        "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 90,
+        "score": 86,
         "weight": 0.2,
-        "contribution": 18.0,
+        "contribution": 17.2,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -214,8 +226,140 @@
       }
     },
     "details": {
-      "financing_events": [],
-      "balance_sheet": [],
+      "financing_events": [
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-11-06",
+          "accession_number": "0001144879-26-000063",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-11-05",
+          "accession_number": "0001878848-26-000065",
+          "signal_type": "recent_8k",
+          "points": 3.0,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "APLD",
+          "form": "8-K",
+          "filing_date": "2026-10-07",
+          "accession_number": "0001144879-26-000057",
+          "signal_type": "recent_8k",
+          "points": 1.8,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-09-22",
+          "accession_number": "0001769628-26-000432",
+          "signal_type": "material_financing_8k",
+          "points": 4.8,
+          "reason": "8-K references material agreement or debt item"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-09-17",
+          "accession_number": "0001769628-26-000429",
+          "signal_type": "recent_8k",
+          "points": 1.8,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "424B5",
+          "filing_date": "2026-09-17",
+          "accession_number": "0001628280-26-062362",
+          "signal_type": "offering_prospectus",
+          "points": 7.2,
+          "reason": "Prospectus or offering supplement"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-08-27",
+          "accession_number": "0001878848-26-000051",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "IREN",
+          "form": "8-K",
+          "filing_date": "2026-08-13",
+          "accession_number": "0001140361-26-032638",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-08-11",
+          "accession_number": "0001769628-26-000362",
+          "signal_type": "recent_8k",
+          "points": 0.9,
+          "reason": "Recent 8-K counted as light financing flag"
+        },
+        {
+          "ticker": "CRWV",
+          "form": "8-K",
+          "filing_date": "2026-08-10",
+          "accession_number": "0001769628-26-000357",
+          "signal_type": "material_financing_8k",
+          "points": 2.4,
+          "reason": "8-K references material agreement or debt item"
+        }
+      ],
+      "balance_sheet": [
+        {
+          "ticker": "CRWV",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 4.69,
+          "capex_to_revenue": 5.48,
+          "interest_to_revenue": null,
+          "fcf_proxy_to_revenue": -4.06,
+          "score": 67,
+          "data_status": "ok"
+        },
+        {
+          "ticker": "NBIS",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 1.11,
+          "capex_to_revenue": 7.67,
+          "interest_to_revenue": 0.23,
+          "fcf_proxy_to_revenue": -6.95,
+          "score": 67,
+          "data_status": "ok"
+        },
+        {
+          "ticker": "APLD",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 0.0,
+          "capex_to_revenue": 0.29,
+          "interest_to_revenue": 0.1,
+          "fcf_proxy_to_revenue": -0.04,
+          "score": 45,
+          "data_status": "ok"
+        },
+        {
+          "ticker": "IREN",
+          "fiscal_period": "latest SEC fact",
+          "debt_to_cash": 1.88,
+          "capex_to_revenue": 10.65,
+          "interest_to_revenue": null,
+          "fcf_proxy_to_revenue": -8.01,
+          "score": 62,
+          "data_status": "ok"
+        }
+      ],
       "equity_confirmation": {
         "usable_tickers": [
           "CRWV",
@@ -224,10 +368,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -6.65,
-        "relative_20d_pct_points": -21.27,
-        "relative_60d_pct_points": -34.85,
-        "nvda_relative_20d_pct_points": -23.41
+        "relative_5d_pct_points": -4.39,
+        "relative_20d_pct_points": -19.71,
+        "relative_60d_pct_points": -33.68,
+        "nvda_relative_20d_pct_points": -20.84
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -237,17 +381,15 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -4.69,
-        "relative_20d_pct_points": -4.33
+        "relative_5d_pct_points": -4.27,
+        "relative_20d_pct_points": -3.97
       },
-      "sec_status": "failed",
+      "sec_status": "ok",
       "caveats": [
         "SEC data is best-effort.",
         "Filing detection is rule-based, not legal analysis.",
         "Equity-price data is confirmation, not the primary early-warning signal.",
-        "No GPU rental pricing is scraped.",
-        "SEC ticker mapping failed; SEC components used fallback values.",
-        "XBRL balance-sheet extraction is partial or fallback for at least one primary ticker."
+        "No GPU rental pricing is scraped."
       ]
     }
   },
@@ -261,28 +403,315 @@
     "config/hyperscaler_credit_signals.json"
   ],
   "hyperscaler_credit": {
-    "score": 36,
+    "score": 49,
     "status": "WATCH",
     "data_status": "partial",
-    "coverage_ratio": 0.25,
-    "generated_at": "2026-11-06T15:42:49+00:00",
+    "coverage_ratio": 0.65,
+    "generated_at": "2026-11-07T00:01:26+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
       "bond_issuance": {
-        "score": null,
-        "status": "failed",
+        "score": 39,
+        "status": "ok",
         "weight": 0.15,
-        "evidence_count": 0,
-        "events": []
+        "evidence_count": 20,
+        "events": [
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-06",
+            "form": "424B5",
+            "accession_number": "0001193125-26-450754",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-05",
+            "form": "424B5",
+            "accession_number": "0001193125-26-448015",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "GOOGL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-04",
+            "form": "424B2",
+            "accession_number": "0001193125-26-447343",
+            "matched_terms": [
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-04",
+            "form": "424B5",
+            "accession_number": "0001193125-26-446110",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "ORCL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-04",
+            "form": "424B5",
+            "accession_number": "0001193125-26-445847",
+            "matched_terms": [
+              "senior notes",
+              "debt securities",
+              "term loan"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "ORCL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-04",
+            "form": "424B2",
+            "accession_number": "0001193125-26-445846",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-03",
+            "form": "424B5",
+            "accession_number": "0001193125-26-444440",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "MSFT",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-02",
+            "form": "424B2",
+            "accession_number": "0001193125-26-442618",
+            "matched_terms": [
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "GOOGL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-02",
+            "form": "424B5",
+            "accession_number": "0001193125-26-442515",
+            "matched_terms": [
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "ORCL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-02",
+            "form": "424B5",
+            "accession_number": "0001193125-26-442729",
+            "matched_terms": [
+              "senior notes",
+              "debt securities",
+              "term loan"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "ORCL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-02",
+            "form": "424B2",
+            "accession_number": "0001193125-26-442722",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "MSFT",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-10-29",
+            "form": "424B2",
+            "accession_number": "0001193125-26-437008",
+            "matched_terms": [
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-10-28",
+            "form": "424B5",
+            "accession_number": "0001193125-26-436410",
+            "matched_terms": [
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-10-28",
+            "form": "424B5",
+            "accession_number": "0001193125-26-436405",
+            "matched_terms": [
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-10-26",
+            "form": "424B5",
+            "accession_number": "0001193125-26-431043",
+            "matched_terms": [
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "META",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-10-26",
+            "form": "424B5",
+            "accession_number": "0001193125-26-431040",
+            "matched_terms": [
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "AMZN",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-09-11",
+            "form": "424B5",
+            "accession_number": "0001104659-26-107122",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "AMZN",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-09-09",
+            "form": "424B5",
+            "accession_number": "0001104659-26-106115",
+            "matched_terms": [
+              "senior notes",
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "AMZN",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-08-18",
+            "form": "424B3",
+            "accession_number": "0001104659-26-098339",
+            "matched_terms": [
+              "debt securities",
+              "credit agreement"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
+          {
+            "ticker": "GOOGL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-08-07",
+            "form": "424B2",
+            "accession_number": "0001193125-26-340264",
+            "matched_terms": [
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          }
+        ]
       },
       "credit_spreads": {
-        "score": 36,
+        "score": 42,
         "status": "broad_proxy",
         "weight": 0.25,
         "evidence_count": 0,
         "observations": [],
-        "broad_ig_change_bps": 8.0
+        "broad_ig_change_bps": 11.0
       },
       "rating_changes": {
         "score": null,
@@ -292,10 +721,10 @@
         "events": []
       },
       "capex_to_ocf": {
-        "score": null,
-        "status": "failed",
+        "score": 62,
+        "status": "ok",
         "weight": 0.25,
-        "evidence_count": 0
+        "evidence_count": 5
       },
       "fcf_revisions": {
         "score": null,
@@ -309,36 +738,387 @@
       {
         "ticker": "MSFT",
         "name": "Microsoft",
-        "data_status": "missing_cik"
+        "data_status": "ok",
+        "score": 45,
+        "period_start": "2026-07-01",
+        "period_end": "2026-09-30",
+        "filing_date": "2026-10-28",
+        "form": "10-Q",
+        "fiscal_year": 2027,
+        "fiscal_period": "Q1",
+        "operating_cash_flow": 58000000000.0,
+        "capex": 39367000000.0,
+        "capex_to_ocf": 0.679,
+        "fcf_proxy": 18633000000.0,
+        "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
+        "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
       },
       {
         "ticker": "AMZN",
         "name": "Amazon",
-        "data_status": "missing_cik"
+        "data_status": "ok",
+        "score": 30,
+        "period_start": "2016-04-01",
+        "period_end": "2017-03-31",
+        "filing_date": "2017-04-28",
+        "form": "10-Q",
+        "fiscal_year": 2017,
+        "fiscal_period": "Q1",
+        "operating_cash_flow": 17634000000.0,
+        "capex": 7417000000.0,
+        "capex_to_ocf": 0.421,
+        "fcf_proxy": 10217000000.0,
+        "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
+        "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
       },
       {
         "ticker": "GOOGL",
         "name": "Alphabet",
-        "data_status": "missing_cik"
+        "data_status": "ok",
+        "score": 75,
+        "period_start": "2026-01-01",
+        "period_end": "2026-09-30",
+        "filing_date": "2026-10-29",
+        "form": "10-Q",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q3",
+        "operating_cash_flow": 127149000000.0,
+        "capex": 131953000000.0,
+        "capex_to_ocf": 1.038,
+        "fcf_proxy": -4804000000.0,
+        "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
+        "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
       },
       {
         "ticker": "META",
         "name": "Meta",
-        "data_status": "missing_cik"
+        "data_status": "ok",
+        "score": 60,
+        "period_start": "2026-01-01",
+        "period_end": "2026-09-30",
+        "filing_date": "2026-10-22",
+        "form": "10-Q",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q3",
+        "operating_cash_flow": 96873000000.0,
+        "capex": 83055000000.0,
+        "capex_to_ocf": 0.857,
+        "fcf_proxy": 13818000000.0,
+        "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
+        "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
       },
       {
         "ticker": "ORCL",
         "name": "Oracle",
-        "data_status": "missing_cik"
+        "data_status": "ok",
+        "score": 75,
+        "period_start": "2026-06-01",
+        "period_end": "2026-08-31",
+        "filing_date": "2026-09-11",
+        "form": "10-Q",
+        "fiscal_year": 2026,
+        "fiscal_period": "Q1",
+        "operating_cash_flow": 23103000000.0,
+        "capex": 28499000000.0,
+        "capex_to_ocf": 1.234,
+        "fcf_proxy": -5396000000.0,
+        "ocf_tag": "NetCashProvidedByUsedInOperatingActivities",
+        "capex_tag": "PaymentsToAcquirePropertyPlantAndEquipment"
       }
     ],
-    "events": [],
+    "events": [
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-06",
+        "form": "424B5",
+        "accession_number": "0001193125-26-450754",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-05",
+        "form": "424B5",
+        "accession_number": "0001193125-26-448015",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "GOOGL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-04",
+        "form": "424B2",
+        "accession_number": "0001193125-26-447343",
+        "matched_terms": [
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-04",
+        "form": "424B5",
+        "accession_number": "0001193125-26-446110",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "ORCL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-04",
+        "form": "424B5",
+        "accession_number": "0001193125-26-445847",
+        "matched_terms": [
+          "senior notes",
+          "debt securities",
+          "term loan"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "ORCL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-04",
+        "form": "424B2",
+        "accession_number": "0001193125-26-445846",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-03",
+        "form": "424B5",
+        "accession_number": "0001193125-26-444440",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "MSFT",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-02",
+        "form": "424B2",
+        "accession_number": "0001193125-26-442618",
+        "matched_terms": [
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "GOOGL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-02",
+        "form": "424B5",
+        "accession_number": "0001193125-26-442515",
+        "matched_terms": [
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "ORCL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-02",
+        "form": "424B5",
+        "accession_number": "0001193125-26-442729",
+        "matched_terms": [
+          "senior notes",
+          "debt securities",
+          "term loan"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "ORCL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-02",
+        "form": "424B2",
+        "accession_number": "0001193125-26-442722",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "MSFT",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-10-29",
+        "form": "424B2",
+        "accession_number": "0001193125-26-437008",
+        "matched_terms": [
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-10-28",
+        "form": "424B5",
+        "accession_number": "0001193125-26-436410",
+        "matched_terms": [
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-10-28",
+        "form": "424B5",
+        "accession_number": "0001193125-26-436405",
+        "matched_terms": [
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-10-26",
+        "form": "424B5",
+        "accession_number": "0001193125-26-431043",
+        "matched_terms": [
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "META",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-10-26",
+        "form": "424B5",
+        "accession_number": "0001193125-26-431040",
+        "matched_terms": [
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "AMZN",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-09-11",
+        "form": "424B5",
+        "accession_number": "0001104659-26-107122",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "AMZN",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-09-09",
+        "form": "424B5",
+        "accession_number": "0001104659-26-106115",
+        "matched_terms": [
+          "senior notes",
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "AMZN",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-08-18",
+        "form": "424B3",
+        "accession_number": "0001104659-26-098339",
+        "matched_terms": [
+          "debt securities",
+          "credit agreement"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
+      {
+        "ticker": "GOOGL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-08-07",
+        "form": "424B2",
+        "accession_number": "0001193125-26-340264",
+        "matched_terms": [
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      }
+    ],
     "caveats": [
       "Bond issuance is a monitoring signal, not proof of distress; terms and use of proceeds still matter.",
       "SEC cash-flow facts are matched within the same filing period; company tagging can still vary.",
       "Issuer credit spreads, rating actions, and analyst FCF revisions require dated manual observations when no stable free feed is available.",
-      "Unmonitored components: bond_issuance, rating_changes, capex_to_ocf, fcf_revisions.",
-      "SEC ticker mapping or issuer coverage is partial."
+      "Unmonitored components: rating_changes, fcf_revisions."
     ],
     "source_summary": "SEC EDGAR companyfacts and filings, broad IG OAS fallback, and dated manual observations."
   }
