@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T06:10:09+00:00",
+  "updated_at": "2026-11-17T17:24:58+00:00",
   "updated_label": "2026-11-13 close",
   "stress": {
     "score": 44,
@@ -140,44 +140,44 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-11-17T06:10:07+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-11-17T17:24:57+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 141.22,
-      "regularMarketChangePercent": -5.411922304085737,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1794862800,
+      "regularMarketPrice": 140.88,
+      "regularMarketChangePercent": -0.24075909927772088,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1794936297,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 661.75,
-      "regularMarketChangePercent": -2.668078659783202,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1794862800,
+      "regularMarketPrice": 656.3,
+      "regularMarketChangePercent": -0.8235738571968354,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1794936295,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 156.14,
-      "regularMarketChangePercent": -4.120356155971761,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1794862801,
+      "regularMarketPrice": 154.62,
+      "regularMarketChangePercent": -0.973485333674895,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1794936296,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
@@ -186,7 +186,7 @@
   "compute_stress": {
     "score": 57,
     "status": "ok",
-    "generated_at": "2026-11-17T06:10:07+00:00",
+    "generated_at": "2026-11-17T17:24:57+00:00",
     "components": {
       "financing_event_score": {
         "score": 46,
@@ -201,9 +201,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 91,
+        "score": 90,
         "weight": 0.2,
-        "contribution": 18.2,
+        "contribution": 18.0,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -338,10 +338,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -11.49,
-        "relative_20d_pct_points": -18.42,
-        "relative_60d_pct_points": -37.59,
-        "nvda_relative_20d_pct_points": -2.08
+        "relative_5d_pct_points": -9.39,
+        "relative_20d_pct_points": -18.76,
+        "relative_60d_pct_points": -37.76,
+        "nvda_relative_20d_pct_points": -2.2
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -351,8 +351,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -1.16,
-        "relative_20d_pct_points": 1.27
+        "relative_5d_pct_points": -0.51,
+        "relative_20d_pct_points": 1.42
       },
       "sec_status": "ok",
       "caveats": [
@@ -377,7 +377,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-11-17T02:51:18+00:00",
+    "generated_at": "2026-11-17T17:24:58+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
