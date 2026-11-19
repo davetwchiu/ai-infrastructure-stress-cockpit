@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-18T16:58:22+00:00",
-  "updated_label": "2026-11-16 close",
+  "updated_at": "2026-11-19T01:48:40+00:00",
+  "updated_label": "2026-11-17 close",
   "stress": {
-    "score": 45,
+    "score": 43,
     "status": "WATCH",
-    "regime": "Rates high, credit stable",
+    "regime": "Credit pressure rising",
     "confidence": "High for macro / Medium overall",
     "judgment": "Not a red flag yet. Rates remain high, but credit spreads have not confirmed deterioration."
   },
@@ -12,7 +12,7 @@
     {
       "key": "rates",
       "title": "Rates Pressure",
-      "score": 46,
+      "score": 39,
       "status": "WATCH",
       "bullets": [
         "SOFR high",
@@ -22,17 +22,17 @@
     {
       "key": "credit",
       "title": "Credit Pressure",
-      "score": 22,
-      "status": "NORMAL",
+      "score": 26,
+      "status": "WATCH",
       "bullets": [
-        "HY OAS stable",
+        "HY OAS widening",
         "IG OAS stable"
       ]
     },
     {
       "key": "equity",
       "title": "Equity Confirmation",
-      "score": 75,
+      "score": 74,
       "status": "CREDIT STRESS CONFIRMED",
       "bullets": [
         "SOXX lagging QQQ",
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 59,
+      "score": 57,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -52,7 +52,7 @@
   ],
   "triggers": {
     "positive": [
-      "HY OAS unchanged over 5d",
+      "Credit data still observable",
       "Official stress score remains close-based",
       "SOXX not materially lagging QQQ"
     ],
@@ -71,8 +71,8 @@
     {
       "key": "sofr",
       "label": "SOFR",
-      "value": 3.93,
-      "value_label": "3.93%",
+      "value": 3.92,
+      "value_label": "3.92%",
       "change_5d": 0.04,
       "change_20d": 0.05,
       "change_5d_label": "+0.04",
@@ -81,52 +81,52 @@
     {
       "key": "dgs2",
       "label": "2Y Treasury",
-      "value": 4.83,
-      "value_label": "4.83%",
-      "change_5d": 0.32,
-      "change_20d": 0.09,
-      "change_5d_label": "+0.32",
-      "change_20d_label": "+0.09"
+      "value": 4.8,
+      "value_label": "4.80%",
+      "change_5d": 0.24,
+      "change_20d": 0.03,
+      "change_5d_label": "+0.24",
+      "change_20d_label": "+0.03"
     },
     {
       "key": "dgs10",
       "label": "10Y Treasury",
-      "value": 5.12,
-      "value_label": "5.12%",
-      "change_5d": 0.26,
-      "change_20d": 0.03,
-      "change_5d_label": "+0.26",
-      "change_20d_label": "+0.03"
+      "value": 5.1,
+      "value_label": "5.10%",
+      "change_5d": 0.22,
+      "change_20d": -0.05,
+      "change_5d_label": "+0.22",
+      "change_20d_label": "-0.05"
     },
     {
       "key": "ig_oas",
       "label": "IG OAS",
-      "value": 0.9,
-      "value_label": "90 bps",
-      "change_5d": -0.03,
+      "value": 0.92,
+      "value_label": "92 bps",
+      "change_5d": 0.01,
       "change_20d": 0.05,
-      "change_5d_label": "-0.03",
+      "change_5d_label": "+0.01",
       "change_20d_label": "+0.05"
     },
     {
       "key": "hy_oas",
       "label": "HY OAS",
-      "value": 3.34,
-      "value_label": "334 bps",
-      "change_5d": -0.08,
-      "change_20d": 0.03,
-      "change_5d_label": "-0.08",
-      "change_20d_label": "+0.03"
+      "value": 3.43,
+      "value_label": "343 bps",
+      "change_5d": 0.09,
+      "change_20d": 0.14,
+      "change_5d_label": "+0.09",
+      "change_20d_label": "+0.14"
     },
     {
       "key": "soxx_qqq_rel",
       "label": "SOXX / QQQ Relative",
-      "value": 21.34038552636239,
-      "value_label": "21.34",
-      "change_5d": 2.552,
-      "change_20d": -7.898,
-      "change_5d_label": "+2.6%",
-      "change_20d_label": "-7.9%"
+      "value": 21.532841781771285,
+      "value_label": "21.53",
+      "change_5d": -0.3248,
+      "change_20d": -7.5469,
+      "change_5d_label": "-0.3%",
+      "change_20d_label": "-7.5%"
     }
   ],
   "action": {
@@ -140,53 +140,53 @@
     ]
   },
   "extended_hours": {
-    "market_state": "REGULAR",
-    "generated_at": "2026-11-18T16:58:19+00:00",
+    "market_state": "CLOSED",
+    "generated_at": "2026-11-19T01:48:39+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
+    "stale_reason": "Market is closed; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Regular session is active; extended-hours overlay is inactive",
+    "interpretation": "Market is closed; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 139.575,
-      "regularMarketChangePercent": -1.3325321645694999,
-      "marketState": "REGULAR",
-      "regularMarketTime": 1795021098,
+      "regularMarketPrice": 141.85,
+      "regularMarketChangePercent": 0.2756963099109111,
+      "marketState": "CLOSED",
+      "regularMarketTime": 1795035600,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 654.72,
-      "regularMarketChangePercent": -0.33944744653322534,
-      "marketState": "REGULAR",
-      "regularMarketTime": 1795021097,
+      "regularMarketPrice": 659.51,
+      "regularMarketChangePercent": 0.38967957987670054,
+      "marketState": "CLOSED",
+      "regularMarketTime": 1795035601,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 151.175,
-      "regularMarketChangePercent": -2.7563360349929233,
-      "marketState": "REGULAR",
-      "regularMarketTime": 1795021098,
+      "regularMarketPrice": 150.96,
+      "regularMarketChangePercent": -2.8946352759552263,
+      "marketState": "CLOSED",
+      "regularMarketTime": 1795035600,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 59,
+    "score": 57,
     "status": "ok",
-    "generated_at": "2026-11-18T16:58:19+00:00",
+    "generated_at": "2026-11-19T01:48:39+00:00",
     "components": {
       "financing_event_score": {
         "score": 46,
@@ -201,9 +201,9 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 100,
+        "score": 92,
         "weight": 0.2,
-        "contribution": 20.0,
+        "contribution": 18.4,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
@@ -338,10 +338,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -18.51,
-        "relative_20d_pct_points": -21.74,
-        "relative_60d_pct_points": -40.7,
-        "nvda_relative_20d_pct_points": -3.67
+        "relative_5d_pct_points": -10.21,
+        "relative_20d_pct_points": -19.44,
+        "relative_60d_pct_points": -38.33,
+        "nvda_relative_20d_pct_points": -3.05
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -351,8 +351,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -0.76,
-        "relative_20d_pct_points": 0.66
+        "relative_5d_pct_points": -0.17,
+        "relative_20d_pct_points": 1.73
       },
       "sec_status": "ok",
       "caveats": [
@@ -377,7 +377,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-11-18T16:58:22+00:00",
+    "generated_at": "2026-11-19T01:48:41+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
