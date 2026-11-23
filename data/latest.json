@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T05:16:54+00:00",
+  "updated_at": "2026-11-23T19:53:52+00:00",
   "updated_label": "2026-11-19 close",
   "stress": {
     "score": 45,
@@ -42,7 +42,7 @@
     {
       "key": "compute",
       "title": "Compute Financing Stress",
-      "score": 59,
+      "score": 55,
       "status": "STRESS",
       "bullets": [
         "SEC data ok",
@@ -140,58 +140,58 @@
     ]
   },
   "extended_hours": {
-    "market_state": "CLOSED",
-    "generated_at": "2026-11-21T05:16:53+00:00",
+    "market_state": "REGULAR",
+    "generated_at": "2026-11-23T19:53:51+00:00",
     "as_of": null,
     "available": false,
     "is_stale": null,
     "is_active_session": false,
-    "stale_reason": "Market is closed; extended-hours overlay is inactive",
+    "stale_reason": "Regular session is active; extended-hours overlay is inactive",
     "quote_age_minutes": null,
     "source": "Yahoo Finance quote API",
     "label": "Pre-market / After-market equity overlay",
     "status": "NORMAL",
-    "interpretation": "Market is closed; extended-hours overlay is inactive",
+    "interpretation": "Regular session is active; extended-hours overlay is inactive",
     "soxx": {
       "symbol": "SOXX",
-      "regularMarketPrice": 123.4,
-      "regularMarketChangePercent": -10.547299746284878,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1795208401,
+      "regularMarketPrice": 138.4,
+      "regularMarketChangePercent": 12.155591572123182,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1795463630,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "qqq": {
       "symbol": "QQQ",
-      "regularMarketPrice": 608.45,
-      "regularMarketChangePercent": -5.6725164330894025,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1795208401,
+      "regularMarketPrice": 649.04,
+      "regularMarketChangePercent": 6.671049387788619,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1795463629,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     },
     "nvda": {
       "symbol": "NVDA",
-      "regularMarketPrice": 125.53,
-      "regularMarketChangePercent": -14.008768324428,
-      "marketState": "CLOSED",
-      "regularMarketTime": 1795208401,
+      "regularMarketPrice": 164.79,
+      "regularMarketChangePercent": 31.27539233649326,
+      "marketState": "REGULAR",
+      "regularMarketTime": 1795463630,
       "extended_change_percent": null,
       "quote_time": null,
       "quote_time_label": null
     }
   },
   "compute_stress": {
-    "score": 59,
+    "score": 55,
     "status": "ok",
-    "generated_at": "2026-11-21T05:16:53+00:00",
+    "generated_at": "2026-11-23T19:53:51+00:00",
     "components": {
       "financing_event_score": {
-        "score": 46,
+        "score": 44,
         "weight": 0.45,
-        "contribution": 20.7,
+        "contribution": 19.8,
         "status": "ok"
       },
       "balance_sheet_pressure_score": {
@@ -201,15 +201,15 @@
         "status": "ok"
       },
       "compute_equity_confirmation_score": {
-        "score": 100,
+        "score": 85,
         "weight": 0.2,
-        "contribution": 20.0,
+        "contribution": 17.0,
         "status": "ok"
       },
       "infrastructure_spillover_score": {
-        "score": 31,
+        "score": 30,
         "weight": 0.1,
-        "contribution": 3.1,
+        "contribution": 3.0,
         "status": "ok"
       }
     },
@@ -257,7 +257,7 @@
           "filing_date": "2026-09-22",
           "accession_number": "0001769628-26-000432",
           "signal_type": "material_financing_8k",
-          "points": 4.8,
+          "points": 2.4,
           "reason": "8-K references material agreement or debt item"
         },
         {
@@ -338,10 +338,10 @@
           "IREN"
         ],
         "benchmark": "50% QQQ / 50% SOXX",
-        "relative_5d_pct_points": -15.69,
-        "relative_20d_pct_points": -23.27,
-        "relative_60d_pct_points": -39.04,
-        "nvda_relative_20d_pct_points": -0.88
+        "relative_5d_pct_points": -5.86,
+        "relative_20d_pct_points": -16.87,
+        "relative_60d_pct_points": -36.69,
+        "nvda_relative_20d_pct_points": -5.4
       },
       "infrastructure_spillover": {
         "usable_tickers": [
@@ -351,8 +351,8 @@
           "ETN"
         ],
         "benchmark": "50% QQQ / 50% XLI",
-        "relative_5d_pct_points": -2.8,
-        "relative_20d_pct_points": 1.06
+        "relative_5d_pct_points": -0.79,
+        "relative_20d_pct_points": 1.87
       },
       "sec_status": "ok",
       "caveats": [
@@ -377,7 +377,7 @@
     "status": "WATCH",
     "data_status": "partial",
     "coverage_ratio": 0.65,
-    "generated_at": "2026-11-21T01:17:15+00:00",
+    "generated_at": "2026-11-23T19:53:52+00:00",
     "manual_reviewed_through": null,
     "manual_input_hash": "18e7081e542590b3a1ebc31a204f29d6c904805db1de0160c06238be56f74265",
     "components": {
@@ -387,6 +387,20 @@
         "weight": 0.15,
         "evidence_count": 20,
         "events": [
+          {
+            "ticker": "GOOGL",
+            "category": "bond_issuance",
+            "event_type": "bond_issuance_filing",
+            "date": "2026-11-23",
+            "form": "424B2",
+            "accession_number": "0001193125-26-470750",
+            "matched_terms": [
+              "notes due",
+              "debt securities"
+            ],
+            "source": "SEC EDGAR filing",
+            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+          },
           {
             "ticker": "GOOGL",
             "category": "bond_issuance",
@@ -658,20 +672,6 @@
             ],
             "source": "SEC EDGAR filing",
             "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-          },
-          {
-            "ticker": "AMZN",
-            "category": "bond_issuance",
-            "event_type": "bond_issuance_filing",
-            "date": "2026-08-18",
-            "form": "424B3",
-            "accession_number": "0001104659-26-098339",
-            "matched_terms": [
-              "debt securities",
-              "credit agreement"
-            ],
-            "source": "SEC EDGAR filing",
-            "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
           }
         ]
       },
@@ -797,6 +797,20 @@
       }
     ],
     "events": [
+      {
+        "ticker": "GOOGL",
+        "category": "bond_issuance",
+        "event_type": "bond_issuance_filing",
+        "date": "2026-11-23",
+        "form": "424B2",
+        "accession_number": "0001193125-26-470750",
+        "matched_terms": [
+          "notes due",
+          "debt securities"
+        ],
+        "source": "SEC EDGAR filing",
+        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
+      },
       {
         "ticker": "GOOGL",
         "category": "bond_issuance",
@@ -1065,20 +1079,6 @@
           "senior notes",
           "notes due",
           "debt securities"
-        ],
-        "source": "SEC EDGAR filing",
-        "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
-      },
-      {
-        "ticker": "AMZN",
-        "category": "bond_issuance",
-        "event_type": "bond_issuance_filing",
-        "date": "2026-08-18",
-        "form": "424B3",
-        "accession_number": "0001104659-26-098339",
-        "matched_terms": [
-          "debt securities",
-          "credit agreement"
         ],
         "source": "SEC EDGAR filing",
         "summary": "Debt-related prospectus or financing filing detected; review terms before treating it as stress."
